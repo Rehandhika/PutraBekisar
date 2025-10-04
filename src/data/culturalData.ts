@@ -128,6 +128,64 @@ export const tarianData: CulturalItem[] = [
     ],
     culturalSignificance: 'Jaranan Pegon menjadi media spiritual masyarakat Tulungagung untuk berkomunikasi dengan alam gaib dan memenuhi nadzar.',
     relatedLinks: ['Wayang Orang', 'Kuda Lumping', 'Tradisi Nadzar']
+  },
+  {
+    id: 'tarian-5',
+    title: 'Tari Kuda Lumping',
+    category: 'Tarian',
+    thumbnail: 'https://images.pexels.com/photos/5699821/pexels-photo-5699821.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Jawa Timur',
+    year: 'Tradisional',
+    shortDesc: 'Tarian kuda lumping dengan atraksi kesurupan dan kekuatan spiritual',
+    fullDesc: 'Tari Kuda Lumping adalah tarian tradisional yang menampilkan penari yang menunggang kuda-kudaan dari anyaman bambu sambil melakukan gerakan dinamis. Pertunjukan ini sering disertai dengan atraksi kesurupan di mana penari akan makan pecahan kaca atau menusuk tubuh dengan benda tajam tanpa terluka. Tarian ini memiliki nilai spiritual tinggi dan sering digunakan dalam ritual adat.',
+    highlights: [
+      'Penari menunggang kuda anyaman bambu',
+      'Atraksi kesurupan dan kekebalan tubuh',
+      'Gerakan dinamis dan energik',
+      'Diiringi musik gamelan dan kendang'
+    ],
+    gallery: [
+      'https://images.pexels.com/photos/5699821/pexels-photo-5699821.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/6207875/pexels-photo-6207875.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/4666766/pexels-photo-4666766.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
+    funFacts: [
+      'Penari harus melalui ritual puasa dan doa',
+      'Kuda lumping dipercaya sebagai wahana spiritual',
+      'Atraksi makan kaca membutuhkan kekuatan batin',
+      'Populer di acara hajatan dan festival budaya'
+    ],
+    culturalSignificance: 'Tari Kuda Lumping menjadi simbol kekuatan spiritual dan harmoni antara manusia dengan dunia metafisik.',
+    relatedLinks: ['Ritual Adat', 'Kekuatan Spiritual', 'Festival Budaya']
+  },
+  {
+    id: 'tarian-6',
+    title: 'Tari Topeng Malangan',
+    category: 'Tarian',
+    thumbnail: 'https://images.pexels.com/photos/2062324/pexels-photo-2062324.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Malang',
+    year: 'Tradisional',
+    shortDesc: 'Tarian topeng dengan karakter tokoh pewayangan yang ekspresif',
+    fullDesc: 'Tari Topeng Malangan adalah tarian tradisional yang menggunakan topeng untuk memerankan berbagai tokoh dari cerita pewayangan. Setiap topeng memiliki karakter dan gerakan yang berbeda-beda, mulai dari tokoh jujur, licik, hingga komikal. Tarian ini menggabungkan unsur seni tari, musik, dan teater yang menghibur. Pertunjukan biasanya diiringi gamelan dan digunakan dalam acara adat.',
+    highlights: [
+      'Topeng dengan ekspresi wajah yang beragam',
+      'Gerakan yang menggambarkan karakter tokoh',
+      'Kombinasi tari, musik, dan teater',
+      'Menggunakan gamelan sebagai iringan'
+    ],
+    gallery: [
+      'https://images.pexels.com/photos/2062324/pexels-photo-2062324.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
+    funFacts: [
+      'Setiap topeng punya nama dan karakter khas',
+      'Penari harus bisa mengubah suara dan gerakan',
+      'Topeng terbuat dari kayu dengan cat alami',
+      'Pertunjukan bisa berlangsung 2-3 jam'
+    ],
+    culturalSignificance: 'Tari Topeng Malangan menjadi media pendidikan moral dan pelestarian cerita pewayangan.',
+    relatedLinks: ['Pewayangan', 'Topeng Tradisional', 'Seni Pertunjukan']
   }
 ];
 
@@ -243,6 +301,64 @@ export const kulinerData: CulturalItem[] = [
     ],
     culturalSignificance: 'Brem Madiun menjadi oleh-oleh wajib dan identitas kuliner khas Kota Madiun yang dilestarikan turun-temurun.',
     relatedLinks: ['Tape Ketan', 'Kuliner Fermentasi', 'Oleh-oleh Madiun']
+  },
+  {
+    id: 'kuliner-5',
+    title: 'Tahu Campur Lamongan',
+    category: 'Kuliner',
+    thumbnail: 'https://images.pexels.com/photos/5175542/pexels-photo-5175542.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Lamongan',
+    origin: 'Tradisional',
+    shortDesc: 'Tahu goreng dengan campuran sayuran dan bumbu petis yang gurih',
+    fullDesc: 'Tahu Campur Lamongan adalah hidangan tahu goreng yang disajikan dengan campuran berbagai sayuran seperti kol, tauge, dan timun, serta lentho (perkedel singkong) dan telur asin. Yang membuatnya istimewa adalah bumbu petis udang yang kental dan gurih. Hidangan ini menjadi ikon kuliner Lamongan dan sering dijadikan menu sarapan atau makan siang.',
+    highlights: [
+      'Tahu goreng yang renyah',
+      'Campuran sayuran segar dan lentho',
+      'Bumbu petis udang yang kental',
+      'Telur asin sebagai pelengkap'
+    ],
+    gallery: [
+      'https://images.pexels.com/photos/5175542/pexels-photo-5175542.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1528018/pexels-photo-1528018.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
+    funFacts: [
+      'Tahu campur Lamongan sudah ada sejak 1970-an',
+      'Petis harus dibuat dari udang segar',
+      'Lentho adalah perkedel singkong khas Lamongan',
+      'Banyak warung tahu campur di sepanjang jalan raya'
+    ],
+    culturalSignificance: 'Tahu Campur Lamongan menjadi simbol kuliner sederhana namun lezat yang mencerminkan kehidupan masyarakat Lamongan.',
+    relatedLinks: ['Petis Udang', 'Lentho Lamongan', 'Kuliner Jawa Timur']
+  },
+  {
+    id: 'kuliner-6',
+    title: 'Ayam Goreng Kalasan',
+    category: 'Kuliner',
+    thumbnail: 'https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Kalasan, Sleman (Yogyakarta)',
+    origin: 'Tradisional',
+    shortDesc: 'Ayam goreng dengan bumbu santan yang gurih dan aroma rempah khas',
+    fullDesc: 'Ayam Goreng Kalasan adalah ayam goreng khas Yogyakarta yang dimasak dengan bumbu santan dan rempah-rempah sebelum digoreng. Hasilnya adalah ayam yang empuk dengan kulit yang renyah dan aroma yang harum. Ayam ini biasanya disajikan dengan sambal dan lalapan, serta nasi putih hangat.',
+    highlights: [
+      'Dimasak dengan santan dan rempah sebelum digoreng',
+      'Kulit renyah dengan daging empuk',
+      'Aroma rempah yang harum',
+      'Disajikan dengan sambal dan lalapan'
+    ],
+    gallery: [
+      'https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/5175553/pexels-photo-5175553.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/8629167/pexels-photo-8629167.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
+    funFacts: [
+      'Resep ayam goreng Kalasan sudah ada sejak abad ke-19',
+      'Santan membuat ayam lebih empuk dan gurih',
+      'Banyak restoran ayam goreng Kalasan di Jawa Timur',
+      'Cocok untuk lauk nasi atau camilan'
+    ],
+    culturalSignificance: 'Ayam Goreng Kalasan menjadi hidangan favorit masyarakat Jawa Timur dan simbol kuliner tradisional yang terus lestari.',
+    relatedLinks: ['Kuliner Yogyakarta', 'Ayam Goreng Nusantara', 'Bumbu Rempah']
   }
 ];
 
@@ -366,6 +482,66 @@ export const gunungData: CulturalItem[] = [
     ],
     culturalSignificance: 'Dipercaya sebagai tempat pertapaan Arjuna dalam pewayangan Jawa.',
     relatedLinks: ['Taman Hutan Raya R. Soerjo', 'Sumber Mata Air', 'Jalur Pendakian']
+  },
+  {
+    id: 'gunung-5',
+    title: 'Gunung Kelud',
+    category: 'Gunung',
+    thumbnail: 'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Kediri, Blitar, Malang',
+    elevation: '1.731 mdpl',
+    status: 'Aktif',
+    shortDesc: 'Gunung dengan sejarah erupsi dahsyat dan danau kawah yang mistis',
+    fullDesc: 'Gunung Kelud adalah gunung berapi aktif yang terkenal dengan sejarah erupsi dahsyatnya. Gunung ini memiliki danau kawah yang indah dengan air berwarna biru kehijauan. Kelud telah meletus lebih dari 30 kali, dengan erupsi terbesar pada 1919 yang menewaskan 5.000 orang. Saat ini, Kelud menjadi destinasi pendakian populer dengan pemandangan yang spektakuler.',
+    highlights: [
+      'Danau kawah dengan air biru kehijauan',
+      'Sejarah erupsi dahsyat abad ke-20',
+      'Jalur pendakian menantang namun indah',
+      'Pemandangan sunrise yang luar biasa'
+    ],
+    gallery: [
+      'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
+    funFacts: [
+      'Erupsi 1919 menewaskan 5.160 orang',
+      'Danau kawah Kelud merupakan sumber air irigasi',
+      'Gunung ini disebut "Gunung Murka" karena sering meletus',
+      'Spot foto terbaik di bibir kawah'
+    ],
+    culturalSignificance: 'Kelud dipercaya sebagai gunung suci dalam kepercayaan masyarakat sekitar dan menjadi simbol kekuatan alam.',
+    relatedLinks: ['Erupsi Kelud', 'Danau Kawah', 'Sejarah Vulkanologi']
+  },
+  {
+    id: 'gunung-6',
+    title: 'Gunung Panderman',
+    category: 'Gunung',
+    thumbnail: 'https://images.pexels.com/photos/3109816/pexels-photo-3109816.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Malang',
+    elevation: '2.045 mdpl',
+    status: 'Tidak Aktif',
+    shortDesc: 'Gunung dengan jalur pendakian mudah dan panorama kota Malang yang indah',
+    fullDesc: 'Gunung Panderman adalah gunung yang terletak di perbatasan Kota Malang dan Kabupaten Malang. Meskipun tidak aktif, gunung ini menawarkan jalur pendakian yang relatif mudah dengan pemandangan panorama kota Malang yang spektakuler. Dari puncaknya, pengunjung bisa melihat hamparan kota, gunung-gunung di sekitarnya, dan bahkan Samudra Hindia di kejauhan.',
+    highlights: [
+      'Jalur pendakian mudah dan aman',
+      'Panorama kota Malang 360 derajat',
+      'Vegetasi hutan yang masih asri',
+      'Spot camping dan outbound'
+    ],
+    gallery: [
+      'https://images.pexels.com/photos/3109816/pexels-photo-3109816.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/2437299/pexels-photo-2437299.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ],
+    funFacts: [
+      'Pendakian bisa ditempuh dalam 2-3 jam',
+      'Puncaknya datar dan luas cocok untuk camping',
+      'Banyak spot foto instagramable',
+      'Populer untuk wisatawan pemula'
+    ],
+    culturalSignificance: 'Panderman menjadi simbol keindahan alam Malang dan destinasi rekreasi yang mendekatkan manusia dengan alam.',
+    relatedLinks: ['Wisata Malang', 'Pendakian Mudah', 'Panorama Kota']
   }
 ];
 
