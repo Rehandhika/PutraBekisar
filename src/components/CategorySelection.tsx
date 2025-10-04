@@ -102,7 +102,7 @@ const CategorySelection: React.FC = () => {
 
           {/* Main Heading with Gradient Animation */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
-            <span className="text-white drop-shadow-2xl">Jelajahi Warisan</span>
+            <span className="text-white drop-shadow-2xl">Jelajahi Keindahan</span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 drop-shadow-2xl animate-gradient-x">
               Budaya Jawa Timur
@@ -111,7 +111,7 @@ const CategorySelection: React.FC = () => {
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl md:text-2xl text-amber-100/90 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-            Temukan kekayaan <span className="font-bold text-yellow-400">{categories.length} kategori</span> budaya dan tradisi yang menjadi 
+            Temukan kekayaan budaya dan tradisi yang menjadi 
             <span className="font-bold text-yellow-400"> identitas masyarakat Jawa Timur</span>
           </p>
 

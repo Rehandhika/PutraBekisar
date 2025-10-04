@@ -1,1288 +1,628 @@
+/**
+ * Interface untuk merepresentasikan setiap item Budaya Nusantara (Jawa Timur)
+ * Digunakan sebagai struktur data utama untuk permainan Sekawan / Kuartet.
+ */
 export interface CulturalItem {
   id: string;
   title: string;
   category: string;
   thumbnail: string;
   location: string;
-  year?: string;
   shortDesc: string;
   fullDesc: string;
   highlights: string[];
   gallery: string[];
-  videoUrl?: string;
   funFacts: string[];
   culturalSignificance: string;
   relatedLinks: string[];
+  // Properti tambahan untuk detail spesifik kategori
+  year?: string; // Untuk tahun berdiri/diciptakan/ditemukan
+  elevation?: string; // Untuk Gunung
+  status?: string; // Untuk Gunung
+  schedule?: string; // Untuk Tradisi
+  period?: string; // Untuk Kerajaan
+  rulers?: string; // Untuk Kerajaan
   [key: string]: any;
 }
 
+// Placeholder Image URLs (Reusable Pexels Links)
+const IMAGE_PLACEHOLDERS = {
+  GENERAL_CULTURE: 'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=800',
+  FOOD: 'https://images.pexels.com/photos/5175553/pexels-photo-5175553.jpeg?auto=compress&cs=tinysrgb&w=800',
+  MOUNTAIN: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800',
+  TRADITION: 'https://images.pexels.com/photos/6207960/pexels-photo-6207960.jpeg?auto=compress&cs=tinysrgb&w=800',
+  HISTORY: 'https://images.pexels.com/photos/2166557/pexels-photo-2166557.jpeg?auto=compress&cs=tinysrgb&w=800',
+  WATER: 'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
+};
+
+// --- A. TARIAN ---
 export const tarianData: CulturalItem[] = [
   {
     id: 'tarian-1',
-    title: 'Reog Ponorogo',
-    category: 'Tarian',
-    thumbnail: 'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Ponorogo',
-    year: 'Abad ke-15',
-    shortDesc: 'Tarian megah dengan topeng singa raksasa yang menjadi ikon Jawa Timur',
-    fullDesc: 'Reog Ponorogo adalah kesenian tari yang berasal dari Ponorogo, Jawa Timur. Pertunjukan ini menampilkan penari utama yang mengenakan topeng berbentuk kepala singa raksasa (dadak merak) yang beratnya mencapai 50-60 kg. Reog menceritakan kisah Raja Kelana Sewandana dalam pencariannya mencari calon istri Dewi Ragil Kuning.',
-    highlights: [
-      'Topeng dadak merak dengan berat 50-60 kg',
-      'Terdaftar sebagai Warisan Budaya Tak Benda UNESCO',
-      'Pertunjukan memadukan tarian, musik, dan mistis',
-      'Diiringi kendang, gong, dan terompet'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2062324/pexels-photo-2062324.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Penari dadak merak harus memiliki kekuatan spiritual khusus',
-      'Festival Reog Nasional diadakan setiap tahun di Ponorogo',
-      'Topeng dadak merak terbuat dari kayu dengan hiasan bulu merak'
-    ],
-    culturalSignificance: 'Reog Ponorogo melambangkan keberanian, kekuatan, dan perlawanan terhadap penguasa yang korup. Pertunjukan ini juga menjadi media dakwah dan kritik sosial.',
-    relatedLinks: ['Kerajaan Wengker', 'Seni Warok', 'Festival Reog']
-  },
-  {
-    id: 'tarian-2',
     title: 'Tari Gandrung',
     category: 'Tarian',
     thumbnail: 'https://images.pexels.com/photos/8636625/pexels-photo-8636625.jpeg?auto=compress&cs=tinysrgb&w=800',
     location: 'Banyuwangi',
-    year: 'Abad ke-18',
-    shortDesc: 'Tarian pergaulan yang menawan dengan gerakan gemulai khas Banyuwangi',
-    fullDesc: 'Tari Gandrung adalah tarian tradisional dari Banyuwangi yang awalnya berfungsi sebagai tarian pergaulan. Penari gandrung akan menari dengan gerakan gemulai dan ekspresif, kemudian memilih penonton pria untuk diajak menari bersama. Tarian ini diiringi musik khas Using dengan instrumen gamelan, biola, dan kendang.',
-    highlights: [
-      'Tarian interaktif dengan penonton',
-      'Kostum berwarna cerah dengan selendang panjang',
-      'Gerakan tangan ekspresif dan mata yang tajam',
-      'Diiringi musik etnis Using yang merdu'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/8636625/pexels-photo-8636625.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/7991319/pexels-photo-7991319.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/4666748/pexels-photo-4666748.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Penari gandrung harus cantik dan pandai bernyanyi',
-      'Dulunya tarian ini dimainkan oleh pria yang menyamar sebagai wanita',
-      'Festival Gandrung Sewu menampilkan ribuan penari serentak'
-    ],
-    culturalSignificance: 'Gandrung menjadi simbol keramahan masyarakat Banyuwangi dan media pelestarian bahasa serta musik Using.',
-    relatedLinks: ['Suku Using', 'Festival Gandrung Sewu', 'Musik Using']
+    shortDesc: 'Tarian tradisional khas Banyuwangi yang tumbuh sebagai ungkapan rasa syukur masyarakat setelah musim panen padi.',
+    fullDesc: 'Tari Gandrung adalah tarian tradisional khas Banyuwangi, Jawa Timur, yang tumbuh sebagai ungkapan rasa syukur masyarakat setelah musim panen padi. Nama “gandrung” berarti “terpesona” atau “tergila-gila”, yang melambangkan kegembiraan dan rasa cinta masyarakat kepada Dewi Sri, dewi kesuburan dalam kepercayaan Jawa. Tarian ini biasanya dibawakan oleh seorang penari perempuan yang disebut gandrung, dengan gerakan lemah gemulai dan iringan musik gamelan khas Osing seperti kendang, biola, saron, dan gong. Kostum penari identik dengan mahkota cawen, selendang, serta busana berwarna cerah yang mencerminkan keceriaan. Selain sebagai hiburan rakyat, Tari Gandrung juga menjadi simbol keramahan dan identitas budaya Banyuwangi. Kini, tari ini kerap ditampilkan dalam berbagai upacara adat, festival, maupun penyambutan tamu penting sebagai ikon kebanggaan daerah.',
+    highlights: ['Ungkapan syukur setelah panen padi', 'Gerakan lemah gemulai dan ekspresif', 'Diiringi musik gamelan Osing (biola, kendang)', 'Simbol kecintaan pada Dewi Sri (Dewi Kesuburan)'],
+    gallery: ['https://images.pexels.com/photos/8636625/pexels-photo-8636625.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/4666748/pexels-photo-4666748.jpeg?auto=compress&cs=tinysrgb&w=800', IMAGE_PLACEHOLDERS.GENERAL_CULTURE],
+    funFacts: ['Nama "gandrung" berarti terpesona atau tergila-gila.', 'Dulu penari Gandrung bisa diperankan oleh pria.', 'Menjadi ikon wajib di setiap Festival Banyuwangi.'],
+    culturalSignificance: 'Simbol keramahan dan identitas budaya Banyuwangi, serta manifestasi rasa syukur kepada Dewi Sri.',
+    relatedLinks: ['Suku Osing', 'Dewi Sri', 'Gamelan Osing', 'Festival Gandrung Sewu'],
   },
   {
-    id: 'tarian-3',
+    id: 'tarian-2',
     title: 'Tari Remo',
     category: 'Tarian',
     thumbnail: 'https://images.pexels.com/photos/7991598/pexels-photo-7991598.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Surabaya',
-    year: 'Abad ke-19',
-    shortDesc: 'Tarian maskulin penuh energi yang menjadi pembuka pertunjukan Ludruk',
-    fullDesc: 'Tari Remo adalah tarian khas Surabaya yang menggambarkan jiwa prajurit muda yang gagah berani. Tarian ini diciptakan untuk membuka pertunjukan Ludruk dan menampilkan gerakan dinamis, energik, dan maskulin. Penari Remo harus memiliki stamina kuat karena gerakannya yang penuh tenaga.',
-    highlights: [
-      'Gerakan nganceng yang ikonik dan menantang',
-      'Ekspresi wajah tegas dengan tatapan tajam',
-      'Variasi: Remo Putri, Remo Sawunggaling, Remo Jombangan',
-      'Iringan gamelan Jawa Timuran yang khas'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/7991598/pexels-photo-7991598.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8181178/pexels-photo-8181178.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8636390/pexels-photo-8636390.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Diciptakan oleh seniman jalanan Surabaya',
-      'Gerakan terinspirasi dari silat dan tari istana',
-      'Kini ada versi Remo Putri yang dibawakan penari wanita'
-    ],
-    culturalSignificance: 'Tari Remo melambangkan karakter masyarakat Surabaya yang tegas, dinamis, dan berani.',
-    relatedLinks: ['Ludruk Surabaya', 'Arek Suroboyo', 'Gamelan Jawa Timur']
+    location: 'Surabaya, Jawa Timur',
+    shortDesc: 'Tarian tradisional dari Jawa Timur yang dikenal sebagai tarian penyambutan tamu kehormatan, awalnya pembuka pertunjukan Ludruk.',
+    fullDesc: 'Tari Remo adalah tarian tradisional dari Jawa Timur yang dikenal sebagai tarian penyambutan tamu kehormatan. Awalnya, tarian ini berkembang di kalangan masyarakat Jawa Timur bagian timur dan sering ditampilkan sebagai pembuka pertunjukan Ludruk. Ciri khas Tari Remo terletak pada gerakan dinamis para penarinya yang mengekspresikan semangat, keberanian, dan kejantanan. Penari biasanya menggunakan kostum berwarna mencolok, kain batik, selendang, serta ikat kepala. Gerak kaki yang menghentakkan irama menghasilkan suara khas dari lonceng kecil (gongseng) yang dipasang di pergelangan kaki, menambah energi dalam pertunjukan. Kini, Tari Remo tidak hanya terbatas pada panggung ludruk, tetapi juga menjadi tarian penyambutan resmi di berbagai acara budaya dan pemerintahan di Jawa Timur.',
+    highlights: ['Gerakan dinamis, maskulin, dan energik', 'Diiringi suara gongseng (lonceng) di pergelangan kaki', 'Awalnya tarian pembuka Ludruk', 'Melambangkan semangat dan kejantanan prajurit'],
+    gallery: ['https://images.pexels.com/photos/7991598/pexels-photo-7991598.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/8181178/pexels-photo-8181178.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/8636390/pexels-photo-8636390.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Lonceng kecil (gongseng) di kaki adalah ciri khas suara tarian.', 'Kini ada versi Remo Putri yang ditarikan wanita.', 'Sering menjadi tarian wajib dalam penyambutan tamu VVIP di Jawa Timur.'],
+    culturalSignificance: 'Mengekspresikan semangat, keberanian, dan kejantanan; menjadi tarian penyambutan resmi yang merepresentasikan karakter Arek Suroboyo.',
+    relatedLinks: ['Ludruk', 'Gongseng', 'Budaya Arek', 'Tarian Penyambutan'],
+  },
+  {
+    id: 'tarian-3',
+    title: 'Reog Ponorogo',
+    category: 'Tarian',
+    thumbnail: IMAGE_PLACEHOLDERS.GENERAL_CULTURE,
+    location: 'Ponorogo',
+    shortDesc: 'Seni pertunjukan tradisional khas Ponorogo yang terkenal dengan topeng raksasa Singa Barong berhias bulu merak.',
+    fullDesc: 'Reog Ponorogo adalah seni pertunjukan tradisional khas Ponorogo, Jawa Timur, yang terkenal dengan topeng raksasa berbentuk singa berhias bulu merak yang disebut Singa Barong. Pertunjukan ini sarat makna simbolis, menggambarkan kekuatan, keberanian, dan perjuangan melawan keangkaramurkaan. Dalam pementasannya, Reog biasanya dimainkan oleh sejumlah penari, termasuk warok yang melambangkan kekuatan batin, serta jathil yang menggambarkan ketangkasan prajurit berkuda. Unsur paling ikonik adalah topeng Singa Barong yang beratnya bisa mencapai lebih dari 50 kilogram, namun mampu dipanggul hanya dengan gigi oleh penarinya. Hingga kini, Reog Ponorogo tidak hanya menjadi hiburan rakyat, tetapi juga identitas budaya Ponorogo yang ditampilkan dalam festival, upacara adat, hingga pertunjukan seni tingkat nasional maupun internasional.',
+    highlights: ['Topeng Singa Barong raksasa (>50 kg)', 'Dipanggul hanya menggunakan gigi penari', 'Melibatkan Warok (kekuatan batin) dan Jathil (prajurit berkuda)', 'Sarat makna simbolis tentang perjuangan'],
+    gallery: [IMAGE_PLACEHOLDERS.GENERAL_CULTURE, 'https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2062324/pexels-photo-2062324.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Topeng Singa Barong bisa berbobot lebih dari 50 kg.', 'Penari Warok harus memiliki kekuatan spiritual dan fisik yang tinggi.', 'Setiap tahun diadakan Festival Reog Nasional di Ponorogo.'],
+    culturalSignificance: 'Menggambarkan kekuatan, keberanian, dan perjuangan melawan keangkaramurkaan; menjadi identitas budaya dan kebanggaan Ponorogo.',
+    relatedLinks: ['Warok', 'Singa Barong', 'Dadak Merak', 'Festival Reog Nasional'],
   },
   {
     id: 'tarian-4',
-    title: 'Jaranan Pegon',
+    title: 'Jaranan Buto',
     category: 'Tarian',
     thumbnail: 'https://images.pexels.com/photos/6207875/pexels-photo-6207875.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Tulungagung',
-    year: 'Tradisional',
-    shortDesc: 'Tarian kuda kepang dengan unsur mistis dan ritual nadzar',
-    fullDesc: 'Jaranan Pegon adalah kesenian jaranan khas Tulungagung yang merupakan perpaduan antara jaranan dengan wayang orang. Penari menggunakan properti kuda-kudaan dari anyaman bambu dan bergerak mengikuti gerakan wayang orang. Pertunjukan ini sering digunakan dalam ritual nadzar.',
-    highlights: [
-      'Akulturasi jaranan dengan gerakan wayang orang',
-      'Ritual ndhudhut kupar luwar untuk pemenuhan nadzar',
-      'Atraksi mistis saat penari kesurupan',
-      'Menggunakan kuda-kudaan anyaman bambu yang artistik'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/6207875/pexels-photo-6207875.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/5699821/pexels-photo-5699821.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/4666766/pexels-photo-4666766.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Ditetapkan sebagai Warisan Budaya Tak Benda Nasional',
-      'Setiap penari dilindungi secara spiritual oleh pawang',
-      'Pertunjukan bisa berlangsung hingga 8 jam'
-    ],
-    culturalSignificance: 'Jaranan Pegon menjadi media spiritual masyarakat Tulungagung untuk berkomunikasi dengan alam gaib dan memenuhi nadzar.',
-    relatedLinks: ['Wayang Orang', 'Kuda Lumping', 'Tradisi Nadzar']
+    location: 'Banyuwangi',
+    shortDesc: 'Kesenian kuda kepang khas Banyuwangi yang menampilkan tokoh buto atau raksasa dengan topeng besar menyeramkan.',
+    fullDesc: 'Jaranan Buto adalah kesenian tradisional khas Jawa Timur, terutama dari daerah Banyuwangi. Tarian ini menggunakan properti kuda kepang, namun berbeda dengan jaranan pada umumnya karena menampilkan tokoh buto atau raksasa. Penarinya mengenakan topeng besar dengan wajah menyeramkan, gigi bertaring, serta gerakan yang lincah, gagah, dan kadang terkesan liar. Jaranan Buto biasanya diiringi musik gamelan khas Osing dengan tabuhan keras dan ritme cepat, sehingga menciptakan suasana tegang sekaligus meriah. Pertunjukan ini sering dipentaskan dalam hajatan, acara adat, hingga festival budaya, sebagai wujud ekspresi seni rakyat sekaligus hiburan masyarakat. Kini, Jaranan Buto bukan hanya tontonan lokal, tetapi juga menjadi daya tarik wisata budaya Banyuwangi yang memperlihatkan keberanian, kekuatan, dan kekompakan masyarakatnya.',
+    highlights: ['Menggunakan properti kuda kepang dan topeng raksasa (Buto)', 'Penari bertopeng menyeramkan dengan gigi bertaring', 'Diiringi gamelan Osing dengan ritme cepat dan keras', 'Gerakan lincah, gagah, dan terkesan liar'],
+    gallery: ['https://images.pexels.com/photos/6207875/pexels-photo-6207875.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/5699821/pexels-photo-5699821.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/4666766/pexels-photo-4666766.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Buto berarti raksasa dalam bahasa Jawa.', 'Gerakan tarian ini melambangkan kekompakan prajurit.', 'Sering menampilkan atraksi kesurupan atau kekebalan tubuh.'],
+    culturalSignificance: 'Memperlihatkan keberanian, kekuatan, dan kekompakan masyarakat; menjadi daya tarik wisata budaya Banyuwangi yang unik.',
+    relatedLinks: ['Jaranan', 'Topeng Buto', 'Gamelan Osing', 'Kuda Lumping'],
   },
-  {
-    id: 'tarian-5',
-    title: 'Tari Kuda Lumping',
-    category: 'Tarian',
-    thumbnail: 'https://images.pexels.com/photos/5699821/pexels-photo-5699821.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Jawa Timur',
-    year: 'Tradisional',
-    shortDesc: 'Tarian kuda lumping dengan atraksi kesurupan dan kekuatan spiritual',
-    fullDesc: 'Tari Kuda Lumping adalah tarian tradisional yang menampilkan penari yang menunggang kuda-kudaan dari anyaman bambu sambil melakukan gerakan dinamis. Pertunjukan ini sering disertai dengan atraksi kesurupan di mana penari akan makan pecahan kaca atau menusuk tubuh dengan benda tajam tanpa terluka. Tarian ini memiliki nilai spiritual tinggi dan sering digunakan dalam ritual adat.',
-    highlights: [
-      'Penari menunggang kuda anyaman bambu',
-      'Atraksi kesurupan dan kekebalan tubuh',
-      'Gerakan dinamis dan energik',
-      'Diiringi musik gamelan dan kendang'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/5699821/pexels-photo-5699821.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/6207875/pexels-photo-6207875.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/4666766/pexels-photo-4666766.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Penari harus melalui ritual puasa dan doa',
-      'Kuda lumping dipercaya sebagai wahana spiritual',
-      'Atraksi makan kaca membutuhkan kekuatan batin',
-      'Populer di acara hajatan dan festival budaya'
-    ],
-    culturalSignificance: 'Tari Kuda Lumping menjadi simbol kekuatan spiritual dan harmoni antara manusia dengan dunia metafisik.',
-    relatedLinks: ['Ritual Adat', 'Kekuatan Spiritual', 'Festival Budaya']
-  },
-  {
-    id: 'tarian-6',
-    title: 'Tari Topeng Malangan',
-    category: 'Tarian',
-    thumbnail: 'https://images.pexels.com/photos/2062324/pexels-photo-2062324.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Malang',
-    year: 'Tradisional',
-    shortDesc: 'Tarian topeng dengan karakter tokoh pewayangan yang ekspresif',
-    fullDesc: 'Tari Topeng Malangan adalah tarian tradisional yang menggunakan topeng untuk memerankan berbagai tokoh dari cerita pewayangan. Setiap topeng memiliki karakter dan gerakan yang berbeda-beda, mulai dari tokoh jujur, licik, hingga komikal. Tarian ini menggabungkan unsur seni tari, musik, dan teater yang menghibur. Pertunjukan biasanya diiringi gamelan dan digunakan dalam acara adat.',
-    highlights: [
-      'Topeng dengan ekspresi wajah yang beragam',
-      'Gerakan yang menggambarkan karakter tokoh',
-      'Kombinasi tari, musik, dan teater',
-      'Menggunakan gamelan sebagai iringan'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/2062324/pexels-photo-2062324.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Setiap topeng punya nama dan karakter khas',
-      'Penari harus bisa mengubah suara dan gerakan',
-      'Topeng terbuat dari kayu dengan cat alami',
-      'Pertunjukan bisa berlangsung 2-3 jam'
-    ],
-    culturalSignificance: 'Tari Topeng Malangan menjadi media pendidikan moral dan pelestarian cerita pewayangan.',
-    relatedLinks: ['Pewayangan', 'Topeng Tradisional', 'Seni Pertunjukan']
-  }
 ];
 
+// --- B. KULINER ---
 export const kulinerData: CulturalItem[] = [
   {
     id: 'kuliner-1',
-    title: 'Rujak Cingur',
+    title: 'Rawon',
     category: 'Kuliner',
-    thumbnail: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Surabaya',
-    origin: 'Tradisional',
-    shortDesc: 'Rujak khas dengan campuran cingur (hidung sapi) dan bumbu petis yang legendaris',
-    fullDesc: 'Rujak Cingur adalah makanan khas Surabaya yang unik dengan bahan utama cingur (hidung sapi) yang direbus empuk, dicampur dengan berbagai sayuran segar, buah-buahan, lontong, tempe, dan tahu. Keunikan rujak ini terletak pada bumbu petis udangnya yang kental, gurih, dan sedikit manis.',
-    highlights: [
-      'Cingur (hidung sapi) dengan tekstur kenyal khas',
-      'Bumbu petis udang yang gurih dan aromatik',
-      'Campuran sayuran: kangkung, kacang panjang, tauge, timun',
-      'Dilengkapi kerupuk dan sambal'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1528018/pexels-photo-1528018.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Nama "cingur" berasal dari bahasa Jawa yang berarti hidung',
-      'Konon diciptakan oleh pedagang Arab yang berinovasi',
-      'Harus dicampur dengan tangan agar bumbu merata sempurna'
-    ],
-    culturalSignificance: 'Rujak Cingur mencerminkan toleransi budaya Surabaya yang memadukan berbagai elemen menjadi satu kesatuan harmonis.',
-    relatedLinks: ['Petis Surabaya', 'Pasar Atom', 'Kuliner Arek']
+    thumbnail: IMAGE_PLACEHOLDERS.FOOD,
+    location: 'Jawa Timur',
+    shortDesc: 'Masakan khas Jawa Timur berupa sup daging berkuah hitam pekat, dengan bumbu khas kluwek.',
+    fullDesc: 'Rawon adalah masakan khas Jawa Timur berupa sup daging berkuah hitam pekat. Warna hitam pada kuahnya berasal dari bumbu khas yang disebut kluwek. Daging sapi yang digunakan biasanya dipotong kecil-kecil, lalu dimasak dengan rempah seperti bawang merah, bawang putih, ketumbar, serai, lengkuas, dan cabai, sehingga menghasilkan cita rasa gurih dan kaya rempah. Rawon biasanya disajikan bersama nasi putih, tauge pendek, telur asin, sambal, dan kerupuk. Hidangan ini bukan hanya makanan sehari-hari, tetapi juga menjadi bagian penting dalam berbagai acara adat maupun jamuan tamu di Jawa Timur. Kini, rawon dikenal luas sebagai salah satu ikon kuliner Nusantara yang sudah mendunia.',
+    highlights: ['Kuah hitam pekat dari kluwek', 'Daging sapi yang empuk dan kaya rempah', 'Disajikan dengan tauge pendek dan telur asin', 'Cita rasa gurih, sedikit manis, dan aromatik'],
+    gallery: [IMAGE_PLACEHOLDERS.FOOD, 'https://images.pexels.com/photos/8629167/pexels-photo-8629167.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Bumbu kluwek harus diolah agar tidak beracun.', 'Termasuk salah satu dari 50 makanan terenak di dunia versi CNN International.', 'Sering disajikan dalam jamuan adat.'],
+    culturalSignificance: 'Ikon kuliner Nusantara yang sudah mendunia; menjadi bagian penting dalam berbagai acara adat dan jamuan di Jawa Timur.',
+    relatedLinks: ['Kluwek', 'Daging Sapi', 'Kuliner Nusantara', 'Rempah Jawa'],
   },
   {
     id: 'kuliner-2',
-    title: 'Rawon',
+    title: 'Rujak Soto',
     category: 'Kuliner',
-    thumbnail: 'https://images.pexels.com/photos/5175553/pexels-photo-5175553.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Surabaya & Jawa Timur',
-    origin: 'Abad ke-13',
-    shortDesc: 'Sup daging hitam pekat dengan kluwak yang kaya rempah dan menggugah selera',
-    fullDesc: 'Rawon adalah sup daging sapi berwarna hitam pekat khas Jawa Timur yang menggunakan bumbu kluwak (keluak) sebagai kunci kelezatannya. Warna hitam yang khas berasal dari buah kluwak yang ditumbuk halus. Kuah rawon yang kental, gurih, dan aromatik disajikan dengan daging sapi empuk, tauge, telur asin, dan sambal.',
-    highlights: [
-      'Warna hitam khas dari buah kluwak',
-      'Kuah kental dengan rempah kompleks',
-      'Daging sapi empuk yang meresap bumbu',
-      'Aroma harum yang menggugah selera'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/5175553/pexels-photo-5175553.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8629167/pexels-photo-8629167.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'CNN International memasukkan Rawon dalam 50 makanan terenak di dunia',
-      'Kluwak harus difermentasi dulu agar tidak beracun',
-      'Rawon Setan di Surabaya buka 24 jam sejak 1950-an'
-    ],
-    culturalSignificance: 'Rawon adalah hidangan kebanggaan Jawa Timur yang sering disajikan dalam acara adat dan hajatan.',
-    relatedLinks: ['Kluwak', 'Kuliner Suroboyo', 'Rempah Nusantara']
+    thumbnail: IMAGE_PLACEHOLDERS.FOOD,
+    location: 'Banyuwangi',
+    shortDesc: 'Kuliner khas Banyuwangi yang unik karena memadukan dua hidangan berbeda, yaitu rujak cingur dan soto daging.',
+    fullDesc: 'Rujak Soto adalah kuliner khas Banyuwangi, Jawa Timur, yang unik karena memadukan dua hidangan berbeda, yaitu rujak cingur dan soto daging. Dalam penyajiannya, rujak yang terdiri dari sayuran rebus, tahu, tempe, serta bumbu kacang dan petis, disiram dengan kuah soto daging yang hangat dan gurih. Perpaduan rasa pedas, manis, asam, dan gurih membuat Rujak Soto menjadi hidangan yang segar sekaligus mengenyangkan. Makanan ini biasanya disantap sebagai sajian sehari-hari, tetapi juga menjadi ikon kuliner khas Banyuwangi yang banyak dicari wisatawan. Keunikan rasa dan kombinasi bahan menjadikan Rujak Soto sebagai simbol kreativitas kuliner masyarakat setempat.',
+    highlights: ['Perpaduan Rujak Cingur dan Soto Daging', 'Mengandung sayuran, tahu, tempe, bumbu petis, dan kuah soto', 'Cita rasa unik: pedas, manis, asam, dan gurih', 'Simbol kreativitas kuliner Banyuwangi'],
+    gallery: [IMAGE_PLACEHOLDERS.FOOD, 'https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/1528018/pexels-photo-1528018.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Merupakan akulturasi kuliner yang tidak biasa.', 'Hanya ditemukan di Banyuwangi dan sekitarnya.', 'Cocok disantap saat siang hari.'],
+    culturalSignificance: 'Simbol kreativitas kuliner masyarakat Banyuwangi; memadukan elemen agraris (rujak) dan elemen sup (soto).',
+    relatedLinks: ['Rujak Cingur', 'Soto Daging', 'Kuliner Osing', 'Petis Udang'],
   },
   {
     id: 'kuliner-3',
-    title: 'Sate Madura',
+    title: 'Lontong Balap',
     category: 'Kuliner',
-    thumbnail: 'https://images.pexels.com/photos/4676410/pexels-photo-4676410.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Madura',
-    origin: 'Tradisional',
-    shortDesc: 'Sate daging dengan bumbu kacang khas Madura yang legendaris di seluruh Indonesia',
-    fullDesc: 'Sate Madura adalah salah satu kuliner paling terkenal dari Jawa Timur yang telah menyebar ke seluruh Indonesia. Potongan daging kambing atau ayam yang ditusuk dengan bambu dipanggang di atas bara arang sambil diolesi bumbu kecap manis. Yang membuatnya istimewa adalah bumbu kacang yang kental, gurih, dengan sedikit rasa manis dan pedas.',
-    highlights: [
-      'Daging dipanggang dengan bara arang khas',
-      'Bumbu kacang yang kental dan gurih',
-      'Pilihan daging: kambing, ayam, atau sapi',
-      'Aroma panggang yang menggoda'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/4676410/pexels-photo-4676410.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/5175542/pexels-photo-5175542.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8753663/pexels-photo-8753663.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Pedagang sate Madura tersebar di seluruh Indonesia',
-      'Teknik memanggang dengan kipas dari bambu menciptakan bara sempurna',
-      'Setiap keluarga di Madura punya resep rahasia bumbu kacang'
-    ],
-    culturalSignificance: 'Sate Madura menjadi simbol kegigihan pedagang Madura yang sukses menyebarkan budaya kuliner mereka.',
-    relatedLinks: ['Kuliner Madura', 'Kambing Madura', 'Bumbu Nusantara']
+    thumbnail: IMAGE_PLACEHOLDERS.FOOD,
+    location: 'Surabaya',
+    shortDesc: 'Kuliner khas Surabaya yang terdiri dari lontong, tauge rebus, tahu goreng, lentho, dan kuah gurih petis.',
+    fullDesc: 'Lontong Balap adalah kuliner khas Surabaya yang sudah melegenda sejak abad ke-19. Hidangan ini terdiri dari potongan lontong, tauge rebus, tahu goreng, lentho (perkedel kacang tolo), serta kuah gurih yang diberi sambal petis. Sebagai pelengkap, biasanya disajikan sate kerang yang menambah cita rasa khas. Nama “balap” berasal dari kebiasaan para penjual tempo dulu yang berdesakan seperti sedang balapan ketika menjajakan dagangannya. Kini, Lontong Balap menjadi ikon kuliner Surabaya yang selalu diburu wisatawan.',
+    highlights: ['Lontong dengan tauge rebus dan lentho', 'Kuah gurih dengan sambal petis yang khas', 'Lentho terbuat dari kacang tolo/singkong', 'Sering disajikan dengan sate kerang'],
+    gallery: ['https://images.pexels.com/photos/5175542/pexels-photo-5175542.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/1528018/pexels-photo-1528018.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Nama "balap" berasal dari cara penjual yang berdesakan saat menjajakan.', 'Sudah melegenda sejak abad ke-19.', 'Lentho memberikan tekstur renyah dan gurih pada hidangan.'],
+    culturalSignificance: 'Ikon kuliner Surabaya yang melegenda; mencerminkan semangat dan dinamika masyarakat urban Surabaya.',
+    relatedLinks: ['Lentho', 'Tauge', 'Kuliner Arek', 'Sate Kerang'],
   },
   {
     id: 'kuliner-4',
-    title: 'Brem Madiun',
+    title: 'Pecel Madiun',
     category: 'Kuliner',
-    thumbnail: 'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&w=800',
+    thumbnail: IMAGE_PLACEHOLDERS.FOOD,
     location: 'Madiun',
-    origin: 'Abad ke-19',
-    shortDesc: 'Kue tradisional manis dari fermentasi tape ketan yang lembut dan lumer di mulut',
-    fullDesc: 'Brem Madiun adalah makanan tradisional khas Madiun yang terbuat dari tape ketan putih yang difermentasi kemudian dikeringkan menjadi lembaran tipis. Teksturnya yang lembut dan mudah meleleh di mulut dengan rasa manis khas tape menjadikannya camilan unik. Brem memiliki kadar alkohol yang sangat rendah hasil fermentasi alami.',
-    highlights: [
-      'Terbuat dari tape ketan putih fermentasi',
-      'Tekstur lembut yang meleleh di mulut',
-      'Rasa manis alami dengan aroma khas tape',
-      'Warisan Budaya Tak Benda Nasional'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/4110256/pexels-photo-4110256.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3738088/pexels-photo-3738088.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Produksi Brem Madiun sudah ada sejak zaman Belanda',
-      'Proses pembuatan membutuhkan waktu hingga 2 minggu',
-      'Brem tidak bisa dibuat di sembarang tempat karena butuh iklim khusus'
-    ],
-    culturalSignificance: 'Brem Madiun menjadi oleh-oleh wajib dan identitas kuliner khas Kota Madiun yang dilestarikan turun-temurun.',
-    relatedLinks: ['Tape Ketan', 'Kuliner Fermentasi', 'Oleh-oleh Madiun']
+    shortDesc: 'Hidangan tradisional khas Kota Madiun berupa aneka sayuran rebus yang disiram dengan sambal kacang bercita rasa gurih dan pedas-manis.',
+    fullDesc: 'Pecel Madiun adalah hidangan tradisional khas Kota Madiun yang terkenal di seluruh Indonesia. Sajian ini berupa aneka sayuran rebus seperti bayam, kacang panjang, tauge, dan kenikir yang disiram dengan sambal kacang bercita rasa gurih, pedas, dan sedikit manis. Sebagai pelengkap, pecel biasanya disajikan dengan nasi hangat atau lontong, serta rempeyek kacang atau ikan teri yang renyah. Kesederhanaannya justru menjadi daya tarik utama, sehingga Pecel Madiun tidak hanya menjadi makanan sehari-hari masyarakat setempat, tetapi juga ikon kuliner yang melambangkan keragaman rasa dan kearifan lokal Jawa Timur.',
+    highlights: ['Aneka sayuran rebus (bayam, kenikir, tauge)', 'Sambal kacang yang gurih, pedas, dan sedikit manis', 'Disajikan dengan rempeyek kacang atau ikan teri', 'Sederhana namun kaya rasa'],
+    gallery: [IMAGE_PLACEHOLDERS.FOOD, 'https://images.pexels.com/photos/4676410/pexels-photo-4676410.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/8753663/pexels-photo-8753663.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Sambal kacangnya dikenal lebih kental dan berbumbu dibandingkan pecel daerah lain.', 'Pecel Madiun sering dijadikan menu sarapan wajib.', 'Sering dijual dalam bentuk kemasan bumbu siap saji.'],
+    culturalSignificance: 'Ikon kuliner yang melambangkan keragaman rasa dan kearifan lokal Jawa Timur; menunjukkan kekayaan hasil bumi agraris.',
+    relatedLinks: ['Sambal Kacang', 'Rempeyek', 'Kuliner Mataraman', 'Tauge'],
   },
-  {
-    id: 'kuliner-5',
-    title: 'Tahu Campur Lamongan',
-    category: 'Kuliner',
-    thumbnail: 'https://images.pexels.com/photos/5175542/pexels-photo-5175542.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Lamongan',
-    origin: 'Tradisional',
-    shortDesc: 'Tahu goreng dengan campuran sayuran dan bumbu petis yang gurih',
-    fullDesc: 'Tahu Campur Lamongan adalah hidangan tahu goreng yang disajikan dengan campuran berbagai sayuran seperti kol, tauge, dan timun, serta lentho (perkedel singkong) dan telur asin. Yang membuatnya istimewa adalah bumbu petis udang yang kental dan gurih. Hidangan ini menjadi ikon kuliner Lamongan dan sering dijadikan menu sarapan atau makan siang.',
-    highlights: [
-      'Tahu goreng yang renyah',
-      'Campuran sayuran segar dan lentho',
-      'Bumbu petis udang yang kental',
-      'Telur asin sebagai pelengkap'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/5175542/pexels-photo-5175542.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1528018/pexels-photo-1528018.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Tahu campur Lamongan sudah ada sejak 1970-an',
-      'Petis harus dibuat dari udang segar',
-      'Lentho adalah perkedel singkong khas Lamongan',
-      'Banyak warung tahu campur di sepanjang jalan raya'
-    ],
-    culturalSignificance: 'Tahu Campur Lamongan menjadi simbol kuliner sederhana namun lezat yang mencerminkan kehidupan masyarakat Lamongan.',
-    relatedLinks: ['Petis Udang', 'Lentho Lamongan', 'Kuliner Jawa Timur']
-  },
-  {
-    id: 'kuliner-6',
-    title: 'Ayam Goreng Kalasan',
-    category: 'Kuliner',
-    thumbnail: 'https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Kalasan, Sleman (Yogyakarta)',
-    origin: 'Tradisional',
-    shortDesc: 'Ayam goreng dengan bumbu santan yang gurih dan aroma rempah khas',
-    fullDesc: 'Ayam Goreng Kalasan adalah ayam goreng khas Yogyakarta yang dimasak dengan bumbu santan dan rempah-rempah sebelum digoreng. Hasilnya adalah ayam yang empuk dengan kulit yang renyah dan aroma yang harum. Ayam ini biasanya disajikan dengan sambal dan lalapan, serta nasi putih hangat.',
-    highlights: [
-      'Dimasak dengan santan dan rempah sebelum digoreng',
-      'Kulit renyah dengan daging empuk',
-      'Aroma rempah yang harum',
-      'Disajikan dengan sambal dan lalapan'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/6210747/pexels-photo-6210747.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/5175553/pexels-photo-5175553.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8629167/pexels-photo-8629167.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Resep ayam goreng Kalasan sudah ada sejak abad ke-19',
-      'Santan membuat ayam lebih empuk dan gurih',
-      'Banyak restoran ayam goreng Kalasan di Jawa Timur',
-      'Cocok untuk lauk nasi atau camilan'
-    ],
-    culturalSignificance: 'Ayam Goreng Kalasan menjadi hidangan favorit masyarakat Jawa Timur dan simbol kuliner tradisional yang terus lestari.',
-    relatedLinks: ['Kuliner Yogyakarta', 'Ayam Goreng Nusantara', 'Bumbu Rempah']
-  }
 ];
 
+// --- C. GUNUNG ---
 export const gunungData: CulturalItem[] = [
   {
     id: 'gunung-1',
     title: 'Gunung Semeru',
     category: 'Gunung',
-    thumbnail: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800',
+    thumbnail: IMAGE_PLACEHOLDERS.MOUNTAIN,
     location: 'Kabupaten Malang & Lumajang',
     elevation: '3.676 mdpl',
     status: 'Aktif',
-    shortDesc: 'Puncak tertinggi di Pulau Jawa yang megah dengan kawah Jonggring Saloko',
-    fullDesc: 'Gunung Semeru atau Mahameru adalah gunung tertinggi di Pulau Jawa dengan ketinggian 3.676 meter di atas permukaan laut. Gunung berapi yang masih aktif ini terletak di perbatasan Kabupaten Malang dan Lumajang. Semeru memiliki kawah puncak bernama Jonggring Saloko yang secara periodik mengeluarkan asap dan abu vulkanik.',
-    highlights: [
-      'Puncak tertinggi Pulau Jawa (3.676 mdpl)',
-      'Kawah Jonggring Saloko dengan erupsi periodik',
-      'Ranu Kumbolo - danau alami yang indah',
-      'Padang Sabana Oro-oro Ombo yang luas'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Nama Semeru diambil dari Gunung Mahameru dalam mitologi Hindu',
-      'Erupsi kecil terjadi setiap 20-30 menit sekali',
-      'Menjadi lokasi syuting film "5 cm" yang fenomenal',
-      'Ranu Kumbolo disebut sebagai surga tersembunyi para pendaki'
-    ],
-    culturalSignificance: 'Dalam kepercayaan Hindu-Buddha, Semeru dianggap sebagai gunung suci tempat bersemayamnya para dewa.',
-    relatedLinks: ['Taman Nasional Bromo Tengger Semeru', 'Ranu Kumbolo', 'Suku Tengger']
+    shortDesc: 'Gunung tertinggi di Pulau Jawa, dikenal dengan sebutan Mahameru, dengan kawah puncak Jonggring Saloko.',
+    fullDesc: 'Gunung Semeru adalah gunung tertinggi di Pulau Jawa dengan ketinggian 3.676 meter di atas permukaan laut. Terletak di Kabupaten Malang dan Lumajang, Jawa Timur, gunung ini juga dikenal dengan sebutan Mahameru yang berarti “Gunung Agung”. Puncaknya bernama Jonggring Saloko, tempat kawah yang masih aktif mengeluarkan asap dan letupan kecil secara berkala. Gunung Semeru memiliki panorama alam yang menakjubkan, mulai dari padang rumput, hutan cemara, hingga danau Ranu Kumbolo yang menjadi daya tarik para pendaki. Selain menjadi destinasi wisata alam, Semeru juga sarat dengan nilai spiritual karena dianggap suci dalam tradisi masyarakat Jawa. Keindahan dan keagungannya membuat Gunung Semeru menjadi simbol kekuatan alam dan kebanggaan Jawa Timur.',
+    highlights: ['Puncak tertinggi di Pulau Jawa (Mahameru)', 'Kawah Jonggring Saloko', 'Danau indah Ranu Kumbolo', 'Situs suci dalam tradisi masyarakat Jawa'],
+    gallery: [IMAGE_PLACEHOLDERS.MOUNTAIN, 'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Dikenal juga sebagai Mahameru (Gunung Agung).', 'Kawahnya aktif meletup setiap 20-30 menit.', 'Menjadi lokasi populer film "5 cm".'],
+    culturalSignificance: 'Simbol kekuatan alam dan kebanggaan Jawa Timur; dianggap suci sebagai tempat bersemayamnya para dewa dalam mitologi Hindu.',
+    relatedLinks: ['Mahameru', 'Ranu Kumbolo', 'Suku Tengger', 'Jonggring Saloko'],
   },
   {
     id: 'gunung-2',
     title: 'Gunung Bromo',
     category: 'Gunung',
     thumbnail: 'https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Probolinggo, Pasuruan, Lumajang, Malang',
+    location: 'Taman Nasional Bromo Tengger Semeru',
     elevation: '2.329 mdpl',
     status: 'Aktif',
-    shortDesc: 'Ikon wisata Jawa Timur dengan lautan pasir dan sunrise spektakuler',
-    fullDesc: 'Gunung Bromo adalah salah satu gunung berapi paling terkenal di Indonesia dengan pemandangan yang sangat ikonik. Terletak di tengah kaldera Tengger yang luas, Bromo dikelilingi oleh lautan pasir seluas 10 kilometer persegi. Kawah aktif Bromo terus mengeluarkan asap putih yang kontras dengan langit biru.',
-    highlights: [
-      'Lautan pasir (Segara Wedi) yang luas dan unik',
-      'Sunrise spot terbaik: Penanjakan dan Kingkong Hill',
-      'Kawah aktif dengan asap putih berkelanjutan',
-      'Upacara Yadnya Kasada Suku Tengger'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Nama "Bromo" berasal dari Brahma, dewa pencipta dalam agama Hindu',
-      'Lautan pasir terbentuk dari erupsi besar ribuan tahun lalu',
-      'Spot foto paling instagramable di Indonesia',
-      'Suhu bisa mencapai -5°C saat dini hari'
-    ],
-    culturalSignificance: 'Menurut legenda Tengger, Bromo terkait dengan kisah Roro Anteng dan Joko Seger yang mengorbankan anak mereka.',
-    relatedLinks: ['Suku Tengger', 'Yadnya Kasada', 'Taman Nasional Bromo Tengger Semeru']
+    shortDesc: 'Ikon wisata Jawa Timur yang terkenal dengan keindahan matahari terbit di kaldera lautan pasir.',
+    fullDesc: 'Gunung Bromo adalah salah satu gunung berapi aktif di Jawa Timur yang berada di kawasan Taman Nasional Bromo Tengger Semeru. Dengan ketinggian 2.329 meter di atas permukaan laut, Bromo terkenal karena keindahan alamnya, terutama pemandangan matahari terbit yang spektakuler di kaldera luas lautan pasir. Gunung ini memiliki kawah berdiameter sekitar 800 meter yang masih aktif mengeluarkan asap belerang. Bagi masyarakat Suku Tengger, Gunung Bromo memiliki nilai spiritual tinggi. Setiap tahun mereka mengadakan upacara adat Yadnya Kasada dengan melemparkan sesaji ke dalam kawah sebagai ungkapan syukur dan penghormatan kepada Sang Hyang Widhi. Keindahan alam yang berpadu dengan tradisi budaya membuat Gunung Bromo menjadi salah satu ikon wisata alam paling terkenal di Indonesia.',
+    highlights: ['Sunrise spektakuler di Lautan Pasir', 'Kawah aktif berdiameter 800 meter', 'Lokasi Upacara Yadnya Kasada Suku Tengger', 'Dikelilingi kaldera luas'],
+    gallery: ['https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Nama "Bromo" berasal dari dewa Brahma (Hindu).', 'Lautan pasirnya sangat luas, sekitar 10 km persegi.', 'Setiap tahun menjadi pusat Upacara Yadnya Kasada.'],
+    culturalSignificance: 'Memiliki nilai spiritual tinggi bagi Suku Tengger; ikon wisata alam paling terkenal di Indonesia.',
+    relatedLinks: ['Yadnya Kasada', 'Suku Tengger', 'Lautan Pasir', 'Taman Nasional Bromo Tengger Semeru'],
   },
   {
     id: 'gunung-3',
-    title: 'Gunung Ijen',
+    title: 'Gunung Raung',
     category: 'Gunung',
-    thumbnail: 'https://images.pexels.com/photos/4825701/pexels-photo-4825701.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Banyuwangi & Bondowoso',
-    elevation: '2.799 mdpl',
+    thumbnail: 'https://images.pexels.com/photos/3601422/pexels-photo-3601422.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Banyuwangi, Bondowoso, dan Jember',
+    elevation: '3.344 mdpl',
     status: 'Aktif',
-    shortDesc: 'Fenomena blue fire dan danau kawah asam terbesar di dunia yang memukau',
-    fullDesc: 'Gunung Ijen terkenal dengan fenomena api biru (blue fire) yang langka, hanya ada dua di dunia. Api biru ini muncul dari pembakaran gas belerang yang keluar dari celah-celah kawah. Ijen juga memiliki danau kawah dengan air berwarna hijau tosca yang sangat asam (pH 0,5) dan merupakan danau kawah asam terbesar di dunia.',
-    highlights: [
-      'Blue Fire - fenomena api biru yang langka',
-      'Danau kawah asam terbesar dunia',
-      'Air kawah berwarna hijau tosca yang menawan',
-      'Aktivitas penambangan belerang tradisional'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/4825701/pexels-photo-4825701.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3601422/pexels-photo-3601422.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2166711/pexels-photo-2166711.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Blue fire hanya bisa dilihat antara pukul 02:00 - 04:00 dini hari',
-      'Penambang belerang membawa beban 80-100 kg naik turun kawah',
-      'Danau kawah Ijen mengandung 200 juta ton air asam',
-      'Masker gas wajib karena gas belerang sangat berbahaya'
-    ],
-    culturalSignificance: 'Dipercaya sebagai tempat berkumpulnya roh-roh halus menurut kepercayaan lokal.',
-    relatedLinks: ['Blue Fire Ijen', 'Penambang Belerang', 'Kawah Ijen']
+    shortDesc: 'Gunung berapi aktif dengan kawah kaldera raksasa berbentuk oval, salah satu yang terbesar di Indonesia.',
+    fullDesc: 'Gunung Raung adalah salah satu gunung berapi aktif di Jawa Timur dengan ketinggian 3.344 meter di atas permukaan laut. Gunung ini terletak di perbatasan Banyuwangi, Bondowoso, dan Jember, dan termasuk dalam jajaran Pegunungan Ijen. Ciri khas Gunung Raung adalah kawah kaldera raksasanya yang berbentuk oval dengan diameter sekitar 2 kilometer, menjadikannya salah satu kaldera terbesar di Indonesia. Aktivitas vulkanik Gunung Raung cukup tinggi, ditandai dengan letusan kecil hingga sedang yang terjadi secara berkala, sehingga pendaki biasanya hanya diperbolehkan sampai di puncak luar kaldera. Meski jalurnya terkenal ekstrem, Raung menawarkan panorama menakjubkan berupa hamparan pegunungan, hutan tropis, dan pemandangan kawah yang dramatis. Gunung ini menjadi daya tarik bagi para pecinta alam dan pendaki yang menyukai tantangan.',
+    highlights: ['Kawah kaldera raksasa (diameter 2 km)', 'Termasuk dalam jajaran Pegunungan Ijen', 'Jalur pendakian yang ekstrem dan menantang', 'Pemandangan kawah yang dramatis'],
+    gallery: ['https://images.pexels.com/photos/3601422/pexels-photo-3601422.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/4825701/pexels-photo-4825701.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2166711/pexels-photo-2166711.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Kaldera Raung adalah salah satu yang terbesar di Indonesia.', 'Jalur pendakiannya dikenal paling sulit di Jawa.', 'Sering terjadi letusan kecil hingga sedang secara berkala.'],
+    culturalSignificance: 'Daya tarik bagi pecinta alam dan pendaki yang menyukai tantangan; simbol keindahan alam Banyuwangi dan sekitarnya.',
+    relatedLinks: ['Pegunungan Ijen', 'Kaldera Vulkanik', 'Pendakian Ekstrem', 'Geologi Jawa Timur'],
   },
   {
     id: 'gunung-4',
-    title: 'Gunung Arjuno-Welirang',
+    title: 'Gunung Arjuno',
     category: 'Gunung',
     thumbnail: 'https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Malang, Pasuruan, Mojokerto',
-    elevation: '3.339 mdpl (Arjuno)',
-    status: 'Aktif (Welirang)',
-    shortDesc: 'Gunung kembar dengan jalur pendakian menantang dan pemandangan memesona',
-    fullDesc: 'Gunung Arjuno (3.339 mdpl) dan Gunung Welirang (3.156 mdpl) adalah dua gunung yang saling berdampingan membentuk kompleks pegunungan yang indah. Arjuno menawarkan berbagai jalur pendakian yang menantang dengan pemandangan hutan tropis, savana, dan puncak yang megah.',
-    highlights: [
-      'Twin mountains dengan karakter berbeda',
-      'Jalur pendakian beragam dengan tingkat kesulitan variatif',
-      'Sumber mata air panas di Welirang',
-      'Pemandangan sunrise spektakuler'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3109816/pexels-photo-3109816.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2437299/pexels-photo-2437299.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Nama Arjuno diambil dari tokoh Arjuna dalam Mahabharata',
-      'Terdapat 7 jalur pendakian dengan karakter berbeda',
-      'Sumber air untuk PDAM kota Malang, Batu, dan Pasuruan',
-      'Vegetasi berubah dari hutan tropis ke alpine'
-    ],
-    culturalSignificance: 'Dipercaya sebagai tempat pertapaan Arjuna dalam pewayangan Jawa.',
-    relatedLinks: ['Taman Hutan Raya R. Soerjo', 'Sumber Mata Air', 'Jalur Pendakian']
+    location: 'Batu, Malang, dan Pasuruan',
+    elevation: '3.339 mdpl',
+    status: 'Tidak Aktif (berdampingan dengan Welirang yang aktif)',
+    shortDesc: 'Gunung berapi di Jawa Timur yang namanya diambil dari tokoh pewayangan Arjuna, terkenal dengan situs sejarah Hindu-Buddha.',
+    fullDesc: 'Gunung Arjuno adalah gunung berapi yang terletak di Jawa Timur dengan ketinggian 3.339 meter di atas permukaan laut. Gunung ini berada di antara Kota Batu, Malang, dan Pasuruan, serta berdampingan dengan Gunung Welirang. Nama Arjuno diambil dari tokoh pewayangan Mahabharata, Arjuna, yang melambangkan kesatria gagah berani. Gunung Arjuno dikenal memiliki jalur pendakian yang cukup menantang dengan pemandangan indah berupa hutan pinus, padang rumput, serta situs-situs peninggalan sejarah berupa arca dan petilasan Hindu-Buddha. Dari puncaknya, pendaki dapat menyaksikan panorama pegunungan di sekitarnya, termasuk Gunung Semeru dan Gunung Bromo. Selain sebagai tujuan wisata alam, Arjuno juga memiliki nilai spiritual dan sejarah yang erat kaitannya dengan budaya Jawa.',
+    highlights: ['Nama diambil dari tokoh Arjuna (Mahabharata)', 'Berdampingan dengan Gunung Welirang', 'Terdapat situs-situs peninggalan Hindu-Buddha (arca, petilasan)', 'Jalur pendakian menantang dengan panorama hutan pinus'],
+    gallery: ['https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/3109816/pexels-photo-3109816.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2437299/pexels-photo-2437299.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Dipercaya sebagai tempat pertapaan tokoh pewayangan.', 'Memiliki 7 jalur pendakian resmi.', 'Petilasan di Arjuno sering didatangi peziarah.'],
+    culturalSignificance: 'Nilai spiritual dan sejarah yang erat kaitannya dengan budaya Jawa; simbol kesatria gagah berani.',
+    relatedLinks: ['Gunung Welirang', 'Tokoh Arjuna', 'Petilasan Kuno', 'Pendakian Arjuno'],
   },
-  {
-    id: 'gunung-5',
-    title: 'Gunung Kelud',
-    category: 'Gunung',
-    thumbnail: 'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Kediri, Blitar, Malang',
-    elevation: '1.731 mdpl',
-    status: 'Aktif',
-    shortDesc: 'Gunung dengan sejarah erupsi dahsyat dan danau kawah yang mistis',
-    fullDesc: 'Gunung Kelud adalah gunung berapi aktif yang terkenal dengan sejarah erupsi dahsyatnya. Gunung ini memiliki danau kawah yang indah dengan air berwarna biru kehijauan. Kelud telah meletus lebih dari 30 kali, dengan erupsi terbesar pada 1919 yang menewaskan 5.000 orang. Saat ini, Kelud menjadi destinasi pendakian populer dengan pemandangan yang spektakuler.',
-    highlights: [
-      'Danau kawah dengan air biru kehijauan',
-      'Sejarah erupsi dahsyat abad ke-20',
-      'Jalur pendakian menantang namun indah',
-      'Pemandangan sunrise yang luar biasa'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Erupsi 1919 menewaskan 5.160 orang',
-      'Danau kawah Kelud merupakan sumber air irigasi',
-      'Gunung ini disebut "Gunung Murka" karena sering meletus',
-      'Spot foto terbaik di bibir kawah'
-    ],
-    culturalSignificance: 'Kelud dipercaya sebagai gunung suci dalam kepercayaan masyarakat sekitar dan menjadi simbol kekuatan alam.',
-    relatedLinks: ['Erupsi Kelud', 'Danau Kawah', 'Sejarah Vulkanologi']
-  },
-  {
-    id: 'gunung-6',
-    title: 'Gunung Panderman',
-    category: 'Gunung',
-    thumbnail: 'https://images.pexels.com/photos/3109816/pexels-photo-3109816.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Malang',
-    elevation: '2.045 mdpl',
-    status: 'Tidak Aktif',
-    shortDesc: 'Gunung dengan jalur pendakian mudah dan panorama kota Malang yang indah',
-    fullDesc: 'Gunung Panderman adalah gunung yang terletak di perbatasan Kota Malang dan Kabupaten Malang. Meskipun tidak aktif, gunung ini menawarkan jalur pendakian yang relatif mudah dengan pemandangan panorama kota Malang yang spektakuler. Dari puncaknya, pengunjung bisa melihat hamparan kota, gunung-gunung di sekitarnya, dan bahkan Samudra Hindia di kejauhan.',
-    highlights: [
-      'Jalur pendakian mudah dan aman',
-      'Panorama kota Malang 360 derajat',
-      'Vegetasi hutan yang masih asri',
-      'Spot camping dan outbound'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/3109816/pexels-photo-3109816.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2437299/pexels-photo-2437299.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Pendakian bisa ditempuh dalam 2-3 jam',
-      'Puncaknya datar dan luas cocok untuk camping',
-      'Banyak spot foto instagramable',
-      'Populer untuk wisatawan pemula'
-    ],
-    culturalSignificance: 'Panderman menjadi simbol keindahan alam Malang dan destinasi rekreasi yang mendekatkan manusia dengan alam.',
-    relatedLinks: ['Wisata Malang', 'Pendakian Mudah', 'Panorama Kota']
-  }
 ];
 
+// --- D. LAGU DAERAH ---
+export const laguDaerahData: CulturalItem[] = [
+  {
+    id: 'lagu-1',
+    title: 'Rek Ayo Rek',
+    category: 'Lagu Daerah',
+    thumbnail: IMAGE_PLACEHOLDERS.GENERAL_CULTURE,
+    location: 'Surabaya',
+    year: '1940-an',
+    shortDesc: 'Lagu daerah khas Surabaya yang sangat populer, diciptakan oleh Andjar Any, menggambarkan keceriaan muda-mudi kota.',
+    fullDesc: '“Rek Ayo Rek” adalah lagu daerah khas Jawa Timur yang sangat populer, terutama di Surabaya. Lagu ini diciptakan oleh Andjar Any pada tahun 1940-an dan menggambarkan suasana keceriaan muda-mudi Surabaya yang gemar berkumpul, berjalan-jalan, dan menikmati kehidupan kota. Liriknya sederhana namun penuh semangat, mencerminkan karakter arek Surabaya yang ramah, terbuka, dan penuh keceriaan. Lagu ini sering dibawakan dalam berbagai acara kesenian, festival budaya, hingga pertunjukan resmi, dan menjadi salah satu identitas musikal Jawa Timur. Irama yang ceria membuat “Rek Ayo Rek” tak hanya dikenal sebagai lagu daerah, tetapi juga sebagai lagu kebanggaan warga Surabaya.',
+    highlights: ['Irama ceria dan mudah diingat', 'Mencerminkan karakter arek Surabaya yang ramah', 'Lirik tentang ajakan berkumpul dan jalan-jalan', 'Diciptakan oleh Andjar Any'],
+    gallery: [IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.HISTORY, IMAGE_PLACEHOLDERS.TRADITION],
+    funFacts: ['"Rek" adalah sapaan akrab khas Surabaya.', 'Diciptakan pada era sebelum kemerdekaan Indonesia.', 'Menjadi lagu wajib di berbagai festival Surabaya.'],
+    culturalSignificance: 'Mencerminkan karakter Arek Surabaya yang ceria dan terbuka; salah satu identitas musikal Jawa Timur.',
+    relatedLinks: ['Andjar Any', 'Budaya Arek', 'Musik Tradisional Jawa Timur', 'Kota Surabaya'],
+  },
+  {
+    id: 'lagu-2',
+    title: 'Tanjung Perak',
+    category: 'Lagu Daerah',
+    thumbnail: IMAGE_PLACEHOLDERS.WATER,
+    location: 'Surabaya',
+    shortDesc: 'Lagu daerah yang diciptakan oleh Gesang, menceritakan suasana Pelabuhan Tanjung Perak di Surabaya.',
+    fullDesc: '“Tanjung Perak” adalah lagu daerah khas Jawa Timur yang diciptakan oleh Gesang, komponis legendaris Indonesia. Lagu ini bercerita tentang suasana pelabuhan Tanjung Perak di Surabaya, yang ramai dengan aktivitas kapal dan menjadi simbol penting perdagangan serta pertemuan orang dari berbagai daerah. Irama lagunya riang dan mudah diingat, mencerminkan semangat serta keceriaan masyarakat pesisir. Lagu ini sering dinyanyikan dalam acara kesenian, pentas budaya, hingga perayaan daerah, dan menjadi salah satu identitas musikal Jawa Timur. “Tanjung Perak” bukan hanya sekadar lagu hiburan, tetapi juga gambaran kehidupan maritim yang melekat erat dengan Surabaya sebagai Kota Pelabuhan.',
+    highlights: ['Menceritakan Pelabuhan Tanjung Perak', 'Diciptakan oleh komponis legendaris Gesang', 'Irama riang yang mudah diingat', 'Simbol penting perdagangan maritim'],
+    gallery: [IMAGE_PLACEHOLDERS.WATER, IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.HISTORY],
+    funFacts: ['Gesang adalah pencipta lagu "Bengawan Solo" yang mendunia.', 'Tanjung Perak adalah pelabuhan terbesar kedua di Indonesia.', 'Lagu ini menggambarkan keramaian pelabuhan sebagai pusat pertemuan.'],
+    culturalSignificance: 'Gambaran kehidupan maritim yang melekat erat dengan Surabaya sebagai Kota Pelabuhan; simbol penting perdagangan.',
+    relatedLinks: ['Gesang', 'Pelabuhan Tanjung Perak', 'Musik Keroncong', 'Surabaya Kota Pelabuhan'],
+  },
+  {
+    id: 'lagu-3',
+    title: 'Lindri',
+    category: 'Lagu Daerah',
+    thumbnail: IMAGE_PLACEHOLDERS.GENERAL_CULTURE,
+    location: 'Jawa Timur',
+    shortDesc: 'Lagu dolanan anak-anak khas Jawa Timur yang dinyanyikan saat bermain menggunakan karet gelang yang dirangkai.',
+    fullDesc: '“Lindri” adalah lagu dolanan anak-anak khas Jawa Timur yang sederhana namun penuh keceriaan. Lagu ini biasanya dinyanyikan sambil bermain menggunakan karet gelang yang dirangkai memanjang, lalu dimainkan dengan cara diulur dan dililitkan pada jari tangan. Lirik dan iramanya ringan, sehingga mudah dihafalkan oleh anak-anak, sekaligus melatih kekompakan serta keceriaan dalam bermain bersama. Selain menjadi hiburan, lagu “Lindri” mencerminkan kekayaan tradisi lisan dan permainan rakyat Jawa Timur yang sarat nilai kebersamaan. Hingga kini, lagu ini masih kerap diajarkan sebagai bagian dari pelestarian budaya dolanan anak.',
+    highlights: ['Lagu dolanan (permainan) anak-anak', 'Dinyanyikan saat bermain karet gelang', 'Irama ringan dan lirik sederhana', 'Melatih kekompakan dan keceriaan'],
+    gallery: [IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.TRADITION, IMAGE_PLACEHOLDERS.HISTORY],
+    funFacts: ['Permainan yang menyertai lagu ini menggunakan rangkaian karet gelang.', 'Termasuk kategori tradisi lisan (folklore).', 'Liriknya sering divariasikan antar daerah.'],
+    culturalSignificance: 'Mencerminkan kekayaan tradisi lisan dan permainan rakyat; sarat nilai kebersamaan dan pelestarian budaya dolanan anak.',
+    relatedLinks: ['Dolanan Anak', 'Tradisi Lisan', 'Permainan Rakyat', 'Kekompakan Sosial'],
+  },
+  {
+    id: 'lagu-4',
+    title: 'Gai Bintang',
+    category: 'Lagu Daerah',
+    thumbnail: IMAGE_PLACEHOLDERS.WATER,
+    location: 'Jawa Timur',
+    shortDesc: 'Lagu dolanan khas Jawa Timur yang biasa dinyanyikan oleh anak-anak saat bermain bersama di malam hari, menceritakan keindahan bintang di langit.',
+    fullDesc: '“Gai Bintang” adalah lagu dolanan khas Jawa Timur yang biasa dinyanyikan oleh anak-anak saat bermain bersama di malam hari. Liriknya sederhana, menceritakan tentang keindahan bintang di langit dan keceriaan anak-anak yang bernyanyi sambil bermain. Irama lagu ini ceria, ringan, dan mudah diingat, sehingga menjadi salah satu bagian dari tradisi lisan yang diwariskan turun-temurun. Lagu “Gai Bintang” tidak hanya sebagai hiburan, tetapi juga mengajarkan nilai kebersamaan dan rasa syukur atas keindahan alam. Hingga kini, lagu ini masih sering diajarkan kepada anak-anak dalam kegiatan seni maupun pelestarian budaya Jawa Timur.',
+    highlights: ['Lagu dolanan yang dinyanyikan malam hari', 'Menceritakan keindahan bintang', 'Mengajarkan rasa syukur dan kebersamaan', 'Bagian dari tradisi lisan Jawa Timur'],
+    gallery: [IMAGE_PLACEHOLDERS.WATER, IMAGE_PLACEHOLDERS.MOUNTAIN, IMAGE_PLACEHOLDERS.GENERAL_CULTURE],
+    funFacts: ['"Gai" dalam bahasa Jawa berarti menggapai atau meraih.', 'Lagu ini melatih anak untuk mengenal benda langit.', 'Dinyanyikan dalam suasana bermain yang ceria.'],
+    culturalSignificance: 'Mengajarkan nilai kebersamaan dan rasa syukur atas keindahan alam; pelestarian budaya lisan Jawa Timur.',
+    relatedLinks: ['Lagu Dolanan', 'Astronomi Tradisional', 'Tradisi Lisan', 'Kebersamaan Anak'],
+  },
+];
+
+// --- E. TRADISI ---
 export const tradisiData: CulturalItem[] = [
   {
     id: 'tradisi-1',
-    title: 'Yadnya Kasada',
+    title: 'Grebegan',
     category: 'Tradisi',
-    thumbnail: 'https://images.pexels.com/photos/6207960/pexels-photo-6207960.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Gunung Bromo, Tengger',
-    schedule: 'Bulan Kasada (kalender Jawa)',
-    shortDesc: 'Upacara lempar sesaji ke kawah Bromo sebagai wujud syukur Suku Tengger',
-    fullDesc: 'Yadnya Kasada adalah upacara adat terbesar Suku Tengger yang dilaksanakan setiap tahun di Kawah Gunung Bromo. Ritual ini merupakan bentuk persembahan dan rasa syukur kepada Sang Hyang Widhi (Tuhan) atas berkah yang diberikan. Masyarakat Tengger melemparkan hasil bumi, ternak, dan sesaji ke dalam kawah Bromo sebagai korban suci.',
-    highlights: [
-      'Prosesi larung sesaji ke kawah Bromo',
-      'Ribuan umat berkumpul di puncak kawah',
-      'Ritual dipimpin oleh Dukun Pandita',
-      'Perebutan sesaji oleh masyarakat sekitar'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/6207960/pexels-photo-6207960.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Dipercaya bahwa sesaji yang kembali keluar kawah membawa berkah',
-      'Tradisi ini sudah berlangsung lebih dari 500 tahun',
-      'Nama "Kasada" berasal dari kata "Kasa" (bulan ke-10) dan "Dasa" (sepuluh)',
-      'Menjadi daya tarik wisata spiritual tingkat internasional'
-    ],
-    culturalSignificance: 'Yadnya Kasada menjadi simbol keharmonisan manusia dengan alam dan pencipta-Nya, serta pelestarian kepercayaan Hindu di tengah mayoritas Islam.',
-    relatedLinks: ['Suku Tengger', 'Gunung Bromo', 'Legenda Roro Anteng']
+    thumbnail: IMAGE_PLACEHOLDERS.TRADITION,
+    location: 'Ponorogo (dan beberapa daerah Jatim)',
+    schedule: 'Setelah panen',
+    shortDesc: 'Upacara adat sebagai bentuk ungkapan syukur masyarakat atas hasil panen, dengan mengarak dan memperebutkan gunungan hasil bumi.',
+    fullDesc: 'Tradisi Grebegan adalah upacara adat yang berkembang di beberapa daerah Jawa Timur, salah satunya di Ponorogo. Grebegan biasanya dilaksanakan sebagai bentuk ungkapan syukur masyarakat atas hasil panen, sekaligus doa memohon berkah dan keselamatan. Dalam tradisi ini, masyarakat membawa gunungan hasil bumi yang kemudian diarak dan diperebutkan bersama-sama, dipercaya membawa berkah bagi siapa pun yang mendapatkannya. Selain arak-arakan, Grebegan sering disertai kesenian rakyat seperti Reog Ponorogo, jaranan, atau gamelan, sehingga menjadi perayaan meriah yang memadukan nilai spiritual, kebersamaan, dan hiburan. Tradisi ini tidak hanya berfungsi sebagai ritual adat, tetapi juga sebagai sarana mempererat solidaritas sosial serta melestarikan identitas budaya daerah.',
+    highlights: ['Upacara ungkapan syukur hasil panen', 'Arak-arakan gunungan hasil bumi', 'Gunungan diperebutkan (dipercaya membawa berkah)', 'Sering disertai Reog Ponorogo dan Jaranan'],
+    gallery: [IMAGE_PLACEHOLDERS.TRADITION, IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.FOOD],
+    funFacts: ['"Grebegan" berasal dari kata yang berarti "menggiring" atau "mengumpulkan".', 'Gunungan yang diperebutkan melambangkan hasil bumi yang melimpah.', 'Tradisi ini juga ada di keraton Jawa (Yogyakarta/Solo).'],
+    culturalSignificance: 'Simbol ungkapan syukur; sarana mempererat solidaritas sosial; memadukan nilai spiritual, kebersamaan, dan hiburan.',
+    relatedLinks: ['Gunungan', 'Reog Ponorogo', 'Syukuran Panen', 'Solidaritas Sosial'],
   },
   {
     id: 'tradisi-2',
+    title: 'Kebo-keboan',
+    category: 'Tradisi',
+    thumbnail: 'https://images.pexels.com/photos/2132171/pexels-photo-2132171.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Banyuwangi (Suku Osing)',
+    schedule: 'Bulan Suro',
+    shortDesc: 'Ritual adat masyarakat Osing Banyuwangi yang dilakukan setahun sekali, di mana warga berdandan menyerupai kerbau dengan tubuh dilumuri lumpur hitam.',
+    fullDesc: 'Kebo-Keboan adalah tradisi adat masyarakat Using (Osing) di Banyuwangi, Jawa Timur. Tradisi ini dilakukan setiap tahun pada bulan Suro sebagai ritual tolak bala dan ungkapan syukur atas kesuburan tanah pertanian. Dalam upacara ini, sejumlah warga berdandan menyerupai kerbau (kebo) dengan tubuh dilumuri lumpur hitam, lalu berperilaku layaknya kerbau yang membajak sawah. Arak-arakan Kebo-Keboan diiringi doa dan kesenian tradisional, kemudian diakhiri dengan prosesi mengelilingi desa. Masyarakat percaya bahwa tradisi ini dapat mendatangkan berkah, menjaga keselamatan desa, serta melestarikan harmoni dengan alam. Selain nilai spiritualnya, Kebo-Keboan kini juga menjadi daya tarik wisata budaya Banyuwangi.',
+    highlights: ['Warga berdandan menyerupai kerbau (kebo)', 'Tubuh dilumuri lumpur hitam', 'Ritual tolak bala dan syukur kesuburan tanah', 'Diadakan setiap Bulan Suro'],
+    gallery: ['https://images.pexels.com/photos/2132171/pexels-photo-2132171.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=800', IMAGE_PLACEHOLDERS.TRADITION],
+    funFacts: ['"Kebo" berarti kerbau dalam bahasa Jawa.', 'Peserta harus berperilaku persis seperti kerbau membajak sawah.', 'Ritual ini dipercaya dapat menjauhkan desa dari hama dan bencana.'],
+    culturalSignificance: 'Ritual tolak bala dan ungkapan syukur atas kesuburan tanah pertanian; melestarikan harmoni antara manusia dan alam.',
+    relatedLinks: ['Suku Osing', 'Ritual Agraris', 'Bulan Suro', 'Tolak Bala'],
+  },
+  {
+    id: 'tradisi-3',
     title: 'Karapan Sapi',
     category: 'Tradisi',
     thumbnail: 'https://images.pexels.com/photos/3651600/pexels-photo-3651600.jpeg?auto=compress&cs=tinysrgb&w=800',
     location: 'Madura',
     schedule: 'Agustus - Oktober',
-    shortDesc: 'Balap sapi tradisional Madura yang mendebarkan dan penuh adrenalin',
-    fullDesc: 'Karapan Sapi adalah tradisi balap sapi khas Madura yang telah berlangsung berabad-abad. Dua ekor sapi jantan yang telah dilatih khusus akan menarik kereta kayu (kaleles) yang dikemudikan oleh joki. Mereka akan dipacu sekencang mungkin di lintasan sepanjang 100-120 meter. Sapi-sapi karapan ini dirawat sangat istimewa dengan makanan khusus, pijat, dan bahkan diberi jamu.',
-    highlights: [
-      'Sapi berlari dengan kecepatan hingga 50-60 km/jam',
-      'Joki berdiri tegak di atas kereta kayu sambil memecut',
-      'Sapi-sapi juara dihargai hingga ratusan juta rupiah',
-      'Hiburan musik patrol dan saronen mengiringi'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/3651600/pexels-photo-3651600.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2252245/pexels-photo-2252245.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Konon tradisi ini berawal dari petani membajak sawah',
-      'Sapi juara bisa dihargai hingga Rp 300-500 juta',
-      'Joki harus memiliki keberanian dan skill khusus',
-      'Menarik perhatian wisatawan mancanegara'
-    ],
-    culturalSignificance: 'Karapan Sapi mencerminkan jiwa kompetitif, keberanian, dan kebanggaan masyarakat Madura terhadap ternaknya.',
-    relatedLinks: ['Sapi Madura', 'Budaya Madura', 'Festival Karapan']
-  },
-  {
-    id: 'tradisi-3',
-    title: 'Larung Sembonyo',
-    category: 'Tradisi',
-    thumbnail: 'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Pantai Prigi, Trenggalek',
-    schedule: 'Bulan Suro (Muharram)',
-    shortDesc: 'Upacara larung sesaji ke laut sebagai ungkapan syukur nelayan',
-    fullDesc: 'Larung Sembonyo adalah ritual adat nelayan di Pantai Prigi, Trenggalek sebagai bentuk rasa syukur kepada Tuhan atas hasil tangkapan dan keselamatan saat melaut. "Sembonyo" berarti persembahan atau sesaji. Prosesi dimulai dengan ziarah ke makam leluhur, kemudian pembuatan perahu mini berisi sesaji yang dihanyutkan ke laut diiringi doa dan gamelan.',
-    highlights: [
-      'Perahu mini berisi sesaji dihanyutkan ke laut',
-      'Prosesi kirab budaya dengan kostum tradisional',
-      'Pembacaan doa oleh tokoh adat dan ulama',
-      'Pertunjukan seni dan kesenian tradisional'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1592710/pexels-photo-1592710.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Tradisi ini sudah berlangsung ratusan tahun',
-      'Dipercaya jika sesaji diterima laut, hasil tangkapan akan melimpah',
-      'Pantai Prigi adalah pelabuhan perikanan terbesar di Jawa Timur selatan',
-      'Festival ini menarik hingga 50.000 pengunjung'
-    ],
-    culturalSignificance: 'Larung Sembonyo merefleksikan harmoni antara manusia dengan laut, serta rasa syukur atas rezeki dari alam.',
-    relatedLinks: ['Pantai Prigi', 'Nelayan Trenggalek', 'Tradisi Pesisir']
+    shortDesc: 'Tradisi lomba pacuan sapi khas Madura yang mendebarkan, diiringi musik Saronen yang meriah.',
+    fullDesc: 'Karapan Sapi adalah tradisi lomba pacuan sapi khas Madura, Jawa Timur, yang telah menjadi ikon budaya daerah tersebut. Dalam tradisi ini, sepasang sapi jantan dipacu oleh joki di atas lintasan tanah sepanjang 100–200 meter. Sapi-sapi dihias dengan hiasan warna-warni dan gamelan saronen mengiringi jalannya perlombaan, sehingga suasana menjadi meriah. Karapan Sapi tidak hanya sekadar hiburan rakyat, tetapi juga sarat nilai sosial dan prestise bagi pemilik sapi. Sapi yang juara dianggap membawa kebanggaan dan kehormatan. Tradisi ini biasanya digelar setiap tahun, terutama pada musim kemarau, dan kini juga menjadi daya tarik wisata budaya Madura yang mendunia.',
+    highlights: ['Lomba pacuan sepasang sapi jantan', 'Jarak lintasan 100–200 meter', 'Sapi dihias warna-warni dan diiringi Saronen', 'Sarat nilai prestise dan kehormatan bagi pemilik'],
+    gallery: ['https://images.pexels.com/photos/3651600/pexels-photo-3651600.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2252245/pexels-photo-2252245.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Sapi karapan dirawat sangat istimewa dengan makanan dan jamu khusus.', 'Sapi juara bisa dihargai ratusan juta rupiah.', 'Dipercaya berawal dari petani yang mempercepat membajak sawah.'],
+    culturalSignificance: 'Ikon budaya Madura; sarat nilai prestise, kehormatan, dan mencerminkan jiwa kompetitif masyarakat Madura.',
+    relatedLinks: ['Sapi Madura', 'Joki Karapan', 'Musik Saronen', 'Budaya Madura'],
   },
   {
     id: 'tradisi-4',
-    title: 'Kebo-keboan',
+    title: 'Pethik Laut',
     category: 'Tradisi',
-    thumbnail: 'https://images.pexels.com/photos/2132171/pexels-photo-2132171.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Banyuwangi (Alasmalang)',
-    schedule: 'Setelah panen raya',
-    shortDesc: 'Ritual unik warga berperan sebagai kerbau dengan tubuh berlumpur',
-    fullDesc: 'Kebo-keboan adalah tradisi unik dari Banyuwangi di mana warga laki-laki menirukan perilaku kerbau dengan tubuh dilumuri lumpur hitam. Ritual ini merupakan ungkapan syukur atas hasil panen yang melimpah dan permohonan agar terhindar dari hama. Para peserta akan berlarian seperti kerbau, berguling-guling di lumpur, bahkan makan rumput seperti kerbau sungguhan.',
-    highlights: [
-      'Peserta berlumur lumpur hitam dari kepala hingga kaki',
-      'Menirukan tingkah laku kerbau secara total',
-      'Berguling-guling di sawah dan jalan desa',
-      'Diiringi musik patrol dan tawa riuh warga'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/2132171/pexels-photo-2132171.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3651600/pexels-photo-3651600.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Hanya pria dewasa yang boleh ikut ritual',
-      'Peserta tidak boleh mandi 7 hari sebelum acara',
-      'Lumpur yang digunakan berasal dari sawah yang sudah dipanen',
-      'Ditetapkan sebagai Warisan Budaya Tak Benda'
-    ],
-    culturalSignificance: 'Kebo-keboan mengajarkan nilai kesederhanaan, rasa syukur, dan harmoni antara manusia dengan hewan ternak.',
-    relatedLinks: ['Suku Using', 'Pertanian Banyuwangi', 'Ritual Agraris']
-  }
+    thumbnail: IMAGE_PLACEHOLDERS.WATER,
+    location: 'Banyuwangi, Trenggalek (Pesisir Jawa Timur)',
+    schedule: 'Setelah musim melaut',
+    shortDesc: 'Tradisi adat masyarakat pesisir sebagai ungkapan syukur kepada Tuhan atas hasil laut dan doa keselamatan nelayan.',
+    fullDesc: 'Pethik Laut adalah tradisi adat masyarakat pesisir Jawa Timur, terutama di daerah Banyuwangi, Trenggalek, dan sekitarnya. Upacara ini dilakukan sebagai ungkapan syukur kepada Tuhan atas rezeki hasil laut serta doa agar para nelayan senantiasa diberi keselamatan. Dalam prosesi Pethik Laut, masyarakat biasanya menghiasi perahu dengan warna-warni, membawa sesaji hasil bumi, kepala kambing atau sapi, serta aneka makanan. Sesaji tersebut kemudian dihanyutkan ke laut sebagai simbol persembahan. Acara ini juga diramaikan dengan kesenian tradisional, arak-arakan, dan hiburan rakyat sehingga menjadi pesta budaya pesisir. Tradisi Pethik Laut bukan hanya ritual adat, tetapi juga sarana mempererat solidaritas masyarakat nelayan sekaligus menjadi atraksi wisata budaya Jawa Timur.',
+    highlights: ['Upacara syukur hasil laut', 'Sesaji (kepala hewan, hasil bumi) dihanyutkan ke laut', 'Perahu dihias warna-warni', 'Diiringi kesenian tradisional dan arak-arakan'],
+    gallery: [IMAGE_PLACEHOLDERS.WATER, 'https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/1592710/pexels-photo-1592710.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['"Pethik" berarti memetik atau mengambil hasil.', 'Sesaji yang dilarung disebut Labuhan.', 'Pelaksanaan sering diramaikan oleh pertunjukan wayang atau tari daerah.'],
+    culturalSignificance: 'Ungkapan syukur nelayan; sarana mempererat solidaritas masyarakat pesisir; merefleksikan harmoni manusia dengan laut.',
+    relatedLinks: ['Nelayan Jawa Timur', 'Ritual Larung', 'Budaya Pesisir', 'Sesaji Laut'],
+  },
 ];
 
-export const kerajaanData: CulturalItem[] = [
+// --- F. KERAJAAN KUNO ---
+export const kerajaanKunoData: CulturalItem[] = [
   {
     id: 'kerajaan-1',
-    title: 'Kerajaan Majapahit',
-    category: 'Kerajaan',
-    thumbnail: 'https://images.pexels.com/photos/2166711/pexels-photo-2166711.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Trowulan, Mojokerto',
-    period: '1293 - 1527 M',
-    rulers: 'Raden Wijaya hingga Prabu Brawijaya V',
-    shortDesc: 'Kerajaan Hindu-Buddha terbesar di Nusantara dengan wilayah kekuasaan luas',
-    fullDesc: 'Kerajaan Majapahit adalah kerajaan Hindu-Buddha terbesar dalam sejarah Indonesia yang berdiri dari 1293 hingga sekitar 1527 Masehi. Didirikan oleh Raden Wijaya dan mencapai puncak kejayaan di bawah pemerintahan Hayam Wuruk dengan Mahapatih Gajah Mada. Wilayah kekuasaan Majapahit membentang dari Sumatera, Jawa, Bali, hingga sebagian Kalimantan dan Sulawesi.',
-    highlights: [
-      'Wilayah kekuasaan terluas di Nusantara',
-      'Sumpah Palapa Gajah Mada yang legendaris',
-      'Peninggalan situs arkeologi di Trowulan',
-      'Sistem pemerintahan terorganisir dengan baik'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/2166711/pexels-photo-2166711.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Slogan "Bhinneka Tunggal Ika" berasal dari Kakawin Sutasoma era Majapahit',
-      'Ibu kota Majapahit di Trowulan lebih luas dari Paris pada masanya',
-      'Sistem irigasi Majapahit sangat canggih dengan kolam dan terusan',
-      'Garuda sebagai lambang negara terinspirasi dari Majapahit'
-    ],
-    culturalSignificance: 'Majapahit menjadi simbol kejayaan peradaban Nusantara dan sumber inspirasi semangat persatuan Indonesia dengan filosofi Bhinneka Tunggal Ika.',
-    relatedLinks: ['Museum Trowulan', 'Gajah Mada', 'Candi Majapahit', 'Situs Trowulan']
+    title: 'Kerajaan Singhasari',
+    category: 'Kerajaan Kuno',
+    thumbnail: IMAGE_PLACEHOLDERS.HISTORY,
+    location: 'Malang',
+    period: '1222 – 1292 M (Abad ke-13)',
+    rulers: 'Ken Arok hingga Kertanegara',
+    shortDesc: 'Kerajaan Hindu-Buddha di Malang, didirikan oleh Ken Arok dan mencapai kejayaan di bawah Raja Kertanegara.',
+    fullDesc: 'Kerajaan Singhasari berdiri pada abad ke-13 di wilayah Malang, Jawa Timur, dan didirikan oleh Ken Arok, seorang tokoh legendaris yang berasal dari rakyat biasa namun berhasil merebut takhta. Kerajaan ini mencapai masa kejayaan di bawah pemerintahan Raja Kertanegara, yang memperluas pengaruh politik dan perdagangan hingga ke luar Jawa melalui ekspedisi Pamalayu. Singhasari dikenal sebagai kerajaan yang kuat secara militer dan kaya akan budaya Hindu-Buddha. Peninggalan penting dari masa ini antara lain Candi Singosari dan arca-arca yang melambangkan perpaduan kepercayaan Hindu dan Buddha. Meski akhirnya runtuh akibat serangan Jayakatwang dari Kediri, Singhasari menjadi cikal bakal berdirinya Kerajaan Majapahit yang lebih besar dan termasyhur.',
+    highlights: ['Didirikan oleh Ken Arok (1222 M)', 'Mencapai kejayaan di bawah Raja Kertanegara', 'Melakukan Ekspedisi Pamalayu', 'Peninggalan utama: Candi Singosari dan Arca Prajnaparamita'],
+    gallery: [IMAGE_PLACEHOLDERS.HISTORY, 'https://images.pexels.com/photos/2166557/pexels-photo-2166557.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/3109816/pexels-photo-3109816.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Ken Arok membunuh Tunggul Ametung menggunakan keris Mpu Gandring.', 'Raja Kertanegara menolak tunduk pada Kublai Khan dari Dinasti Yuan.', 'Singhasari adalah cikal bakal Kerajaan Majapahit.'],
+    culturalSignificance: 'Fondasi bagi kejayaan Majapahit; kaya akan warisan arsitektur dan seni patung Hindu-Buddha yang megah.',
+    relatedLinks: ['Ken Arok', 'Kertanegara', 'Candi Singosari', 'Ekspedisi Pamalayu'],
   },
   {
     id: 'kerajaan-2',
-    title: 'Kerajaan Singhasari',
-    category: 'Kerajaan',
-    thumbnail: 'https://images.pexels.com/photos/2166557/pexels-photo-2166557.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Malang',
-    period: '1222 - 1292 M',
-    rulers: 'Ken Arok hingga Kertanegara',
-    shortDesc: 'Kerajaan Hindu-Buddha dengan warisan arsitektur candi yang megah',
-    fullDesc: 'Kerajaan Singhasari adalah kerajaan Hindu-Buddha yang berkuasa di Jawa Timur dari tahun 1222 hingga 1292 Masehi. Didirikan oleh Ken Arok yang mengalahkan Kerajaan Kediri. Kerajaan ini mencapai puncak kejayaan di bawah pemerintahan Raja Kertanegara yang ekspansionis. Singhasari meninggalkan warisan arsitektur candi yang spektakuler seperti Candi Singosari, Candi Kidal, dan Candi Jago.',
-    highlights: [
-      'Arsitektur candi dengan relief berkualitas tinggi',
-      'Raja Kertanegara yang pemberani dan visioner',
-      'Hubungan diplomasi dengan Dinasti Yuan (Tiongkok)',
-      'Seni patung dan relief yang halus dan detail'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/2166557/pexels-photo-2166557.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3109816/pexels-photo-3109816.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Ken Arok naik tahta dengan membunuh Tunggul Ametung menggunakan keris Empu Gandring',
-      'Patung Prajnaparamita dianggap salah satu karya seni terbaik Indonesia',
-      'Kertanegara menolak tunduk pada Kublai Khan dari Dinasti Yuan',
-      'Singhasari adalah cikal bakal Majapahit'
-    ],
-    culturalSignificance: 'Singhasari menjadi fondasi bagi kejayaan Majapahit dan meninggalkan warisan arsitektur candi yang menjadi masterpiece seni Indonesia.',
-    relatedLinks: ['Ken Arok', 'Candi Singosari', 'Kertanegara', 'Majapahit']
+    title: 'Kerajaan Majapahit',
+    category: 'Kerajaan Kuno',
+    thumbnail: 'https://images.pexels.com/photos/2166711/pexels-photo-2166711.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Trowulan, Mojokerto',
+    period: '1293 – 1527 M (Abad ke-13 hingga 15)',
+    rulers: 'Raden Wijaya hingga Hayam Wuruk',
+    shortDesc: 'Kerajaan terbesar dalam sejarah Nusantara, mencapai puncak kejayaan di bawah Raja Hayam Wuruk dan Patih Gajah Mada.',
+    fullDesc: 'Kerajaan Majapahit berdiri pada akhir abad ke-13 di Trowulan, Mojokerto, Jawa Timur, setelah runtuhnya Singhasari. Pendiri kerajaan ini adalah Raden Wijaya, menantu Raja Kertanegara. Majapahit dikenal sebagai kerajaan terbesar dalam sejarah Nusantara, yang mencapai puncak kejayaannya pada masa pemerintahan Raja Hayam Wuruk (1350–1389) dengan didampingi Patih Gajah Mada. Di bawah kepemimpinan mereka, wilayah Majapahit meluas hampir ke seluruh Nusantara bahkan hingga Asia Tenggara, sejalan dengan cita-cita Gajah Mada dalam Sumpah Palapa. Selain kuat secara politik dan militer, Majapahit juga meninggalkan warisan budaya besar, mulai dari karya sastra, sistem pemerintahan yang teratur, hingga peninggalan arkeologi seperti Candi Tikus, Gapura Bajang Ratu, dan Arca Joko Dolog. Keruntuhan Majapahit terjadi pada akhir abad ke-15 akibat konflik internal dan melemahnya kekuasaan. Meski demikian, Majapahit tetap dikenang sebagai simbol kejayaan bangsa Indonesia dan sumber inspirasi persatuan nasional.',
+    highlights: ['Wilayah kekuasaan terluas di Nusantara', 'Puncak kejayaan: Hayam Wuruk & Gajah Mada', 'Cita-cita Gajah Mada (Sumpah Palapa)', 'Peninggalan: Candi Tikus, Kolam Segaran, Gapura Bajang Ratu'],
+    gallery: ['https://images.pexels.com/photos/2166711/pexels-photo-2166711.jpeg?auto=compress&cs=tinysrgb&w=800', IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.MOUNTAIN],
+    funFacts: ['Motto negara "Bhinneka Tunggal Ika" berasal dari Kakawin Sutasoma era Majapahit.', 'Ibu kota Majapahit di Trowulan diperkirakan sangat luas.', 'Sistem irigasi dan pelabuhannya sangat maju.'],
+    culturalSignificance: 'Simbol kejayaan peradaban Nusantara; sumber inspirasi persatuan nasional dengan filosofi Bhinneka Tunggal Ika.',
+    relatedLinks: ['Hayam Wuruk', 'Gajah Mada', 'Sumpah Palapa', 'Situs Trowulan'],
   },
   {
     id: 'kerajaan-3',
-    title: 'Kerajaan Kediri',
-    category: 'Kerajaan',
-    thumbnail: 'https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Kediri',
-    period: '1042 - 1222 M',
-    rulers: 'Sri Jayawarsa hingga Kertajaya',
-    shortDesc: 'Kerajaan Hindu dengan puncak kesusastraan Jawa klasik',
-    fullDesc: 'Kerajaan Kediri (atau Panjalu) adalah kerajaan Hindu yang berkuasa di Jawa Timur dari 1042 hingga 1222 Masehi, setelah terpecahnya Kerajaan Kahuripan. Masa Kediri dikenal sebagai era keemasan kesusastraan Jawa Kuno dengan lahirnya karya-karya sastra seperti Bharatayuddha, Gatotkacasraya, dan Smaradahana. Kerajaan ini juga memiliki hubungan dagang yang luas dengan Tiongkok dan negara-negara Asia Tenggara.',
-    highlights: [
-      'Pusat kesusastraan Jawa Kuno',
-      'Hubungan perdagangan internasional yang kuat',
-      'Karya sastra klasik yang monumental',
-      'Sistem pemerintahan yang terorganisir'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2437299/pexels-photo-2437299.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Ramalan Jayabaya dipercaya meramalkan masa depan Indonesia',
-      'Kediri menjadi pusat perdagangan rempah-rempah',
-      'Sastra Kakawin berkembang pesat di era ini',
-      'Sistem subak (irigasi) Bali berakar dari masa Kediri'
-    ],
-    culturalSignificance: 'Kediri menjadi pusat pengembangan sastra Jawa Kuno yang menjadi fondasi kesusastraan Nusantara dan warisan budaya tak ternilai.',
-    relatedLinks: ['Ramalan Jayabaya', 'Sastra Jawa Kuno', 'Candi Kediri']
+    title: 'Kerajaan Kahuripan',
+    category: 'Kerajaan Kuno',
+    thumbnail: IMAGE_PLACEHOLDERS.WATER,
+    location: 'Sidoarjo (Pusat), Jawa Timur',
+    period: 'Abad ke-11',
+    rulers: 'Raja Airlangga',
+    shortDesc: 'Kerajaan yang didirikan oleh Raja Airlangga setelah runtuhnya Medang, dikenal makmur sebagai kerajaan agraris dan maritim.',
+    fullDesc: 'Kerajaan Kahuripan didirikan oleh Raja Airlangga pada awal abad ke-11 dengan pusat di sekitar Sidoarjo, Jawa Timur. Kerajaan ini lahir setelah runtuhnya Kerajaan Medang akibat serangan Sriwijaya. Airlangga berhasil menyatukan kembali wilayah-wilayah di Jawa Timur yang terpecah, sehingga Kahuripan berkembang menjadi kerajaan yang makmur. Kahuripan dikenal sebagai kerajaan agraris sekaligus maritim. Selain pertanian, perdagangan melalui pelabuhan penting seperti Hujung Galuh (Surabaya) dan Kambang Putih (Tuban) membuat Kahuripan maju dalam perekonomian. Pada masa pemerintahannya, Airlangga juga mendirikan banyak tempat suci, termasuk Petirtaan Belahan yang hingga kini masih ada sebagai peninggalan. Menjelang akhir hayatnya, Airlangga membagi Kahuripan menjadi dua kerajaan, yaitu Janggala dan Kediri, untuk menghindari perebutan takhta di antara putranya. Pembagian ini kemudian melahirkan sejarah panjang kerajaan-kerajaan di Jawa Timur.',
+    highlights: ['Didirikan oleh Raja Airlangga', 'Pusat di sekitar Sidoarjo', 'Kerajaan Agraris dan Maritim (Pelabuhan Hujung Galuh)', 'Peninggalan: Petirtaan Belahan'],
+    gallery: [IMAGE_PLACEHOLDERS.WATER, IMAGE_PLACEHOLDERS.HISTORY, IMAGE_PLACEHOLDERS.GENERAL_CULTURE],
+    funFacts: ['Raja Airlangga membagi kerajaan menjadi Janggala dan Kediri.', 'Berhasil menyatukan kembali wilayah Jawa Timur setelah terpecah.', 'Pelabuhan Hujung Galuh kini menjadi bagian dari Surabaya.'],
+    culturalSignificance: 'Fondasi bagi kerajaan Jawa Timur selanjutnya (Kediri dan Janggala); menunjukkan kemajuan ekonomi agraris dan maritim di Jawa Timur.',
+    relatedLinks: ['Raja Airlangga', 'Petirtaan Belahan', 'Kerajaan Medang', 'Janggala dan Kediri'],
   },
   {
     id: 'kerajaan-4',
-    title: 'Kerajaan Blambangan',
-    category: 'Kerajaan',
-    thumbnail: 'https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Banyuwangi',
-    period: '1294 - 1772 M',
-    rulers: 'Dinasti Menak Sembuyu',
-    shortDesc: 'Kerajaan Hindu terakhir di Jawa dengan budaya Using yang khas',
-    fullDesc: 'Kerajaan Blambangan adalah kerajaan Hindu terakhir di Pulau Jawa yang bertahan hingga abad ke-18. Kerajaan ini berpusat di wilayah Banyuwangi dengan budaya yang dipengaruhi kuat oleh Bali dan Jawa. Blambangan terkenal dengan kebudayaan Using-nya yang unik, seni tari Gandrung, dan ketahanan dalam mempertahankan Hindu di tengah ekspansi Islam.',
-    highlights: [
-      'Kerajaan Hindu terakhir di Jawa',
-      'Budaya Using yang khas dan masih lestari',
-      'Ketahanan melawan ekspansi Islam dan kolonial',
-      'Hubungan erat dengan Kerajaan Bali'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8636625/pexels-photo-8636625.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/4825701/pexels-photo-4825701.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Nama "Banyuwangi" berarti air berbau harum',
-      'Budaya Using adalah perpaduan Jawa, Bali, dan Osing',
-      'Kerajaan ini bertahan 478 tahun',
-      'Legenda Siti Sundari yang tragis terkenal di Banyuwangi'
-    ],
-    culturalSignificance: 'Blambangan menjadi saksi ketahanan budaya Hindu di Jawa dan mewariskan tradisi Using yang unik sebagai identitas Banyuwangi.',
-    relatedLinks: ['Suku Using', 'Banyuwangi', 'Tari Gandrung', 'Budaya Using']
-  }
-];
-
-export const batikData: CulturalItem[] = [
-  {
-    id: 'batik-1',
-    title: 'Batik Madura',
-    category: 'Batik',
-    thumbnail: 'https://images.pexels.com/photos/6301165/pexels-photo-6301165.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Madura',
-    year: 'Tradisional',
-    shortDesc: 'Batik dengan warna cerah dan motif bunga yang khas dari Pulau Madura',
-    fullDesc: 'Batik Madura terkenal dengan warna-warna cerah dan berani, motif bunga yang besar, serta pewarnaan alami yang khas. Batik ini mencerminkan karakter masyarakat Madura yang terbuka dan ceria. Motif yang populer antara lain pucuk rebung, sekar jagad, dan tanaman pot. Proses pembuatan batik Madura masih menggunakan teknik tulis dan cap tradisional yang diwariskan turun-temurun.',
-    highlights: [
-      'Warna-warna cerah dan berani',
-      'Motif bunga besar dan mencolok',
-      'Pewarnaan alami dari tumbuhan lokal',
-      'Teknik tulis dan cap tradisional'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/6301165/pexels-photo-6301165.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/6301170/pexels-photo-6301170.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/6301176/pexels-photo-6301176.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Setiap daerah di Madura punya ciri khas motif tersendiri',
-      'Batik Madura menggunakan warna merah, kuning, dan hijau yang dominan',
-      'Proses pewarnaan bisa memakan waktu berminggu-minggu',
-      'Batik Madura sering dijadikan busana pesta dan acara resmi'
-    ],
-    culturalSignificance: 'Batik Madura mencerminkan semangat hidup masyarakat Madura yang penuh warna dan keberanian dalam mengekspresikan identitas budaya mereka.',
-    relatedLinks: ['Pewarnaan Alami', 'Motif Madura', 'Sentra Batik Madura']
-  },
-  {
-    id: 'batik-2',
-    title: 'Batik Tuban',
-    category: 'Batik',
-    thumbnail: 'https://images.pexels.com/photos/8148580/pexels-photo-8148580.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Tuban',
-    year: 'Tradisional',
-    shortDesc: 'Batik tertua di Jawa Timur dengan motif geometris dan makna filosofis',
-    fullDesc: 'Batik Tuban adalah salah satu batik tertua di Jawa Timur dengan sejarah panjang sejak era Majapahit. Motif batik Tuban didominasi oleh pola geometris, tumbuhan, dan fauna laut. Motif khas seperti Gedog, Alas-alasan, dan Mangrove mencerminkan kehidupan pesisir dan kekayaan alam Tuban. Batik Tuban dikenal dengan warna-warna lembut dan harmonisasi yang indah.',
-    highlights: [
-      'Batik tertua di Jawa Timur',
-      'Motif geometris dan pesisir yang khas',
-      'Warna-warna lembut dan harmonis',
-      'Makna filosofis dalam setiap motif'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/8148580/pexels-photo-8148580.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/7991319/pexels-photo-7991319.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/6301165/pexels-photo-6301165.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Motif Gedog Tuban telah ada sejak abad ke-14',
-      'Batik Tuban sempat hilang dan dihidupkan kembali pada tahun 2000-an',
-      'Sentra batik Tuban terletak di Desa Kerek dan Desa Margorejo',
-      'Batik Tuban menjadi oleh-oleh khas yang dicari wisatawan'
-    ],
-    culturalSignificance: 'Batik Tuban menjadi saksi sejarah panjang peradaban pesisir Jawa Timur dan warisan budaya yang terus dilestarikan.',
-    relatedLinks: ['Sejarah Batik Tuban', 'Motif Gedog', 'Sentra Batik Kerek']
-  },
-  {
-    id: 'batik-3',
-    title: 'Batik Malangan',
-    category: 'Batik',
-    thumbnail: 'https://images.pexels.com/photos/6301170/pexels-photo-6301170.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Malang',
-    year: 'Modern',
-    shortDesc: 'Batik kontemporer dengan motif ikon wisata dan budaya Malang',
-    fullDesc: 'Batik Malangan adalah batik yang relatif baru dikembangkan dengan menggabungkan motif-motif ikon kota Malang seperti Tugu Malang, bunga, dan pemandangan alam khas Malang. Batik ini memiliki corak yang lebih modern dan fresh, cocok untuk generasi muda. Pewarnaan batik Malangan menggunakan teknik kombinasi pewarnaan alami dan sintetis untuk menghasilkan warna yang cerah namun tetap elegan.',
-    highlights: [
-      'Motif ikon wisata Malang',
-      'Desain kontemporer dan modern',
-      'Warna cerah dan elegan',
-      'Cocok untuk berbagai kalangan usia'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/6301170/pexels-photo-6301170.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/6301176/pexels-photo-6301176.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8148580/pexels-photo-8148580.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Motif bunga apel menjadi ciri khas batik Malangan',
-      'Batik Malangan dipromosikan sebagai identitas kota Malang',
-      'Banyak desainer muda yang mengembangkan batik Malangan',
-      'Tersedia dalam berbagai produk fashion modern'
-    ],
-    culturalSignificance: 'Batik Malangan menjadi simbol inovasi dan adaptasi budaya tradisional dengan konteks modern yang relevan untuk generasi masa kini.',
-    relatedLinks: ['Ikon Malang', 'Desainer Batik', 'Fashion Batik Modern']
-  },
-  {
-    id: 'batik-4',
-    title: 'Batik Kediri',
-    category: 'Batik',
-    thumbnail: 'https://images.pexels.com/photos/6301176/pexels-photo-6301176.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Kerajaan Kediri',
+    category: 'Kerajaan Kuno',
+    thumbnail: IMAGE_PLACEHOLDERS.HISTORY,
     location: 'Kediri',
-    year: 'Tradisional',
-    shortDesc: 'Batik dengan motif naga dan legenda Raja Jayabaya yang mistis',
-    fullDesc: 'Batik Kediri memiliki karakteristik motif yang terinspirasi dari legenda dan sejarah Kerajaan Kediri, terutama motif naga yang dikaitkan dengan ramalan Raja Jayabaya. Motif lain yang populer adalah bunga teratai, kijing miring, dan pola geometris. Batik Kediri menggunakan warna-warna klasik seperti cokelat soga, indigo, dan merah maroon dengan makna filosofis yang dalam.',
-    highlights: [
-      'Motif naga dari legenda Jayabaya',
-      'Warna klasik dan filosofis',
-      'Inspirasi dari sejarah Kerajaan Kediri',
-      'Teknik pewarnaan soga tradisional'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/6301176/pexels-photo-6301176.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/6301165/pexels-photo-6301165.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8148580/pexels-photo-8148580.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Motif naga Kediri dipercaya membawa keberuntungan',
-      'Batik Kediri sempat hilang dan dihidupkan kembali',
-      'Proses pewarnaan menggunakan kulit pohon tingi',
-      'Banyak digunakan dalam upacara adat dan pernikahan'
-    ],
-    culturalSignificance: 'Batik Kediri menjadi media penyampaian nilai-nilai historis dan spiritual Kerajaan Kediri yang legendaris.',
-    relatedLinks: ['Ramalan Jayabaya', 'Kerajaan Kediri', 'Pewarnaan Soga']
-  }
+    period: '1042 – 1222 M (Abad ke-11 hingga 13)',
+    rulers: 'Sri Jayawarsa hingga Jayabaya',
+    shortDesc: 'Salah satu kerajaan agraris terkuat di Jawa, dikenal sebagai masa keemasan kesusastraan Jawa Kuno.',
+    fullDesc: 'Kerajaan Kediri berdiri pada abad ke-11 di Jawa Timur, setelah Kerajaan Kahuripan dibagi dua oleh Raja Airlangga untuk kedua putranya. Kediri berpusat di sekitar Kota Kediri sekarang dan menjadi salah satu kerajaan agraris terkuat di Jawa. Kehidupan ekonomi rakyatnya sangat maju, terutama dari hasil pertanian padi dan perdagangan. Masa keemasan Kediri berlangsung di bawah pemerintahan Raja Jayabaya (1135–1157). Selain dikenal sebagai pemimpin bijaksana, Jayabaya juga masyhur karena ramalan-ramalannya yang disebut Jangka Jayabaya. Pada masa Kediri, karya sastra klasik Jawa berkembang pesat, di antaranya Kakawin Bharatayuddha yang ditulis oleh Empu Sedah dan Empu Panuluh. Kerajaan Kediri akhirnya melemah pada abad ke-13 dan ditaklukkan oleh Ken Arok dari Singhasari. Meski runtuh, Kediri meninggalkan warisan budaya, sastra, dan sejarah yang sangat penting dalam peradaban Jawa.',
+    highlights: ['Masa keemasan kesusastraan Jawa Kuno', 'Raja masyhur: Jayabaya (Jangka Jayabaya)', 'Warisan sastra: Kakawin Bharatayuddha', 'Ditaklukkan oleh Ken Arok (Singhasari)'],
+    gallery: [IMAGE_PLACEHOLDERS.HISTORY, IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.MOUNTAIN],
+    funFacts: ['Kakawin Bharatayuddha adalah salah satu karya sastra epik terpenting.', 'Jayabaya terkenal dengan ramalan masa depannya (Jangka Jayabaya).', 'Ekonomi Kediri sangat kuat dari sektor pertanian padi.'],
+    culturalSignificance: 'Meninggalkan warisan sastra klasik Jawa Kuno yang penting dalam peradaban Nusantara; dikenal karena ramalan Jayabaya yang mistis.',
+    relatedLinks: ['Raja Jayabaya', 'Jangka Jayabaya', 'Kakawin Bharatayuddha', 'Empu Panuluh'],
+  },
 ];
 
-export const panaiData: CulturalItem[] = [
+// --- G. SUKU ASLI ---
+export const sukuAsliData: CulturalItem[] = [
   {
-    id: 'pantai-1',
-    title: 'Pantai Papuma',
-    category: 'Pantai',
-    thumbnail: 'https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Jember',
-    year: 'Destinasi Wisata',
-    shortDesc: 'Pantai dengan pasir putih dan formasi batu karang yang indah',
-    fullDesc: 'Pantai Papuma (Pasir Putih Malikan) adalah salah satu pantai terindah di Jawa Timur dengan pasir putih bersih dan formasi batu karang yang unik. Pantai ini menawarkan pemandangan sunset yang spektakuler dengan latar belakang bukit-bukit hijau. Di pantai ini terdapat beberapa pulau kecil dan batu besar yang bisa dijelajahi saat air laut surut. Ombaknya yang tenang cocok untuk berenang dan aktivitas air lainnya.',
-    highlights: [
-      'Pasir putih bersih dan lembut',
-      'Formasi batu karang yang artistik',
-      'Sunset yang memukau',
-      'Pulau-pulau kecil yang bisa dikunjungi'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1592710/pexels-photo-1592710.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Nama Papuma singkatan dari Pasir Putih Malikan',
-      'Terdapat legenda Putri Mandalika yang mengabadikan diri di pantai ini',
-      'Spot foto paling populer adalah Batu Gong',
-      'Air lautnya jernih dengan gradasi warna biru yang indah'
-    ],
-    culturalSignificance: 'Pantai Papuma menjadi destinasi wisata andalan Jember dan simbol keindahan alam pesisir selatan Jawa Timur.',
-    relatedLinks: ['Wisata Jember', 'Pantai Selatan Jawa Timur', 'Batu Gong']
+    id: 'suku-1',
+    title: 'Suku Jawa',
+    category: 'Suku Asli',
+    thumbnail: IMAGE_PLACEHOLDERS.GENERAL_CULTURE,
+    location: 'Mataraman, Kediri, Madiun (Jawa Timur)',
+    shortDesc: 'Suku terbesar di Jawa Timur, dikenal memiliki budaya halus, menjunjung tinggi tata krama, serta filosofi hidup yang selaras.',
+    fullDesc: 'Suku Jawa adalah suku terbesar di Jawa Timur, terutama mendiami wilayah Mataraman, Kediri, Madiun, Ngawi, dan sekitarnya. Mereka dikenal memiliki budaya yang halus, menjunjung tinggi tata krama, serta kaya akan tradisi turun-temurun seperti wayang kulit, gamelan, batik, dan upacara adat Jawa. Bahasa Jawa dengan berbagai tingkatannya (ngoko, krama, krama inggil) digunakan dalam kehidupan sehari-hari dan mencerminkan nilai sopan santun yang dijunjung tinggi. Suku Jawa juga memiliki filosofi hidup yang erat dengan keseimbangan, keselarasan, dan gotong royong. Hingga kini, budaya Jawa tetap bertahan dan menjadi bagian penting dari identitas masyarakat Jawa Timur.',
+    highlights: ['Menggunakan Bahasa Jawa Ngoko, Krama, Krama Inggil', 'Menjunjung tinggi tata krama dan sopan santun', 'Kaya tradisi (Wayang, Gamelan, Batik)', 'Filosofi hidup: Keseimbangan dan Gotong Royong'],
+    gallery: [IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.TRADITION, IMAGE_PLACEHOLDERS.HISTORY],
+    funFacts: ['Wilayah Jawa Timur terbagi menjadi wilayah Mataraman (Jawa Tengah) dan Pesisiran.', 'Wayang Kulit adalah warisan budaya terpenting mereka.', 'Filosofi "Nrimo Ing Pandum" (menerima pemberian) adalah kunci hidup mereka.'],
+    culturalSignificance: 'Identitas utama masyarakat Jawa Timur; menjunjung tinggi nilai sopan santun dan keselarasan sosial.',
+    relatedLinks: ['Budaya Mataraman', 'Bahasa Jawa', 'Krama Inggil', 'Gotong Royong'],
   },
   {
-    id: 'pantai-2',
-    title: 'Pantai Pulau Merah',
-    category: 'Pantai',
-    thumbnail: 'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Banyuwangi',
-    year: 'Destinasi Wisata',
-    shortDesc: 'Pantai surfer paradise dengan bukit merah yang ikonik',
-    fullDesc: 'Pantai Pulau Merah adalah destinasi surfing terbaik di Jawa Timur dengan ombak yang menantang dan konsisten. Keunikan pantai ini adalah adanya bukit kecil berwarna merah yang berdiri di tepi pantai dan bisa diakses saat air laut surut. Pantai ini sering menjadi lokasi kompetisi surfing internasional. Selain surfing, pengunjung juga bisa menikmati sunset yang indah dan kuliner seafood segar.',
-    highlights: [
-      'Spot surfing terbaik di Jawa Timur',
-      'Bukit merah yang ikonik',
-      'Ombak konsisten untuk surfing',
-      'Sunset yang memesona'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1592710/pexels-photo-1592710.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Sering menjadi venue kompetisi surfing internasional',
-      'Bukit merah terbentuk dari tanah laterit',
-      'Tinggi ombak bisa mencapai 4-6 meter',
-      'Menjadi spot foto pre-wedding favorit'
-    ],
-    culturalSignificance: 'Pantai Pulau Merah menjadi ikon wisata Banyuwangi dan pusat pengembangan olahraga surfing di Indonesia Timur.',
-    relatedLinks: ['Surfing Banyuwangi', 'Wisata Banyuwangi', 'Kompetisi Surfing']
-  },
-  {
-    id: 'pantai-3',
-    title: 'Pantai Balekambang',
-    category: 'Pantai',
-    thumbnail: 'https://images.pexels.com/photos/1592710/pexels-photo-1592710.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Malang',
-    year: 'Destinasi Wisata',
-    shortDesc: 'Pantai dengan tiga pulau kecil dan pura yang menyerupai Tanah Lot Bali',
-    fullDesc: 'Pantai Balekambang terkenal dengan tiga pulau kecil di tengah laut yang dihubungkan dengan jembatan. Di salah satu pulau terdapat pura yang arsitekturnya menyerupai Tanah Lot di Bali. Pantai ini memiliki pasir putih yang bersih, air laut yang jernih, dan pemandangan yang sangat indah. Pengunjung bisa menyeberang ke pulau-pulau tersebut saat air laut surut untuk menikmati pemandangan dari ketinggian.',
-    highlights: [
-      'Tiga pulau kecil di tengah laut',
-      'Pura dengan arsitektur khas Bali',
-      'Jembatan penghubung antar pulau',
-      'Pemandangan sunset yang romantis'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/1592710/pexels-photo-1592710.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Disebut sebagai "Tanah Lot-nya Jawa Timur"',
-      'Pura dibangun oleh masyarakat Hindu Bali yang bermigrasi',
-      'Ada upacara keagamaan Hindu setiap tahun',
-      'Spot foto terbaik saat golden hour'
-    ],
-    culturalSignificance: 'Pantai Balekambang menjadi simbol toleransi beragama dan akulturasi budaya Jawa-Bali di Malang.',
-    relatedLinks: ['Wisata Malang Selatan', 'Pura Balekambang', 'Akulturasi Budaya']
-  },
-  {
-    id: 'pantai-4',
-    title: 'Pantai Gili Ketapang',
-    category: 'Pantai',
-    thumbnail: 'https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Probolinggo',
-    year: 'Destinasi Wisata',
-    shortDesc: 'Pulau kecil dengan pantai eksotis dan penangkaran penyu',
-    fullDesc: 'Gili Ketapang adalah pulau kecil di Selat Madura yang bisa diakses dengan perahu dari Probolinggo. Pulau ini menawarkan pantai yang masih asri dengan air laut yang jernih dan terumbu karang yang indah. Di pulau ini terdapat penangkaran penyu yang menjadi daya tarik utama. Pengunjung juga bisa snorkeling, diving, dan menikmati kelapa muda segar sambil bersantai di tepi pantai.',
-    highlights: [
-      'Pulau kecil yang masih asri',
-      'Penangkaran penyu hijau',
-      'Spot snorkeling dan diving',
-      'Terumbu karang yang indah'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1592710/pexels-photo-1592710.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Bisa melihat tukik (bayi penyu) dilepas ke laut',
-      'Perjalanan dengan perahu sekitar 30 menit dari Probolinggo',
-      'Pulau ini dihuni sekitar 8.000 penduduk',
-      'Terkenal dengan olahan ikan segar yang murah'
-    ],
-    culturalSignificance: 'Gili Ketapang menjadi destinasi wisata edukatif dan konservasi penyu yang penting di Jawa Timur.',
-    relatedLinks: ['Konservasi Penyu', 'Wisata Probolinggo', 'Snorkeling Jawa Timur']
-  }
-];
-
-export const musikData: CulturalItem[] = [
-  {
-    id: 'musik-1',
-    title: 'Gamelan Jawa Timur',
-    category: 'Musik',
-    thumbnail: 'https://images.pexels.com/photos/8181178/pexels-photo-8181178.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Seluruh Jawa Timur',
-    year: 'Tradisional',
-    shortDesc: 'Ensemble musik tradisional dengan gamelan yang khas dan dinamis',
-    fullDesc: 'Gamelan Jawa Timur memiliki karakteristik yang lebih dinamis dan keras dibandingkan gamelan Jawa Tengah. Instrumen yang digunakan meliputi kendang, saron, bonang, gong, dan gender. Gamelan Jawa Timur sering digunakan untuk mengiringi wayang kulit, ludruk, dan berbagai pertunjukan tari tradisional. Tempo dan dinamika permainannya mencerminkan karakter masyarakat Jawa Timur yang tegas dan energik.',
-    highlights: [
-      'Tempo lebih cepat dan dinamis',
-      'Suara yang lebih keras dan tegas',
-      'Mengiringi berbagai pertunjukan tradisional',
-      'Instrumen lengkap dengan laras pelog dan slendro'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/8181178/pexels-photo-8181178.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/7991598/pexels-photo-7991598.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8636390/pexels-photo-8636390.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Gamelan Jawa Timur lebih keras karena pengaruh budaya pesisir',
-      'Setiap kota punya gaya gamelan yang sedikit berbeda',
-      'Pemain gamelan harus latihan bertahun-tahun',
-      'Gamelan dianggap sakral dan punya nilai spiritual'
-    ],
-    culturalSignificance: 'Gamelan Jawa Timur menjadi identitas musik tradisional yang merefleksikan semangat dan karakter masyarakat Jawa Timur.',
-    relatedLinks: ['Wayang Kulit', 'Ludruk', 'Instrumen Gamelan']
-  },
-  {
-    id: 'musik-2',
-    title: 'Musik Using',
-    category: 'Musik',
-    thumbnail: 'https://images.pexels.com/photos/7991319/pexels-photo-7991319.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Banyuwangi',
-    year: 'Tradisional',
-    shortDesc: 'Musik etnik khas Banyuwangi dengan biola dan kendang yang merdu',
-    fullDesc: 'Musik Using adalah musik tradisional khas Banyuwangi yang unik dengan penggunaan biola sebagai instrumen utama. Musik ini mengiringi pertunjukan Gandrung dan berbagai ritual adat. Perpaduan antara biola, kendang, gong, dan angklung menciptakan harmoni yang khas. Lagu-lagu Using biasanya bertema cinta, kehidupan sehari-hari, dan alam Banyuwangi.',
-    highlights: [
-      'Biola sebagai instrumen utama',
-      'Melodi yang merdu dan menyentuh',
-      'Mengiringi Tari Gandrung',
-      'Lirik dalam bahasa Using'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/7991319/pexels-photo-7991319.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8636625/pexels-photo-8636625.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/4666748/pexels-photo-4666748.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Biola dibawa oleh pedagang Arab dan Eropa',
-      'Pemain biola Using sangat dihormati di masyarakat',
-      'Lagu "Genjer-genjer" berasal dari tradisi Using',
-      'Musik Using kini mulai dikombinasi dengan musik modern'
-    ],
-    culturalSignificance: 'Musik Using menjadi identitas budaya Suku Using dan media pelestarian bahasa serta tradisi Banyuwangi.',
-    relatedLinks: ['Suku Using', 'Tari Gandrung', 'Bahasa Using']
-  },
-  {
-    id: 'musik-3',
-    title: 'Saronen Madura',
-    category: 'Musik',
-    thumbnail: 'https://images.pexels.com/photos/6207875/pexels-photo-6207875.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Madura',
-    year: 'Tradisional',
-    shortDesc: 'Musik tiup tradisional dengan saronen yang meriah dan energik',
-    fullDesc: 'Saronen adalah musik tradisional Madura yang menggunakan alat musik tiup bernama saronen sebagai instrumen utama. Musik ini biasanya dimainkan dalam acara-acara besar seperti karapan sapi, pernikahan, dan khitanan. Suara saronen yang keras dan nyaring dikombinasikan dengan kendang dan gong menciptakan suasana meriah dan penuh semangat. Irama musik saronen sangat dinamis dan menghentak.',
-    highlights: [
-      'Instrumen tiup saronen yang khas',
-      'Irama yang meriah dan menghentak',
-      'Mengiringi acara besar masyarakat',
-      'Kombinasi dengan kendang dan gong'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/6207875/pexels-photo-6207875.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3651600/pexels-photo-3651600.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Saronen mirip dengan terompet tradisional',
-      'Pemain saronen harus punya napas kuat',
-      'Setiap daerah di Madura punya gaya saronen berbeda',
-      'Musik saronen wajib ada di karapan sapi'
-    ],
-    culturalSignificance: 'Musik Saronen menjadi soundtrack kehidupan masyarakat Madura dan simbol keceriaan dalam setiap perayaan.',
-    relatedLinks: ['Karapan Sapi', 'Budaya Madura', 'Instrumen Tiup Tradisional']
-  },
-  {
-    id: 'musik-4',
-    title: 'Angklung Paglak',
-    category: 'Musik',
-    thumbnail: 'https://images.pexels.com/photos/8636390/pexels-photo-8636390.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Banyuwangi',
-    year: 'Tradisional',
-    shortDesc: 'Musik angklung khas Banyuwangi dengan suara yang khas dan mistis',
-    fullDesc: 'Angklung Paglak adalah ansambel musik tradisional Banyuwangi yang menggunakan angklung bambu dengan ukuran besar. Musik ini biasanya dimainkan dalam upacara adat dan ritual keagamaan. Suara angklung yang dipadukan dengan kendang dan kenong menciptakan harmoni yang unik dan mistis. Angklung Paglak juga mengiringi tari-tarian tradisional Banyuwangi.',
-    highlights: [
-      'Angklung bambu berukuran besar',
-      'Suara yang mistis dan sakral',
-      'Mengiringi upacara adat',
-      'Teknik permainan khas Banyuwangi'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/8636390/pexels-photo-8636390.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/7991319/pexels-photo-7991319.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8636625/pexels-photo-8636625.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Angklung Paglak berbeda dengan angklung Sunda',
-      'Dimainkan dengan cara digoyangkan',
-      'Setiap angklung punya nada tertentu',
-      'Proses pembuatan angklung butuh bambu pilihan'
-    ],
-    culturalSignificance: 'Angklung Paglak menjadi musik sakral yang menghubungkan manusia dengan dimensi spiritual dalam kepercayaan masyarakat Banyuwangi.',
-    relatedLinks: ['Ritual Banyuwangi', 'Bambu Tradisional', 'Musik Sakral']
-  }
-];
-
-export const warisanData: CulturalItem[] = [
-  {
-    id: 'warisan-1',
-    title: 'Wayang Kulit Jawa Timur',
-    category: 'Warisan',
-    thumbnail: 'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Seluruh Jawa Timur',
-    year: 'UNESCO 2003',
-    shortDesc: 'Pertunjukan wayang kulit dengan lakon dan gaya khas Jawa Timur',
-    fullDesc: 'Wayang Kulit Jawa Timur memiliki ciri khas dalam gaya penyampaian cerita (pakeliran) yang lebih keras, tegas, dan dinamis dibandingkan wayang Jawa Tengah. Dalang menggunakan bahasa Jawa dialek Surabayan dengan gaya ngoko dan krama yang khas. Lakon yang dimainkan tidak hanya dari Ramayana dan Mahabharata, tetapi juga cerita lokal. Wayang kulit telah ditetapkan UNESCO sebagai Masterpiece of Oral and Intangible Heritage of Humanity.',
-    highlights: [
-      'Gaya pakeliran yang tegas dan dinamis',
-      'Bahasa Jawa dialek Surabayan',
-      'Musik gamelan yang lebih keras',
-      'UNESCO Intangible Heritage'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2062324/pexels-photo-2062324.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Pertunjukan wayang bisa berlangsung semalam suntuk',
-      'Dalang harus hafal ratusan lakon',
-      'Setiap tokoh wayang punya karakter gerakan khas',
-      'Wayang kulit terbuat dari kulit kerbau'
-    ],
-    culturalSignificance: 'Wayang kulit menjadi media pendidikan moral, filosofi kehidupan, dan pelestarian sastra klasik Jawa.',
-    relatedLinks: ['Gamelan Jawa Timur', 'Dalang', 'Lakon Wayang']
-  },
-  {
-    id: 'warisan-2',
-    title: 'Ludruk',
-    category: 'Warisan',
-    thumbnail: 'https://images.pexels.com/photos/7991598/pexels-photo-7991598.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Surabaya',
-    year: 'Warisan Budaya',
-    shortDesc: 'Teater rakyat khas Surabaya dengan humor dan kritik sosial',
-    fullDesc: 'Ludruk adalah teater tradisional khas Surabaya yang menampilkan drama komedi dengan dialog menggunakan bahasa Surabaya (Jawa Timuran). Pertunjukan dibuka dengan Tari Remo, dilanjutkan dengan cerita kehidupan sehari-hari masyarakat yang dikemas dengan humor dan kritik sosial. Uniknya, semua peran termasuk peran wanita dimainkan oleh laki-laki. Ludruk menjadi cermin kehidupan dan aspirasi masyarakat urban Surabaya.',
-    highlights: [
-      'Teater rakyat khas Surabaya',
-      'Dialog bahasa Jawa Surabayan',
-      'Humor dan kritik sosial',
-      'Semua peran dimainkan laki-laki'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/7991598/pexels-photo-7991598.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8181178/pexels-photo-8181178.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8636390/pexels-photo-8636390.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Ludruk berasal dari kata "luru ndalam" yang berarti mencari ke dalam',
-      'Tokoh Cak Durasim adalah legendaris dalam ludruk',
-      'Pertunjukan ludruk bisa berlangsung 3-4 jam',
-      'Ludruk sempat dilarang di era Orde Baru'
-    ],
-    culturalSignificance: 'Ludruk menjadi media ekspresi rakyat kecil Surabaya dan sarana kritik sosial yang halus namun tajam.',
-    relatedLinks: ['Tari Remo', 'Teater Rakyat', 'Budaya Surabaya']
-  },
-  {
-    id: 'warisan-3',
-    title: 'Upacara Kasada',
-    category: 'Warisan',
-    thumbnail: 'https://images.pexels.com/photos/6207960/pexels-photo-6207960.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Bromo, Tengger',
-    year: 'Warisan Budaya',
-    shortDesc: 'Ritual adat Suku Tengger yang sakral dan penuh makna',
-    fullDesc: 'Upacara Kasada atau Yadnya Kasada adalah ritual adat terbesar Suku Tengger di Gunung Bromo. Upacara ini merupakan wujud syukur dan persembahan kepada Sang Hyang Widhi atas berkah yang diterima. Masyarakat Tengger melempar sesaji ke kawah Bromo sebagai korban suci. Ritual ini terkait dengan legenda Roro Anteng dan Joko Seger. Upacara Kasada menjadi daya tarik wisata spiritual yang unik.',
-    highlights: [
-      'Ritual adat sakral Suku Tengger',
-      'Prosesi lempar sesaji ke kawah Bromo',
-      'Terkait legenda Roro Anteng',
-      'Daya tarik wisata spiritual'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/6207960/pexels-photo-6207960.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Upacara berlangsung setiap bulan Kasada (kalender Jawa)',
-      'Ribuan orang berkumpul di kawah Bromo',
-      'Sesaji yang kembali keluar kawah dipercaya membawa berkah',
-      'Tradisi sudah berlangsung ratusan tahun'
-    ],
-    culturalSignificance: 'Upacara Kasada menjadi simbol kesetiaan Suku Tengger pada leluhur dan harmoni dengan alam.',
-    relatedLinks: ['Suku Tengger', 'Gunung Bromo', 'Legenda Roro Anteng']
-  },
-  {
-    id: 'warisan-4',
-    title: 'Keris Madura',
-    category: 'Warisan',
+    id: 'suku-2',
+    title: 'Suku Madura',
+    category: 'Suku Asli',
     thumbnail: 'https://images.pexels.com/photos/3651600/pexels-photo-3651600.jpeg?auto=compress&cs=tinysrgb&w=800',
-    location: 'Madura',
-    year: 'UNESCO 2005',
-    shortDesc: 'Senjata tradisional dengan nilai spiritual dan seni tinggi',
-    fullDesc: 'Keris Madura adalah senjata tradisional yang memiliki nilai seni, budaya, dan spiritual yang tinggi. Keris Madura dikenal dengan bentuk bilah yang khas, pamor yang indah, dan ukiran warangka (sarung) yang artistik. Pembuatan keris melibatkan ritual spiritual dan pengetahuan metalurgi tradisional yang kompleks. Keris tidak hanya sebagai senjata, tetapi juga sebagai pusaka yang diyakini memiliki kekuatan mistis.',
-    highlights: [
-      'Bilah dengan pamor yang indah',
-      'Warangka dengan ukiran artistik',
-      'Proses pembuatan dengan ritual spiritual',
-      'UNESCO Intangible Heritage'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/3651600/pexels-photo-3651600.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=800'
-    ],
-    funFacts: [
-      'Keris ditetapkan UNESCO sebagai Masterpiece of Humanity tahun 2005',
-      'Setiap keris memiliki "dapur" atau bentuk yang berbeda',
-      'Pamor keris dibuat dengan teknik pelapisan logam',
-      'Empu (pembuat keris) adalah profesi yang sangat dihormati'
-    ],
-    culturalSignificance: 'Keris menjadi simbol keberanian, kejayaan, dan identitas budaya Nusantara dengan nilai filosofis yang mendalam.',
-    relatedLinks: ['Empu Keris', 'Pamor Keris', 'Budaya Madura']
-  }
+    location: 'Pulau Madura dan Pesisir Utara Jawa Timur',
+    shortDesc: 'Suku yang dikenal dengan karakter tegas, pekerja keras, dan menjunjung tinggi harga diri, dengan ikon budaya Karapan Sapi.',
+    fullDesc: 'Suku Madura adalah suku yang berasal dari Pulau Madura, tetapi juga banyak mendiami wilayah pesisir utara Jawa Timur seperti Surabaya, Gresik, Situbondo, hingga Pasuruan. Mereka dikenal memiliki karakter tegas, pekerja keras, religius, serta menjunjung tinggi solidaritas dan harga diri. Tradisi khas Suku Madura yang terkenal adalah Karapan Sapi, lomba pacuan sapi yang meriah dan menjadi simbol kebanggaan masyarakat Madura. Selain itu, ada juga seni musik Saronen serta kuliner khas seperti sate Madura dan soto Madura yang populer di seluruh Indonesia. Budaya merantau juga melekat pada Suku Madura, sehingga banyak dijumpai orang Madura di berbagai daerah Indonesia. Meskipun demikian, mereka tetap menjaga identitas budaya dan adat istiadatnya dengan kuat.',
+    highlights: ['Karakter tegas, pekerja keras, dan religius', 'Menjunjung tinggi solidaritas dan harga diri', 'Tradisi khas: Karapan Sapi', 'Memiliki seni musik Saronen dan kuliner Sate Madura'],
+    gallery: ['https://images.pexels.com/photos/3651600/pexels-photo-3651600.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2252245/pexels-photo-2252245.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Suku Madura dikenal memiliki budaya merantau yang kuat.', 'Harga diri (malu) adalah nilai yang sangat dijunjung (Harak).' , 'Karapan Sapi adalah simbol kebanggaan sosial.'],
+    culturalSignificance: 'Simbol kegigihan, kerja keras, dan kuatnya identitas budaya; ikon Karapan Sapi telah mendunia.',
+    relatedLinks: ['Karapan Sapi', 'Sate Madura', 'Musik Saronen', 'Budaya Merantau'],
+  },
+  {
+    id: 'suku-3',
+    title: 'Suku Osing',
+    category: 'Suku Asli',
+    thumbnail: 'https://images.pexels.com/photos/8636625/pexels-photo-8636625.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Banyuwangi',
+    shortDesc: 'Suku asli Banyuwangi, keturunan Kerajaan Blambangan, dengan corak budaya campuran Jawa dan Bali.',
+    fullDesc: 'Suku Osing atau sering disebut Using adalah suku asli Banyuwangi, Jawa Timur, yang merupakan keturunan langsung dari masyarakat Kerajaan Blambangan. Bahasa Osing menjadi ciri khas utama yang masih digunakan dalam percakapan sehari-hari. Selain itu, mereka memiliki kesenian dan tradisi unik seperti Tari Gandrung yang menjadi ikon Banyuwangi, upacara adat Seblang sebagai bentuk ritual tolak bala, serta tradisi Kebo-Keboan yang menggambarkan hubungan erat dengan alam. Suku Osing juga dikenal memiliki corak budaya campuran Jawa dan Bali, karena letak geografis Banyuwangi yang berdekatan dengan Bali. Hingga kini, masyarakat Osing terus menjaga kelestarian adat dan budayanya, sekaligus menjadikannya sebagai daya tarik wisata budaya di ujung timur Pulau Jawa.',
+    highlights: ['Keturunan Kerajaan Blambangan', 'Menggunakan Bahasa Osing yang khas', 'Ikon budaya: Tari Gandrung, Upacara Seblang, Kebo-Keboan', 'Budaya campuran Jawa dan Bali'],
+    gallery: ['https://images.pexels.com/photos/8636625/pexels-photo-8636625.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2132171/pexels-photo-2132171.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/4666748/pexels-photo-4666748.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Banyuwangi sering disebut "The Sunrise of Java".', 'Bahasa Osing adalah bahasa Jawa Kuno yang masih murni.', 'Tari Seblang adalah ritual pemanggilan arwah.'],
+    culturalSignificance: 'Identitas budaya Banyuwangi yang unik; perpaduan budaya Jawa dan Bali yang khas; pelestarian tradisi Kerajaan Blambangan.',
+    relatedLinks: ['Kerajaan Blambangan', 'Bahasa Osing', 'Tari Gandrung', 'Kebo-Keboan'],
+  },
+  {
+    id: 'suku-4',
+    title: 'Suku Tengger',
+    category: 'Suku Asli',
+    thumbnail: 'https://images.pexels.com/photos/6207960/pexels-photo-6207960.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Gunung Bromo–Tengger–Semeru',
+    shortDesc: 'Suku asli yang mendiami kawasan pegunungan Bromo, dipercaya sebagai keturunan langsung dari pelarian Kerajaan Majapahit.',
+    fullDesc: 'Suku Tengger adalah suku asli yang mendiami kawasan pegunungan Bromo–Tengger–Semeru, meliputi Probolinggo, Pasuruan, Lumajang, dan Malang. Mereka dipercaya sebagai keturunan langsung dari pelarian Kerajaan Majapahit yang bertahan di wilayah pegunungan hingga sekarang. Suku Tengger masih memegang teguh ajaran Hindu Jawa dengan ritual-ritual khas yang diwariskan turun-temurun. Salah satu tradisi terpenting adalah Upacara Yadnya Kasada yang diadakan setiap tahun di Gunung Bromo, di mana masyarakat mempersembahkan hasil bumi, hewan ternak, bahkan sesaji lainnya ke kawah gunung sebagai ungkapan syukur dan doa keselamatan.',
+    highlights: ['Keturunan pelarian Majapahit', 'Mendiami kawasan Bromo-Tengger-Semeru', 'Memegang teguh ajaran Hindu Jawa', 'Tradisi terpenting: Upacara Yadnya Kasada'],
+    gallery: ['https://images.pexels.com/photos/6207960/pexels-photo-6207960.jpeg?auto=compress&cs=tinysrgb&w=800', IMAGE_PLACEHOLDERS.MOUNTAIN, 'https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg?auto=compress&cs=tinysrgb&w=800'],
+    funFacts: ['Nama "Tengger" dipercaya berasal dari nama leluhur Roro Anteng dan Joko Seger.', 'Mereka memiliki sistem kalender sendiri (Kalender Tengger).', 'Rumah adat mereka disebut Pringgitan.'],
+    culturalSignificance: 'Pelestari tradisi Hindu Jawa di tengah mayoritas Muslim; simbol kesetiaan pada leluhur dan harmoni dengan alam.',
+    relatedLinks: ['Upacara Yadnya Kasada', 'Gunung Bromo', 'Hindu Jawa', 'Roro Anteng dan Joko Seger'],
+  },
 ];
 
+// --- H. CERITA RAKYAT ---
+export const ceritaRakyatData: CulturalItem[] = [
+  {
+    id: 'cerita-1',
+    title: 'Legenda Surabaya',
+    category: 'Cerita Rakyat',
+    thumbnail: IMAGE_PLACEHOLDERS.WATER,
+    location: 'Surabaya',
+    shortDesc: 'Kisah pertarungan sengit antara ikan Sura (hiu) dan Baya (buaya) yang menjadi asal-usul nama Kota Surabaya.',
+    fullDesc: 'Legenda Surabaya adalah salah satu cerita rakyat terkenal dari Jawa Timur. Kisah ini menceritakan pertarungan sengit antara dua hewan besar, yaitu ikan Sura (ikan hiu) dan Baya (buaya). Mereka berebut wilayah kekuasaan, karena sama-sama ingin menguasai perairan di laut maupun di sungai. Pertarungan keduanya sangat dahsyat hingga membuat laut dan sungai bergolak. Akhirnya, mereka membuat perjanjian: Sura berkuasa di laut, sementara Baya menguasai daratan dan sungai. Namun, kesepakatan ini tidak serta-merta menghilangkan rasa permusuhan di antara keduanya. Perkelahian Sura dan Baya kemudian dikenang oleh masyarakat setempat sebagai asal-usul nama kota Surabaya, gabungan dari kata Sura dan Baya. Bagi masyarakat Jawa Timur, legenda ini bukan hanya dongeng hiburan, tetapi juga sarat makna. Pertarungan Sura dan Baya melambangkan semangat keberanian dan perjuangan, yang kemudian menjadi identitas warga Surabaya hingga kini.',
+    highlights: ['Pertarungan antara Sura (hiu) dan Baya (buaya)', 'Asal-usul nama kota Surabaya', 'Melambangkan semangat keberanian dan perjuangan', 'Diakhiri dengan perjanjian pembagian wilayah'],
+    gallery: [IMAGE_PLACEHOLDERS.WATER, IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.HISTORY],
+    funFacts: ['Lambang kota Surabaya menampilkan hiu dan buaya yang saling berhadapan.', 'Pertarungan ini melambangkan perebutan kekuasaan.', 'Sura diidentikan dengan keberanian, Baya diidentikan dengan keuletan.'],
+    culturalSignificance: 'Asal-usul nama kota Surabaya; melambangkan semangat keberanian dan perjuangan, yang menjadi identitas warga Surabaya.',
+    relatedLinks: ['Sura dan Baya', 'Lambang Kota Surabaya', 'Folklore Jawa Timur', 'Semangat Arek Suroboyo'],
+  },
+  {
+    id: 'cerita-2',
+    title: 'Lembusura',
+    category: 'Cerita Rakyat',
+    thumbnail: IMAGE_PLACEHOLDERS.MOUNTAIN,
+    location: 'Gunung Kelud, Kediri',
+    shortDesc: 'Tokoh legendaris dari Gunung Kelud yang digambarkan sebagai raksasa sakti, kemarahannya dipercaya menyebabkan letusan gunung.',
+    fullDesc: 'Lembusura adalah tokoh legendaris dalam cerita rakyat Jawa Timur yang berasal dari daerah Gunung Kelud, Kediri. Ia digambarkan sebagai raksasa sakti dengan tubuh besar dan kekuatan luar biasa. Menurut cerita, Lembusura pernah menentang seorang raja dan menyebabkan kekacauan di bumi. Karena kesaktiannya sulit dikalahkan, akhirnya ia dikurung di dalam Gunung Kelud. Masyarakat percaya bahwa setiap kali Gunung Kelud meletus, itu adalah tanda kemarahan Lembusura yang ingin keluar dari kurungannya. Cerita ini telah diwariskan secara turun-temurun dan menjadi bagian penting dari kekayaan cerita rakyat Jawa Timur, yang mengingatkan manusia agar tidak sombong serta menghormati kekuatan alam.',
+    highlights: ['Tokoh raksasa sakti dari Gunung Kelud', 'Dikurung di dalam Gunung Kelud', 'Letusan Kelud dipercaya sebagai kemarahan Lembusura', 'Mengajarkan untuk menghormati kekuatan alam'],
+    gallery: [IMAGE_PLACEHOLDERS.MOUNTAIN, IMAGE_PLACEHOLDERS.HISTORY, IMAGE_PLACEHOLDERS.GENERAL_CULTURE],
+    funFacts: ['Lembusura memiliki tubuh besar dan kekuatan luar biasa.', 'Kisah ini sering dikaitkan dengan danau kawah Gunung Kelud.', 'Sering menjadi lakon dalam pertunjukan wayang Jawa Timur.'],
+    culturalSignificance: 'Mengajarkan manusia agar tidak sombong dan menghormati kekuatan alam; menjadi bagian dari mitologi vulkanik Jawa.',
+    relatedLinks: ['Gunung Kelud', 'Raksasa', 'Mitologi Jawa', 'Jangka Jayabaya'],
+  },
+  {
+    id: 'cerita-3',
+    title: 'Keong Mas',
+    category: 'Cerita Rakyat',
+    thumbnail: IMAGE_PLACEHOLDERS.WATER,
+    location: 'Jawa Timur',
+    shortDesc: 'Kisah tentang putri kerajaan, Dewi Candra Kirana, yang diubah menjadi keong emas oleh sihir penyihir jahat.',
+    fullDesc: 'Keong Mas adalah salah satu cerita rakyat terkenal dari Jawa Timur yang sarat pesan moral. Kisah ini menceritakan tentang dua putri kerajaan, Dewi Candra Kirana dan Dewi Galuh Ajeng. Karena rasa iri dan dengki, Galuh Ajeng bekerja sama dengan seorang penyihir jahat untuk menyingkirkan saudarinya. Akibat sihir itu, Candra Kirana berubah wujud menjadi seekor keong emas yang hanyut ke sungai. Suatu hari, keong emas ditemukan oleh seorang nenek tua. Keong itu kemudian berubah menjadi Candra Kirana setiap kali berada di rumah sang nenek, membantu mengerjakan pekerjaan sehari-hari. Keajaiban ini akhirnya terungkap, hingga ia bertemu kembali dengan pangeran pujaannya. Sihir pun lenyap, dan Candra Kirana kembali ke wujud aslinya. Legenda Keong Mas mengajarkan bahwa kebaikan hati akan selalu mengalahkan kejahatan dan iri dengki, serta menjadi bagian penting dari kekayaan cerita rakyat Jawa Timur yang diwariskan turun-temurun.',
+    highlights: ['Tokoh utama: Dewi Candra Kirana dan Dewi Galuh Ajeng', 'Candra Kirana berubah menjadi Keong Mas karena sihir', 'Ditemukan oleh seorang nenek tua yang baik hati', 'Mengajarkan kebaikan hati mengalahkan kejahatan'],
+    gallery: [IMAGE_PLACEHOLDERS.WATER, IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.FOOD],
+    funFacts: ['Kisah Keong Mas sering dikaitkan dengan Panji Semirang (cerita klasik Jawa).', 'Terdapat beberapa versi lokasi cerita di Jawa Timur.', 'Motif keong emas melambangkan perubahan nasib.'],
+    culturalSignificance: 'Sarat pesan moral tentang kebaikan hati, kesetiaan, dan perjuangan; warisan sastra lisan Jawa Timur.',
+    relatedLinks: ['Dewi Candra Kirana', 'Panji Semirang', 'Sihir dan Kutukan', 'Pesan Moral'],
+  },
+  {
+    id: 'cerita-4',
+    title: 'Ande-ande Lumut',
+    category: 'Cerita Rakyat',
+    thumbnail: IMAGE_PLACEHOLDERS.GENERAL_CULTURE,
+    location: 'Jawa Timur',
+    shortDesc: 'Kisah tentang pencarian jodoh seorang pangeran yang menyamar, Ande-Ande Lumut, dan gadis tulus Klenting Kuning.',
+    fullDesc: 'Ande-Ande Lumut adalah cerita rakyat Jawa Timur yang mengisahkan pencarian jodoh seorang pemuda tampan bernama Ande-Ande Lumut. Ia sebenarnya seorang pangeran yang menyamar untuk mencari istri yang baik hati dan setia. Banyak gadis cantik datang melamar, termasuk Klenting Abang, Klenting Ijo, dan Klenting Biru yang angkuh serta sombong. Namun, hanya Klenting Kuning, gadis sederhana yang selalu diperlakukan rendah oleh saudara-saudarinya, mampu menunjukkan ketulusan hati. Dalam perjalanannya, Klenting Kuning menolak bantuan Yuyu Kangkang, raksasa kepiting sungai yang meminta imbalan ciuman untuk menyeberangkan orang. Berbeda dengan saudara-saudarinya yang bersedia, Klenting Kuning tetap menjaga kehormatannya dan memilih berusaha sendiri. Akhirnya, Ande-Ande Lumut memilih Klenting Kuning sebagai pendamping hidupnya. Cerita ini mengajarkan bahwa kesederhanaan, kejujuran, dan kemurnian hati lebih berharga daripada kecantikan fisik dan kesombongan.',
+    highlights: ['Tokoh utama: Ande-Ande Lumut dan Klenting Kuning', 'Pangeran yang menyamar mencari istri yang setia', 'Klenting Kuning menolak imbalan Yuyu Kangkang', 'Mengajarkan nilai kesederhanaan dan ketulusan'],
+    gallery: [IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.HISTORY, IMAGE_PLACEHOLDERS.TRADITION],
+    funFacts: ['Kisah ini juga dikaitkan dengan siklus Panji.', 'Yuyu Kangkang adalah tokoh yang menguji kesetiaan para pelamar.', 'Nama "Lumut" melambangkan kerendahan hati atau kesederhanaan.'],
+    culturalSignificance: 'Mengajarkan bahwa kesederhanaan, kejujuran, dan kemurnian hati lebih berharga; salah satu kisah yang paling populer dalam budaya Jawa.',
+    relatedLinks: ['Klenting Kuning', 'Pangeran Panji', 'Yuyu Kangkang', 'Pesan Moral Jawa'],
+  },
+];
+
+// --- I. SITUS SEJARAH ---
+export const situsSejarahData: CulturalItem[] = [
+  {
+    id: 'situs-1',
+    title: 'Situs Trowulan',
+    category: 'Situs Sejarah',
+    thumbnail: 'https://images.pexels.com/photos/2166711/pexels-photo-2166711.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Trowulan, Mojokerto',
+    year: 'Abad ke-13 hingga ke-15 M',
+    shortDesc: 'Kawasan bersejarah yang diyakini sebagai bekas pusat Kerajaan Majapahit, menyimpan berbagai peninggalan arkeologis.',
+    fullDesc: 'Situs Trowulan adalah kawasan bersejarah di Jawa Timur yang diyakini sebagai bekas pusat Kerajaan Majapahit, salah satu kerajaan terbesar dalam sejarah Nusantara. Terletak di Kabupaten Mojokerto, situs ini menyimpan berbagai peninggalan arkeologis seperti candi, gapura, kolam, sumur kuno, arca, serta artefak keramik dan logam. Beberapa bangunan penting di kawasan ini antara lain Candi Brahu, Gapura Bajang Ratu, dan Kolam Segaran, yang menunjukkan kemegahan arsitektur serta kemajuan peradaban Majapahit pada abad ke-13 hingga ke-15 Masehi. Situs Trowulan menjadi bukti nyata kejayaan masa lalu dan menjadi pusat penelitian sejarah serta tujuan wisata budaya yang penting. Hingga kini, kawasan ini dijaga dan dilestarikan sebagai warisan berharga yang merefleksikan kebesaran Majapahit dan kejayaan budaya Jawa Timur.',
+    highlights: ['Bekas Pusat Kerajaan Majapahit', 'Peninggalan: Candi Brahu, Gapura Bajang Ratu, Kolam Segaran', 'Menunjukkan kemegahan arsitektur Majapahit', 'Pusat penelitian arkeologi'],
+    gallery: ['https://images.pexels.com/photos/2166711/pexels-photo-2166711.jpeg?auto=compress&cs=tinysrgb&w=800', 'https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=800', IMAGE_PLACEHOLDERS.HISTORY],
+    funFacts: ['Dipercaya sebagai ibu kota Majapahit yang sangat luas.', 'Kolam Segaran berfungsi sebagai tempat jamuan raja atau penampungan air.', 'Banyak ditemukan artefak keramik Tiongkok kuno di situs ini.'],
+    culturalSignificance: 'Bukti nyata kejayaan peradaban Majapahit; simbol kebesaran budaya Jawa Timur masa lalu.',
+    relatedLinks: ['Kerajaan Majapahit', 'Gapura Bajang Ratu', 'Kolam Segaran', 'Arkeologi Mojokerto'],
+  },
+  {
+    id: 'situs-2',
+    title: 'Candi Penataran',
+    category: 'Situs Sejarah',
+    thumbnail: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Blitar',
+    year: 'Abad ke-12 hingga ke-15 M',
+    shortDesc: 'Kompleks candi terbesar di Jawa Timur, digunakan sebagai tempat pemujaan Dewa Siwa sejak masa Kediri hingga Majapahit.',
+    fullDesc: 'Candi Penataran adalah kompleks candi terbesar di Jawa Timur yang terletak di Desa Penataran, Kabupaten Blitar. Candi ini dibangun pada masa Kerajaan Kediri dan terus digunakan hingga masa Majapahit sebagai tempat pemujaan kepada Dewa Siwa. Arsitekturnya megah dengan relief yang menceritakan kisah epos Ramayana dan legenda Nusantara lainnya. Sebagai salah satu peninggalan penting masa Hindu-Buddha, Candi Penataran mencerminkan kemajuan seni, keagamaan, dan budaya masyarakat Jawa Timur pada abad ke-12 hingga ke-15 Masehi. Kini, Candi Penataran menjadi situs bersejarah yang dilestarikan dan menjadi simbol kejayaan peradaban Jawa Timur di masa lampau.',
+    highlights: ['Kompleks candi terbesar di Jawa Timur', 'Pemujaan Dewa Siwa', 'Dibangun sejak masa Kediri hingga Majapahit', 'Relief menceritakan Ramayana dan legenda Nusantara'],
+    gallery: [IMAGE_PLACEHOLDERS.MOUNTAIN, IMAGE_PLACEHOLDERS.HISTORY, IMAGE_PLACEHOLDERS.GENERAL_CULTURE],
+    funFacts: ['Nama asli candi ini diperkirakan adalah Palah.', 'Reliefnya terkenal dengan gaya Jawa Timur yang dinamis.', 'Pusat kegiatan keagamaan kerajaan Hindu-Buddha di Jawa Timur.'],
+    culturalSignificance: 'Simbol kejayaan peradaban Hindu-Buddha Jawa Timur; mencerminkan kemajuan seni dan keagamaan masa lampau.',
+    relatedLinks: ['Dewa Siwa', 'Kerajaan Kediri', 'Ramayana', 'Arsitektur Candi Jawa Timur'],
+  },
+  {
+    id: 'situs-3',
+    title: 'Benteng Van Den Bosch',
+    category: 'Situs Sejarah',
+    thumbnail: 'https://images.pexels.com/photos/2437299/pexels-photo-2437299.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Ngawi',
+    year: 'Sekitar 1839',
+    shortDesc: 'Benteng bersejarah peninggalan Belanda yang dijuluki "Benteng Pendem" karena posisinya yang lebih rendah dari permukaan tanah.',
+    fullDesc: 'Benteng Van den Bosch adalah bangunan bersejarah yang terletak di Ngawi, Jawa Timur, dan dibangun pada masa penjajahan Belanda sekitar tahun 1839. Benteng ini didirikan oleh Jenderal Hendrik Merkus de Kock untuk memperkuat pertahanan Belanda di wilayah timur Pulau Jawa, terutama setelah perang Jawa melawan Pangeran Diponegoro. Bangunan ini dijuluki “Benteng Pendem” karena posisinya yang lebih rendah dari permukaan tanah sekitarnya, sehingga tampak tersembunyi. Arsitekturnya bergaya Eropa klasik dengan dinding tebal, lorong-lorong panjang, dan jendela besar khas bangunan kolonial. Kini, Benteng Van den Bosch menjadi situs cagar budaya dan destinasi wisata sejarah yang penting di Jawa Timur, menggambarkan jejak kolonialisme serta nilai historis perjuangan bangsa Indonesia.',
+    highlights: ['Peninggalan masa kolonial Belanda (1839)', 'Dijuluki "Benteng Pendem"', 'Didirikan untuk pertahanan pasca Perang Jawa', 'Arsitektur bergaya Eropa klasik'],
+    gallery: ['https://images.pexels.com/photos/2437299/pexels-photo-2437299.jpeg?auto=compress&cs=tinysrgb&w=800', IMAGE_PLACEHOLDERS.HISTORY, IMAGE_PLACEHOLDERS.GENERAL_CULTURE],
+    funFacts: ['"Pendem" berarti terpendam atau tersembunyi dalam bahasa Jawa.', 'Dibangun oleh Jenderal Hendrik Merkus de Kock.', 'Salah satu benteng terkuat Belanda di Jawa Timur.'],
+    culturalSignificance: 'Menggambarkan jejak kolonialisme; saksi bisu nilai historis perjuangan bangsa Indonesia.',
+    relatedLinks: ['Jenderal De Kock', 'Perang Jawa', 'Pangeran Diponegoro', 'Situs Cagar Budaya'],
+  },
+  {
+    id: 'situs-4',
+    title: 'Museum De Javasche Bank',
+    category: 'Situs Sejarah',
+    thumbnail: IMAGE_PLACEHOLDERS.HISTORY,
+    location: 'Surabaya',
+    year: 'Akhir Abad ke-19',
+    shortDesc: 'Bangunan bersejarah bekas kantor cabang bank sentral Hindia Belanda, kini berfungsi sebagai museum perbankan Indonesia.',
+    fullDesc: 'Museum De Javasche Bank adalah bangunan bersejarah yang terletak di Surabaya, Jawa Timur, yang dahulu merupakan kantor cabang De Javasche Bank, bank sentral Hindia Belanda pada masa kolonial. Didirikan pada akhir abad ke-19, bangunan ini memiliki arsitektur bergaya Eropa klasik dengan interior megah yang mencerminkan kemewahan masa kolonial. Kini, bangunan tersebut berfungsi sebagai museum perbankan Indonesia, yang menampilkan koleksi uang kuno, mesin cetak uang, dokumen keuangan, dan sejarah perkembangan sistem perbankan di Indonesia. Sebagai situs cagar budaya, Museum De Javasche Bank menjadi tempat edukatif yang memperkenalkan masyarakat pada sejarah ekonomi dan perbankan, sekaligus menjadi saksi bisu perjalanan panjang kota Surabaya sebagai pusat perdagangan dan keuangan di masa lalu.',
+    highlights: ['Bekas kantor cabang bank sentral Hindia Belanda', 'Arsitektur bergaya Eropa klasik', 'Kini menjadi museum perbankan Indonesia', 'Menampilkan koleksi uang kuno dan sejarah perbankan'],
+    gallery: [IMAGE_PLACEHOLDERS.HISTORY, IMAGE_PLACEHOLDERS.GENERAL_CULTURE, IMAGE_PLACEHOLDERS.TRADITION],
+    funFacts: ['Surabaya adalah pusat perdagangan terpenting di timur Jawa pada masa kolonial.', 'Bank ini adalah cikal bakal Bank Indonesia (BI).', 'Interiornya mencerminkan kemewahan masa kolonial.'],
+    culturalSignificance: 'Saksi bisu sejarah ekonomi dan perbankan; simbol Surabaya sebagai pusat perdagangan dan keuangan di masa lalu.',
+    relatedLinks: ['De Javasche Bank', 'Bank Indonesia', 'Sejarah Perbankan', 'Cagar Budaya Surabaya'],
+  },
+];
+
+// --- F. Data Gabungan ---
+// Menggabungkan semua data ke dalam satu objek kategori
 export const allCategories = {
   Tarian: tarianData,
   Kuliner: kulinerData,
   Gunung: gunungData,
+  LaguDaerah: laguDaerahData,
   Tradisi: tradisiData,
-  Kerajaan: kerajaanData,
-  Batik: batikData,
-  Pantai: panaiData,
-  Musik: musikData,
-  Warisan: warisanData
+  KerajaanKuno: kerajaanKunoData,
+  SukuAsli: sukuAsliData,
+  CeritaRakyat: ceritaRakyatData,
+  SitusSejarah: situsSejarahData,
 };
 
+// Menggabungkan semua data ke dalam satu array tunggal
 export const allData = [
   ...tarianData,
   ...kulinerData,
   ...gunungData,
+  ...laguDaerahData,
   ...tradisiData,
-  ...kerajaanData,
-  ...batikData,
-  ...panaiData,
-  ...musikData,
-  ...warisanData
+  ...kerajaanKunoData,
+  ...sukuAsliData,
+  ...ceritaRakyatData,
+  ...situsSejarahData,
 ];

@@ -69,11 +69,11 @@ function App() {
                 </div>
                 <div className="flex flex-col">
                   <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 tracking-tight drop-shadow-2xl animate-gradient-x">
-                    Budaya Jawa Timur
+                    S E K A W A N
                   </h1>
                   <p className="text-xs sm:text-sm text-amber-300/90 font-medium tracking-wider flex items-center gap-1.5">
                     <Star size={12} className="text-yellow-400 fill-yellow-400 animate-pulse" />
-                    Warisan Adiluhung Nusantara
+                    Inovasi Budaya Jawa Timur
                   </p>
                 </div>
               </div>
@@ -91,7 +91,6 @@ function App() {
               <nav className="hidden lg:flex items-center gap-2">
                 <NavLink icon={<Home size={18} />} href="/" label="Beranda" />
                 <NavLink icon={<MapPin size={18} />} href="#kategori" label="Kategori" />
-                <NavLink icon={<Info size={18} />} href="#tentang" label="Tentang" />
                 <a
                   href="#kontak"
                   className="group relative px-6 py-3 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 text-slate-900 hover:from-yellow-400 hover:to-amber-400 rounded-xl transition-all duration-500 font-bold shadow-2xl hover:shadow-yellow-500/50 transform hover:scale-105 overflow-hidden"
@@ -114,7 +113,6 @@ function App() {
               <nav className="space-y-2 pt-2">
                 <MobileNavLink icon={<Home size={18} />} href="/" label="Beranda" onClick={() => setIsMenuOpen(false)} />
                 <MobileNavLink icon={<MapPin size={18} />} href="#kategori" label="Kategori" onClick={() => setIsMenuOpen(false)} />
-                <MobileNavLink icon={<Info size={18} />} href="#tentang" label="Tentang" onClick={() => setIsMenuOpen(false)} />
                 <a
                   href="#kontak"
                   onClick={() => setIsMenuOpen(false)}
@@ -276,33 +274,6 @@ function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
-              <ChevronRight size={18} className="text-yellow-400" />
-              Navigasi Cepat
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <FooterLink href="/">Beranda</FooterLink>
-              <FooterLink href="#kategori">Kategori</FooterLink>
-              <FooterLink href="#tentang">Tentang Kami</FooterLink>
-              <FooterLink href="#kontak">Kontak</FooterLink>
-            </ul>
-          </div>
-
-          {/* Categories */}
-          <div>
-            <h4 className="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
-              <ChevronRight size={18} className="text-yellow-400" />
-              Kategori Populer
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <FooterLink href="/tarian">💃 Tarian</FooterLink>
-              <FooterLink href="/kuliner">🍜 Kuliner</FooterLink>
-              <FooterLink href="/batik">🎨 Batik</FooterLink>
-              <FooterLink href="/musik">🎵 Musik</FooterLink>
-            </ul>
-          </div>
 
           {/* Contact Info */}
           <div>
@@ -331,8 +302,7 @@ function Footer() {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
             <p className="flex items-center gap-2">
-              © 2025 Budaya Jawa Timur. 
-              <span className="text-amber-400/80">Hak Cipta Dilindungi.</span>
+              © 2025 Fauzan Dimas Prasojo
             </p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-amber-400 transition-colors duration-300">Kebijakan Privasi</a>
