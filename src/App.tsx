@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, Info, Mail, MapPin } from 'lucide-react';
+import { Menu, X, Home, Info, Mail, MapPin, Star, ChevronRight, Facebook, Instagram, Twitter, Youtube, Phone } from 'lucide-react';
 import Modal from './components/Modal';
 import { CulturalItem } from './data/culturalData';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation, useParams } from 'react-router-dom';
@@ -32,44 +32,48 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden">
-        {/* Batik Pattern Background */}
-        <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-0">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-amber-900 to-slate-900 relative overflow-hidden">
+        {/* Animated Batik Pattern Background */}
+        <div className="fixed inset-0 opacity-[0.08] pointer-events-none z-0">
           <div 
-            className="w-full h-full"
+            className="w-full h-full animate-pulse-slow"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0h2v20H9V0zm25.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm-20 20l1.732 1-10 17.32-1.732-1 10-17.32zM58.16 4.134l1 1.732-17.32 10-1-1.732 17.32-10zm-40 40l1 1.732-17.32 10-1-1.732 17.32-10zM80 9v2H60V9h20zM20 69v2H0v-2h20zm79.32-55l-1 1.732-17.32-10 1-1.732 17.32 10zm-80 80l-1 1.732-17.32-10 1-1.732 17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32zM38.16 24.134l1 1.732-17.32 10-1-1.732 17.32-10zM60 29v2H40v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM40 49v2H20v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM20 89v2H0v-2h20zm60.134-44.84l1.732 1-10 17.32-1.732-1 10-17.32zm0 20l1.732 1-10 17.32-1.732-1 10-17.32zM100 49v2H80v-2h20zm-30 20v2H50v-2h20zm-50 0v2H0v-2h20zm39.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM80 89v2H60v-2h20zm-80 0v2H-20v-2h20zm139.32-55l-1 1.732-17.32-10 1-1.732 17.32 10zm-80 80l-1 1.732-17.32-10 1-1.732 17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32z' fill='%238B4513' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M81.28 88H68.413l19.298 19.298L81.28 88zm2.107 0h13.226L90 107.838 83.387 88zm15.334 0h12.866l-19.298 19.298L98.72 88zm-32.927-2.207L73.586 78h32.827l.5.5 7.294 7.293L115.414 87l-24.707 24.707-.707.707L64.586 87l1.207-1.207zm2.62.207L74 80.414 79.586 86H68.414zm16 0L90 80.414 95.586 86H84.414zm16 0L106 80.414 111.586 86h-11.172zm-8-6h11.173L98 85.586 92.414 80zM82 85.586L87.586 80H76.414L82 85.586zM17.414 0L.707 16.707 0 17.414V0h17.414zM4.28 0L0 12.838V0h4.28zm10.306 0L2.288 12.298 6.388 0h8.198zM180 17.414L162.586 0H180v17.414zM165.414 0l12.298 12.298L173.612 0h-8.198zM180 12.838L175.72 0H180v12.838zM0 163h16.413l.5.5 7.294 7.293L25.414 172l-8 8H0v-17zm0 10h6.613l-2.334 7H0v-7zm14.586 7l7-7H8.72l-2.333 7h8.2zM0 165.414L5.586 171H0v-5.586zM10.414 171L16 165.414 21.586 171H10.414zm-8-6h11.172L8 170.586 2.414 165zM180 163h-16.413l-7.794 7.793-1.207 1.207 8 8H180v-17zm-14.586 17l-7-7h12.865l2.333 7h-8.2zM180 173h-6.613l2.334 7H180v-7zm-21.586-2l5.586-5.586 5.586 5.586h-11.172zM180 165.414L174.414 171H180v-5.586zm-8 5.172l5.586-5.586h-11.172l5.586 5.586zM152.933 25.653l1.414 1.414-33.94 33.942-1.416-1.416 33.943-33.94zm1.414 127.28l-1.414 1.414-33.942-33.94 1.416-1.416 33.94 33.943zm-127.28 1.414l-1.414-1.414 33.94-33.942 1.416 1.416-33.943 33.94zm-1.414-127.28l1.414-1.414 33.942 33.94-1.416 1.416-33.94-33.943zM0 85c2.21 0 4 1.79 4 4s-1.79 4-4 4v-8zm180 0c-2.21 0-4 1.79-4 4s1.79 4 4 4v-8zM90 0c0 2.21-1.79 4-4 4s-4-1.79-4-4h8zm0 180c0-2.21-1.79-4-4-4s-4 1.79-4 4h8z' fill='%23d97706' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
             }}
           />
         </div>
 
+        {/* Gradient Overlay */}
+        <div className="fixed inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 pointer-events-none z-0" />
+
         {/* Header */}
         <header 
-          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
             scrolled 
-              ? 'bg-gradient-to-r from-amber-900/95 via-orange-900/95 to-red-900/95 backdrop-blur-lg shadow-2xl' 
-              : 'bg-gradient-to-r from-amber-900/90 via-orange-900/90 to-red-900/90 backdrop-blur-md'
+              ? 'bg-gradient-to-r from-slate-900/98 via-amber-900/98 to-slate-900/98 backdrop-blur-xl shadow-2xl border-b border-amber-500/20' 
+              : 'bg-gradient-to-r from-slate-900/80 via-amber-900/80 to-slate-900/80 backdrop-blur-md'
           }`}
         >
-          {/* Decorative Top Border */}
-          <div className="h-1 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500" />
+          {/* Decorative Top Border with Animation */}
+          <div className="h-1 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 animate-gradient-x" />
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-20 lg:h-24">
               {/* Logo & Title */}
               <div className="flex items-center gap-3 sm:gap-4 group cursor-pointer" onClick={() => window.location.href = '/'}>
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl blur-md group-hover:blur-lg transition-all duration-300 opacity-75" />
-                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 rounded-2xl flex items-center justify-center shadow-xl transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                    <span className="text-3xl sm:text-4xl filter drop-shadow-lg">🏛️</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-75 group-hover:opacity-100" />
+                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 rounded-2xl flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                    <span className="text-3xl sm:text-4xl filter drop-shadow-2xl animate-float">🏛️</span>
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-amber-100 to-yellow-200 tracking-tight drop-shadow-lg">
+                  <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 tracking-tight drop-shadow-2xl animate-gradient-x">
                     Budaya Jawa Timur
                   </h1>
-                  <p className="text-xs sm:text-sm text-amber-200/90 font-medium tracking-wide">
-                    ✨ Warisan Tak Ternilai Harganya
+                  <p className="text-xs sm:text-sm text-amber-300/90 font-medium tracking-wider flex items-center gap-1.5">
+                    <Star size={12} className="text-yellow-400 fill-yellow-400 animate-pulse" />
+                    Warisan Adiluhung Nusantara
                   </p>
                 </div>
               </div>
@@ -77,14 +81,10 @@ function App() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden relative p-3 text-white hover:bg-white/10 rounded-xl transition-all duration-300 group"
+                className="lg:hidden relative p-3 text-amber-200 hover:bg-white/10 rounded-xl transition-all duration-300 group"
                 aria-label="Toggle menu"
               >
-                <div className="relative w-6 h-6">
-                  <span className={`absolute top-0 left-0 w-full h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'rotate-45 top-3' : ''}`} />
-                  <span className={`absolute top-3 left-0 w-full h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
-                  <span className={`absolute top-6 left-0 w-full h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? '-rotate-45 top-3' : ''}`} />
-                </div>
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
 
               {/* Desktop Navigation */}
@@ -94,13 +94,13 @@ function App() {
                 <NavLink icon={<Info size={18} />} href="#tentang" label="Tentang" />
                 <a
                   href="#kontak"
-                  className="group relative px-6 py-3 bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 text-amber-900 hover:from-yellow-300 hover:to-amber-400 rounded-xl transition-all duration-300 font-bold shadow-xl hover:shadow-yellow-500/50 transform hover:scale-105 overflow-hidden"
+                  className="group relative px-6 py-3 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 text-slate-900 hover:from-yellow-400 hover:to-amber-400 rounded-xl transition-all duration-500 font-bold shadow-2xl hover:shadow-yellow-500/50 transform hover:scale-105 overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     <Mail size={18} />
                     Kontak
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-300 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-amber-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </a>
               </nav>
             </div>
@@ -118,7 +118,7 @@ function App() {
                 <a
                   href="#kontak"
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-yellow-400 to-amber-500 text-amber-900 hover:from-yellow-300 hover:to-amber-400 rounded-xl transition-all duration-300 font-bold shadow-lg"
+                  className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-900 hover:from-yellow-400 hover:to-amber-400 rounded-xl transition-all duration-300 font-bold shadow-lg"
                 >
                   <Mail size={18} />
                   <span>Kontak</span>
@@ -128,7 +128,7 @@ function App() {
           </div>
 
           {/* Decorative Bottom Border */}
-          <div className="h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-30" />
+          <div className="h-0.5 bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-50" />
         </header>
 
         {/* Main Content */}
@@ -170,16 +170,16 @@ function NavLink({ icon, href, label }: { icon: React.ReactNode; href: string; l
     <a
       href={href}
       onClick={handleClick}
-      className={`group relative px-4 py-2.5 rounded-xl transition-all duration-300 font-medium flex items-center gap-2 ${
+      className={`group relative px-4 py-2.5 rounded-xl transition-all duration-500 font-medium flex items-center gap-2 ${
         isActive
-          ? 'bg-white/20 text-yellow-300'
-          : 'text-white/90 hover:bg-white/10 hover:text-white'
+          ? 'bg-amber-500/20 text-amber-300 shadow-lg shadow-amber-500/20'
+          : 'text-amber-200/90 hover:bg-white/10 hover:text-amber-100'
       }`}
     >
       <span className="transform group-hover:scale-110 transition-transform duration-300">{icon}</span>
       <span>{label}</span>
       {isActive && (
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full" />
       )}
     </a>
   );
@@ -209,10 +209,10 @@ function MobileNavLink({ icon, href, label, onClick }: { icon: React.ReactNode; 
     <a
       href={href}
       onClick={handleClick}
-      className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
+      className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-500 font-medium ${
         isActive
-          ? 'bg-white/20 text-yellow-300'
-          : 'text-white/90 hover:bg-white/10 hover:text-white'
+          ? 'bg-amber-500/20 text-amber-300 shadow-lg shadow-amber-500/20'
+          : 'text-amber-200/90 hover:bg-white/10 hover:text-amber-100'
       }`}
     >
       {icon}
@@ -228,9 +228,9 @@ function CategoryPageWrapper({ openModal }: { openModal: (item: CulturalItem) =>
   if (!category) {
     return (
       <div className="max-w-7xl mx-auto py-16 px-4 text-center">
-        <div className="text-6xl mb-4">🔍</div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Kategori Tidak Ditemukan</h2>
-        <p className="text-gray-600">Silakan pilih kategori yang tersedia.</p>
+        <div className="text-6xl mb-4 animate-bounce">🔍</div>
+        <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-300 mb-2">Kategori Tidak Ditemukan</h2>
+        <p className="text-amber-100/70">Silakan pilih kategori yang tersedia.</p>
       </div>
     );
   }
@@ -241,38 +241,47 @@ function CategoryPageWrapper({ openModal }: { openModal: (item: CulturalItem) =>
 // Footer Component
 function Footer() {
   return (
-    <footer className="relative mt-24 bg-gradient-to-br from-amber-900 via-orange-900 to-red-900 text-white overflow-hidden">
+    <footer className="relative mt-24 bg-gradient-to-br from-slate-900 via-amber-950 to-slate-900 text-white overflow-hidden border-t border-amber-500/20">
       {/* Decorative Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div 
           className="w-full h-full"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Top Border */}
-        <div className="h-1 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 rounded-full mb-12" />
+        <div className="h-1 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 rounded-full mb-12 animate-gradient-x" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
           {/* About Section */}
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-xl flex items-center justify-center shadow-xl">
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-xl flex items-center justify-center shadow-xl transform hover:scale-110 hover:rotate-12 transition-all duration-500">
                 <span className="text-2xl">🏛️</span>
               </div>
-              <h3 className="text-xl font-bold text-yellow-300">Budaya Jawa Timur</h3>
+              <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-400">Budaya Jawa Timur</h3>
             </div>
-            <p className="text-white/80 leading-relaxed text-sm">
+            <p className="text-white/70 leading-relaxed text-sm">
               Portal digital untuk melestarikan dan mengenalkan kekayaan budaya Jawa Timur kepada generasi masa kini dan mendatang.
             </p>
+            <div className="flex gap-3 mt-6">
+              <SocialIcon href="#"><Facebook size={18} /></SocialIcon>
+              <SocialIcon href="#"><Instagram size={18} /></SocialIcon>
+              <SocialIcon href="#"><Twitter size={18} /></SocialIcon>
+              <SocialIcon href="#"><Youtube size={18} /></SocialIcon>
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-bold text-yellow-300 mb-4">Navigasi Cepat</h4>
+            <h4 className="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
+              <ChevronRight size={18} className="text-yellow-400" />
+              Navigasi Cepat
+            </h4>
             <ul className="space-y-2 text-sm">
               <FooterLink href="/">Beranda</FooterLink>
               <FooterLink href="#kategori">Kategori</FooterLink>
@@ -283,7 +292,10 @@ function Footer() {
 
           {/* Categories */}
           <div>
-            <h4 className="text-lg font-bold text-yellow-300 mb-4">Kategori Populer</h4>
+            <h4 className="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
+              <ChevronRight size={18} className="text-yellow-400" />
+              Kategori Populer
+            </h4>
             <ul className="space-y-2 text-sm">
               <FooterLink href="/tarian">💃 Tarian</FooterLink>
               <FooterLink href="/kuliner">🍜 Kuliner</FooterLink>
@@ -294,33 +306,37 @@ function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-bold text-yellow-300 mb-4">Hubungi Kami</h4>
+            <h4 className="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
+              <ChevronRight size={18} className="text-yellow-400" />
+              Hubungi Kami
+            </h4>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2 text-white/80">
-                <MapPin size={16} className="mt-1 flex-shrink-0 text-yellow-400" />
+              <li className="flex items-start gap-2 text-white/70 hover:text-amber-300 transition-colors duration-300">
+                <MapPin size={16} className="mt-1 flex-shrink-0 text-amber-400" />
                 <span>Jawa Timur, Indonesia</span>
               </li>
-              <li className="flex items-start gap-2 text-white/80">
-                <Mail size={16} className="mt-1 flex-shrink-0 text-yellow-400" />
+              <li className="flex items-start gap-2 text-white/70 hover:text-amber-300 transition-colors duration-300">
+                <Mail size={16} className="mt-1 flex-shrink-0 text-amber-400" />
                 <span>info@budayajatim.id</span>
               </li>
+              <li className="flex items-start gap-2 text-white/70 hover:text-amber-300 transition-colors duration-300">
+                <Phone size={16} className="mt-1 flex-shrink-0 text-amber-400" />
+                <span>+62 31 1234 5678</span>
+              </li>
             </ul>
-            <div className="flex gap-3 mt-6">
-              <SocialIcon>📘</SocialIcon>
-              <SocialIcon>📷</SocialIcon>
-              <SocialIcon>🐦</SocialIcon>
-              <SocialIcon>▶️</SocialIcon>
-            </div>
           </div>
         </div>
 
         {/* Bottom Section */}
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
-            <p>© 2025 Budaya Jawa Timur. Hak Cipta Dilindungi.</p>
+            <p className="flex items-center gap-2">
+              © 2025 Budaya Jawa Timur. 
+              <span className="text-amber-400/80">Hak Cipta Dilindungi.</span>
+            </p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-yellow-400 transition-colors">Kebijakan Privasi</a>
-              <a href="#" className="hover:text-yellow-400 transition-colors">Syarat & Ketentuan</a>
+              <a href="#" className="hover:text-amber-400 transition-colors duration-300">Kebijakan Privasi</a>
+              <a href="#" className="hover:text-amber-400 transition-colors duration-300">Syarat & Ketentuan</a>
             </div>
           </div>
         </div>
@@ -334,20 +350,20 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
     <li>
       <a
         href={href}
-        className="text-white/80 hover:text-yellow-400 hover:translate-x-1 inline-flex items-center gap-2 transition-all duration-300 group"
+        className="text-white/70 hover:text-amber-400 hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300 group"
       >
-        <span className="w-1.5 h-1.5 rounded-full bg-amber-500 group-hover:bg-yellow-400 transition-colors" />
+        <span className="w-1.5 h-1.5 rounded-full bg-amber-500/50 group-hover:bg-amber-400 group-hover:scale-150 transition-all duration-300" />
         {children}
       </a>
     </li>
   );
 }
 
-function SocialIcon({ children }: { children: React.ReactNode }) {
+function SocialIcon({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a
-      href="#"
-      className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-xl transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-yellow-500/50"
+      href={href}
+      className="w-10 h-10 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 backdrop-blur-sm border border-amber-500/20 hover:border-amber-500/50 flex items-center justify-center text-amber-300 hover:text-amber-200 transform hover:scale-110 hover:-translate-y-1 hover:rotate-6 transition-all duration-500 shadow-lg hover:shadow-amber-500/50"
     >
       {children}
     </a>
