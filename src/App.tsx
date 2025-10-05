@@ -90,7 +90,7 @@ function App() {
               {/* Desktop Navigation */}
               <nav className="hidden lg:flex items-center gap-2">
                 <NavLink icon={<Home size={18} />} href="/" label="Beranda" />
-                <NavLink icon={<MapPin size={18} />} href="#kategori" label="Kategori" />
+                <NavLink icon={<MapPin size={18} />} href="#categories" label="Kategori" />
                 <a
                   href="#kontak"
                   className="group relative px-6 py-3 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 text-slate-900 hover:from-yellow-400 hover:to-amber-400 rounded-xl transition-all duration-500 font-bold shadow-2xl hover:shadow-yellow-500/50 transform hover:scale-105 overflow-hidden"
@@ -105,14 +105,14 @@ function App() {
             </div>
 
             {/* Mobile Navigation */}
-            <div 
+            <div
               className={`lg:hidden overflow-hidden transition-all duration-500 ${
                 isMenuOpen ? 'max-h-96 pb-6' : 'max-h-0'
               }`}
             >
               <nav className="space-y-2 pt-2">
                 <MobileNavLink icon={<Home size={18} />} href="/" label="Beranda" onClick={() => setIsMenuOpen(false)} />
-                <MobileNavLink icon={<MapPin size={18} />} href="#kategori" label="Kategori" onClick={() => setIsMenuOpen(false)} />
+                <MobileNavLink icon={<MapPin size={18} />} href="#categories" label="Kategori" onClick={() => setIsMenuOpen(false)} />
                 <a
                   href="#kontak"
                   onClick={() => setIsMenuOpen(false)}
@@ -156,8 +156,18 @@ function NavLink({ icon, href, label }: { icon: React.ReactNode; href: string; l
   const handleClick = (e: React.MouseEvent) => {
     if (href.startsWith('#')) {
       e.preventDefault();
-      const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: 'smooth' });
+      // If we're not on the home page, navigate to home first
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation to complete, then scroll
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
       e.preventDefault();
       navigate(href);
@@ -193,10 +203,20 @@ function MobileNavLink({ icon, href, label, onClick }: { icon: React.ReactNode; 
     onClick();
     if (href.startsWith('#')) {
       e.preventDefault();
-      setTimeout(() => {
-        const element = document.querySelector(href);
-        element?.scrollIntoView({ behavior: 'smooth' });
-      }, 300);
+      // If we're not on the home page, navigate to home first
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation to complete, then scroll
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
     } else {
       e.preventDefault();
       navigate(href);

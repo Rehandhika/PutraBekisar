@@ -6,8 +6,12 @@ const categoryIcons: Record<string, string> = {
   Tarian: '💃',
   Kuliner: '🍜',
   Gunung: '⛰️',
+  LaguDaerah: '🎵',
   Tradisi: '🎭',
-  Kerajaan: '🏛️',
+  KerajaanKuno: '🏛️',
+  SukuAsli: '👥',
+  CeritaRakyat: '📖',
+  SitusSejarah: '🏰',
   Batik: '🎨',
   Pantai: '🏖️',
   Musik: '🎵',
@@ -18,8 +22,12 @@ const categoryDescriptions: Record<string, string> = {
   Tarian: 'Keindahan gerak dan ekspresi budaya Jawa Timur',
   Kuliner: 'Kelezatan cita rasa warisan leluhur',
   Gunung: 'Keagungan puncak-puncak megah',
+  LaguDaerah: 'Harmoni suara tradisional daerah',
   Tradisi: 'Ritual sakral yang turun-temurun',
-  Kerajaan: 'Kejayaan peradaban masa lampau',
+  KerajaanKuno: 'Kejayaan peradaban masa lampau',
+  SukuAsli: 'Kearifan suku-suku asli Jawa Timur',
+  CeritaRakyat: 'Kisah-kisah legenda dan mitos lokal',
+  SitusSejarah: 'Jejak sejarah yang tak terlupakan',
   Batik: 'Seni kain bermotif filosofis',
   Pantai: 'Pesona pesisir yang memukau',
   Musik: 'Harmoni suara tradisional',
@@ -30,8 +38,12 @@ const categoryImages: Record<string, string> = {
   Tarian: 'https://images.unsplash.com/photo-1555400082-6b4e1c6d4e6e?w=800',
   Kuliner: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800',
   Gunung: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+  LaguDaerah: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800',
   Tradisi: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800',
-  Kerajaan: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=800',
+  KerajaanKuno: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=800',
+  SukuAsli: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800',
+  CeritaRakyat: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800',
+  SitusSejarah: 'https://images.unsplash.com/photo-1555400082-6b4e1c6d4e6e?w=800',
   Batik: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
   Pantai: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
   Musik: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800',
@@ -42,8 +54,12 @@ const categoryColors: Record<string, { from: string; to: string; glow: string }>
   Tarian: { from: '#d97706', to: '#f59e0b', glow: 'shadow-amber-500/50' },
   Kuliner: { from: '#dc2626', to: '#ef4444', glow: 'shadow-red-500/50' },
   Gunung: { from: '#059669', to: '#10b981', glow: 'shadow-emerald-500/50' },
+  LaguDaerah: { from: '#7c2d12', to: '#ea580c', glow: 'shadow-orange-500/50' },
   Tradisi: { from: '#7c3aed', to: '#8b5cf6', glow: 'shadow-purple-500/50' },
-  Kerajaan: { from: '#d97706', to: '#fbbf24', glow: 'shadow-yellow-500/50' },
+  KerajaanKuno: { from: '#92400e', to: '#d97706', glow: 'shadow-amber-600/50' },
+  SukuAsli: { from: '#166534', to: '#16a34a', glow: 'shadow-green-500/50' },
+  CeritaRakyat: { from: '#7c2d12', to: '#dc2626', glow: 'shadow-red-600/50' },
+  SitusSejarah: { from: '#374151', to: '#6b7280', glow: 'shadow-gray-500/50' },
   Batik: { from: '#be185d', to: '#ec4899', glow: 'shadow-pink-500/50' },
   Pantai: { from: '#0284c7', to: '#06b6d4', glow: 'shadow-cyan-500/50' },
   Musik: { from: '#b91c1c', to: '#f87171', glow: 'shadow-rose-500/50' },
@@ -66,6 +82,7 @@ const CategorySelection: React.FC = () => {
     } else {
       navigate(`/${category.toLowerCase()}`);
     }
+    window.scrollTo(0, 0);
   };
 
   return (

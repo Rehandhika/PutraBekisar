@@ -7,13 +7,15 @@ interface CategoryPageProps {
 }
 
 const CategoryPage: React.FC<CategoryPageProps> = ({ category, openModal }) => {
-  // Normalize category to match keys in allCategories
-  const normalizedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+  // Find the correct category key by matching lowercase
+  const categoryKey = category === 'all'
+    ? 'all'
+    : Object.keys(allCategories).find(key => key.toLowerCase() === category.toLowerCase());
 
   // If category is 'all', show all items from all categories
-  const items: CulturalItem[] = normalizedCategory === 'All'
+  const items: CulturalItem[] = category === 'all'
     ? Object.values(allCategories).flat()
-    : (allCategories as any)[normalizedCategory] || [];
+    : categoryKey ? allCategories[categoryKey as keyof typeof allCategories] : [];
 
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
