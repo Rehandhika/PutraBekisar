@@ -7,7 +7,7 @@ interface BatikPageProps {
 
 const BatikPage: React.FC<BatikPageProps> = ({ openModal }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  // hoveredCard removed (not used) to avoid unused variable lint warnings
   const items = batikData;
 
   useEffect(() => {
@@ -60,14 +60,13 @@ const BatikPage: React.FC<BatikPageProps> = ({ openModal }) => {
         {/* Items Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
           {items.map((item, index) => {
-            const isHovered = hoveredCard === item.id;
 
             return (
               <div
                 key={item.id}
                 onClick={() => openModal && openModal(item)}
-                onMouseEnter={() => setHoveredCard(item.id)}
-                onMouseLeave={() => setHoveredCard(null)}
+                onMouseEnter={() => { /* optional hover behavior */ }}
+                onMouseLeave={() => { /* optional hover behavior */ }}
                 className={`group relative cursor-pointer rounded-2xl overflow-hidden transform transition-all duration-500 hover:scale-[1.02] ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                 style={{
                   transitionDelay: `${index * 50}ms`,
