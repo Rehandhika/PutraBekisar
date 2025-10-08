@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { batikData, CulturalItem } from '../data/culturalData';
+// Example usage of generated image exports:
+// import { Agandrung } from '../assets/images';
 
 interface BatikPageProps {
   openModal?: (item: CulturalItem) => void;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { allCategories } from '../data/culturalData';
+import images from '../assets/images';
 
 const categoryIcons: Record<string, string> = {
   Tarian: '💃',
@@ -33,18 +34,18 @@ const categoryDescriptions: Record<string, string> = {
 };
 
 const categoryImages: Record<string, string> = {
-  Tarian: 'https://images.unsplash.com/photo-1555400082-6b4e1c6d4e6e?w=800',
-  Kuliner: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800',
-  Gunung: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
-  Tradisi: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800',
-  KerajaanKuno: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=800',
-  SukuAsli: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800',
-  CeritaRakyat: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800',
-  SitusSejarah: 'https://images.unsplash.com/photo-1555400082-6b4e1c6d4e6e?w=800',
-  Batik: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
-  Pantai: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
-  Musik: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800',
-  Warisan: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800'
+  Tarian: images.Agandrung,
+  Kuliner: images.Blontongbalap,
+  Gunung: images.Csemeru,
+  Tradisi: images.Ekarapansapi,
+  KerajaanKuno: images.Fmajapahit,
+  SukuAsli: images.Gjawa,
+  CeritaRakyat: images.Hsurabaya,
+  SitusSejarah: images.Itrowulan,
+  Batik: images.Gmadura,
+  Pantai: images.Cbromo,
+  Musik: images.Gosing,
+  Warisan: images.Ipenataran,
 };
 
 const categoryColors: Record<string, { from: string; to: string; glow: string }> = {
