@@ -59,7 +59,7 @@ export const tarianData: CulturalItem[] = [
     title: 'Tari Remo',
     category: 'Tarian',
     thumbnail: images.Aremo,
-    location: 'Surabaya, Jawa Timur',
+    location: 'Jombang, Jawa Timur',
     shortDesc: 'Tarian tradisional dari Jawa Timur yang dikenal sebagai tarian penyambutan tamu kehormatan, awalnya pembuka pertunjukan Ludruk.',
     fullDesc: 'Tari Remo adalah tarian tradisional dari Jawa Timur yang dikenal sebagai tarian penyambutan tamu kehormatan. Awalnya, tarian ini berkembang di kalangan masyarakat Jawa Timur bagian timur dan sering ditampilkan sebagai pembuka pertunjukan Ludruk. Ciri khas Tari Remo terletak pada gerakan dinamis para penarinya yang mengekspresikan semangat, keberanian, dan kejantanan. Penari biasanya menggunakan kostum berwarna mencolok, kain batik, selendang, serta ikat kepala. Gerak kaki yang menghentakkan irama menghasilkan suara khas dari lonceng kecil (gongseng) yang dipasang di pergelangan kaki, menambah energi dalam pertunjukan. Kini, Tari Remo tidak hanya terbatas pada panggung ludruk, tetapi juga menjadi tarian penyambutan resmi di berbagai acara budaya dan pemerintahan di Jawa Timur.',
     highlights: ['Gerakan dinamis, maskulin, dan energik', 'Diiringi suara gongseng (lonceng) di pergelangan kaki', 'Awalnya tarian pembuka Ludruk', 'Melambangkan semangat dan kejantanan prajurit'],
