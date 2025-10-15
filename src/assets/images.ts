@@ -32,6 +32,7 @@ export const Idejavaschebank = '/img/Idejavaschebank.jpeg';
 export const Ipenataran = '/img/Ipenataran.jpg';
 export const Itrowulan = '/img/Itrowulan.jpg';
 export const Ivandenbosch = '/img/Ivandenbosch.jpg';
+export const Dgajaholing = '/img/Dgajaholing.jpg';
 
 const images = {
   Agandrung,
@@ -65,6 +66,7 @@ const images = {
   Ipenataran,
   Itrowulan,
   Ivandenbosch,
+  Dgajaholing,
 };
 
 export default images;

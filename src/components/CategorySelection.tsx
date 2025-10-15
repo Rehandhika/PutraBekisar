@@ -42,7 +42,7 @@ const categoryImages: Record<string, string> = {
   SukuAsli: images.Gjawa,
   CeritaRakyat: images.Hsurabaya,
   SitusSejarah: images.Itrowulan,
-  Batik: images.Gmadura,
+  Batik: images.Dgajaholing,
   Pantai: images.Cbromo,
   Musik: images.Gosing,
   Warisan: images.Ipenataran,

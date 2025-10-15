@@ -118,7 +118,7 @@ export const kulinerData: CulturalItem[] = [
     id: 'kuliner-2',
     title: 'Rujak Soto',
     category: 'Kuliner',
-    thumbnail: images.Bruhaksoto,
+    thumbnail: images.Brujaksoto,
     location: 'Banyuwangi',
     shortDesc: 'Kuliner khas Banyuwangi yang unik karena memadukan dua hidangan berbeda, yaitu rujak cingur dan soto daging.',
     fullDesc: 'Rujak Soto adalah kuliner khas Banyuwangi, Jawa Timur, yang unik karena memadukan dua hidangan berbeda, yaitu rujak cingur dan soto daging. Dalam penyajiannya, rujak yang terdiri dari sayuran rebus, tahu, tempe, serta bumbu kacang dan petis, disiram dengan kuah soto daging yang hangat dan gurih. Perpaduan rasa pedas, manis, asam, dan gurih membuat Rujak Soto menjadi hidangan yang segar sekaligus mengenyangkan. Makanan ini biasanya disantap sebagai sajian sehari-hari, tetapi juga menjadi ikon kuliner khas Banyuwangi yang banyak dicari wisatawan. Keunikan rasa dan kombinasi bahan menjadikan Rujak Soto sebagai simbol kreativitas kuliner masyarakat setempat.',
