@@ -59,7 +59,7 @@ export const tarianData: CulturalItem[] = [
     title: 'Tari Remo',
     category: 'Tarian',
     thumbnail: images.Aremo,
-    location: 'Jombang, Jawa Timur',
+    location: 'Jombang',
     shortDesc: 'Tarian tradisional dari Jawa Timur yang dikenal sebagai tarian penyambutan tamu kehormatan, awalnya pembuka pertunjukan Ludruk.',
     fullDesc: 'Tari Remo adalah tarian tradisional dari Jawa Timur yang dikenal sebagai tarian penyambutan tamu kehormatan. Awalnya, tarian ini berkembang di kalangan masyarakat Jawa Timur bagian timur dan sering ditampilkan sebagai pembuka pertunjukan Ludruk. Ciri khas Tari Remo terletak pada gerakan dinamis para penarinya yang mengekspresikan semangat, keberanian, dan kejantanan. Penari biasanya menggunakan kostum berwarna mencolok, kain batik, selendang, serta ikat kepala. Gerak kaki yang menghentakkan irama menghasilkan suara khas dari lonceng kecil (gongseng) yang dipasang di pergelangan kaki, menambah energi dalam pertunjukan. Kini, Tari Remo tidak hanya terbatas pada panggung ludruk, tetapi juga menjadi tarian penyambutan resmi di berbagai acara budaya dan pemerintahan di Jawa Timur.',
     highlights: ['Gerakan dinamis, maskulin, dan energik', 'Diiringi suara gongseng (lonceng) di pergelangan kaki', 'Awalnya tarian pembuka Ludruk', 'Melambangkan semangat dan kejantanan prajurit'],
@@ -232,15 +232,24 @@ export const batikData: CulturalItem[] = [
     id: 'batik-1',
     title: 'Batik Gajah Oling',
     category: 'Batik',
-  thumbnail: images.Dgajaholing,
+    thumbnail: images.Dgajaholing,
     location: 'Banyuwangi, Jawa Timur',
-    shortDesc: 'Batik Gajah Oling dikenal dengan warna-warna kontras yang kuat, motif floral dan geometris yang berani.',
-    fullDesc: 'Batik Madura (sering disebut Batik Pamekasan) terkenal dengan motif yang hidup, warna-warna cerah, dan kombinasi garis serta pola floral yang tegas. Teknik batik tulis dan cap sama-sama diproduksi di Madura, namun corak Madura tetap khas karena penggunaan warna merah, biru, dan kuning yang kuat. Motif sering terinspirasi dari alam, flora lokal, dan gaya hias tradisional yang ditransformasikan menjadi desain tekstil. Batik Madura tidak hanya dipakai untuk pakaian upacara, tetapi juga digunakan dalam kegiatan sehari-hari dan sebagai identitas lokal masyarakat Madura.',
-    highlights: ['Warna kontras (merah, biru, kuning)', 'Motif floral dan geometris yang tegas', 'Tersedia versi tulis dan cap', 'Identitas budaya Madura yang khas'],
-  gallery: [images.Dgajaholing, IMAGE_PLACEHOLDERS.GENERAL_CULTURE],
-    funFacts: ['Batik Madura sering menggunakan pewarna alam tradisional dan aneka teknik pencap.', 'Motifnya sering menjadi pilihan dekorasi rumah tradisional.', 'Batik Madura punya versi yang sangat berwarna dibanding kebanyakan batik Jawa.'],
-    culturalSignificance: 'Simbol identitas sosial dan estetika masyarakat Madura; memadukan fungsi estetis dan simbolik dalam upacara adat dan keseharian.',
-    relatedLinks: ['Pamekasan', 'Teknik Batik Tulis', 'Pewarna Alam', 'Motif Madura'],
+    shortDesc: 'Batik Gajah Oling merupakan batik khas Banyuwangi yang sarat makna filosofi dan dikenal dengan motif utama berupa gajah dan sulur melingkar menyerupai tulisan “Oling”.',
+    fullDesc: 'Batik Gajah Oling adalah batik khas Banyuwangi yang memiliki motif utama berupa gambar gajah dan bentuk menyerupai huruf “O” yang disebut oling, melambangkan kekuatan dan semangat hidup. Warna yang digunakan cenderung tegas dan kontras seperti hitam, merah, dan kuning, menggambarkan keberanian masyarakat Using. Batik ini umumnya dibuat dengan teknik batik tulis menggunakan malam panas pada kain mori. Selain sebagai pakaian adat, Batik Gajah Oling juga digunakan dalam berbagai upacara adat dan kegiatan budaya sebagai simbol kebanggaan dan identitas masyarakat Banyuwangi.',
+    highlights: [
+  'Motif utama berbentuk gajah dan “oling” yang melambangkan kekuatan dan semangat hidup',
+  'Warna tegas dan kontras (hitam, merah, kuning)',
+  'Menggunakan teknik batik tulis khas Banyuwangi',
+  'Menjadi identitas budaya masyarakat Using Banyuwangi'],
+gallery: [images.Dgajaholing, IMAGE_PLACEHOLDERS.GENERAL_CULTURE],
+funFacts: [
+  'Nama “Oling” berasal dari bahasa Using yang berarti “ingat” atau “jangan lupa pada asal-usul”.',
+  'Motif Gajah Oling dipercaya sebagai simbol perlindungan dan kebijaksanaan.',
+  'Batik ini sering dipakai dalam acara adat seperti Seblang dan ritual tradisional Banyuwangi.'
+],
+culturalSignificance: 'Melambangkan semangat hidup, kekuatan, dan pengingat akan akar budaya Using di Banyuwangi. Batik Gajah Oling menjadi simbol kearifan lokal dan identitas masyarakat pesisir timur Jawa.',
+relatedLinks: ['Banyuwangi', 'Batik Using', 'Motif Gajah Oling', 'Upacara Seblang']
+
   },
   {
     id: 'batik-2',
