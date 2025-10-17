@@ -255,15 +255,25 @@ relatedLinks: ['Banyuwangi', 'Batik Using', 'Motif Gajah Oling', 'Upacara Seblan
     id: 'batik-2',
     title: 'Batik Lok Chan',
     category: 'Batik',
-  thumbnail: images.Ipenataran,
-    location: 'Lasem / Rembang (Jawa Tengah-Jawa Timur border)',
-    shortDesc: 'Batik Lasem terkenal dengan palet warna lembut merah dan biru, dengan pengaruh Tionghoa pada motifnya.',
-    fullDesc: 'Batik Lasem adalah salah satu tradisi batik yang memiliki pengaruh kuat dari estetika Tionghoa, terlihat pada pengulangan motif naga, bunga, dan elemen awan. Meski berasal dari pesisir utara Jawa, Lasem dekat dengan wilayah Jawa Timur dan menjadi bagian penting dari ragam batik pesisir. Warna merah muda, merah bata, dan biru tua sering muncul, menghasilkan nuansa yang elegan dan hangat. Batik Lasem banyak dipakai dalam acara formal dan perayaan; motifnya juga menjadi koleksi yang dicari oleh kolektor tekstil tradisional.',
-    highlights: ['Pengaruh Tionghoa pada motif (naga, flora)', 'Palet warna lembut: merah muda, merah bata, biru tua', 'Sering dipakai untuk acara formal dan perayaan', 'Ragam batik pesisir yang kaya sejarah'],
-  gallery: [images.Ipenataran, IMAGE_PLACEHOLDERS.HISTORY],
-    funFacts: ['Lasem sempat menjadi sentra perdagangan Tionghoa sehingga motifnya kaya pengaruh asing.', 'Beberapa motif Lasem langka dan bernilai koleksi tinggi.', 'Warna-warna batik Lasem sering tampak seperti airbrush lembut karena teknik pewarnaan.'],
-    culturalSignificance: 'Perpaduan budaya pesisir dan Tionghoa yang tercermin dalam tekstil; bukti jalur perdagangan dan pertukaran budaya di pesisir utara Jawa.',
-    relatedLinks: ['Lasem', 'Motif Tionghoa', 'Batik Pesisir', 'Sejarah Perdagangan'],
+thumbnail: images.Dlekchan ,
+location: 'Lasem, Rembang (Perbatasan Jawa Tengah – Jawa Timur)',
+shortDesc: 'Batik Lok Chan adalah salah satu varian batik Lasem yang terkenal karena kisah cinta antara perempuan Tionghoa bernama Lok Chan dan pemuda pribumi. Motifnya menggambarkan perpaduan budaya Tionghoa dan Jawa dengan warna merah khas Lasem.',
+fullDesc: 'Batik Lok Chan merupakan batik khas Lasem yang lahir dari kisah legendaris cinta antara perempuan Tionghoa bernama Lok Chan dan seorang pemuda pribumi. Kisah ini melambangkan keharmonisan antara dua budaya: Tionghoa dan Jawa. Motifnya sering menampilkan bunga teratai, naga, atau burung phoenix yang digabung dengan ornamen lokal seperti parang dan kawung. Ciri khas Batik Lok Chan adalah penggunaan warna merah Lasem yang pekat dan mendalam, melambangkan cinta, keberanian, dan semangat hidup. Batik ini tidak hanya bernilai estetika tinggi, tetapi juga menjadi simbol akulturasi budaya di pesisir utara Jawa.',
+highlights: [
+  'Terinspirasi dari kisah cinta Lok Chan dan pemuda pribumi',
+  'Perpaduan motif Tionghoa (naga, phoenix, bunga teratai) dan motif Jawa (parang, kawung)',
+  'Warna merah Lasem yang kuat dan khas',
+  'Simbol akulturasi budaya Tionghoa dan Jawa pesisir'
+],
+gallery: [images.Dlekchan],
+funFacts: [
+  'Nama “Lok Chan” diambil dari tokoh perempuan Tionghoa yang kisahnya melegenda di Lasem.',
+  'Warna merah Lasem dihasilkan dari pewarna alami mengkudu yang memberi nuansa khas mendalam.',
+  'Motif Batik Lok Chan sering dianggap sebagai simbol cinta lintas budaya dan perdamaian.'
+],
+culturalSignificance: 'Batik Lok Chan mencerminkan keharmonisan dan akulturasi antara budaya Tionghoa dan Jawa. Ia menjadi simbol toleransi, cinta, dan persatuan di Lasem, yang dikenal sebagai “Tiongkok kecil” di pesisir utara Jawa.',
+relatedLinks: ['Lasem', 'Kisah Lok Chan', 'Batik Pesisir', 'Budaya Tionghoa-Jawa']
+
   },
   {
     id: 'batik-3',
