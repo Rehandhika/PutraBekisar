@@ -37,7 +37,7 @@ const categoryImages: Record<string, string> = {
   Tarian: images.Agandrung,
   Kuliner: images.Blontongbalap,
   Gunung: images.Csemeru,
-  Tradisi: images.Ekarapansapi,
+  Tradisi: images.Ekebokeboan,
   KerajaanKuno: images.Fmajapahit,
   SukuAsli: images.Gjawa,
   CeritaRakyat: images.Hsurabaya,
