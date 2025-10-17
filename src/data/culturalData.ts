@@ -319,8 +319,8 @@ funFacts: [
   'Hanya beberapa pengrajin di Pamekasan yang masih mempertahankan teknik tradisional ini.',
   'Batik Gentongan sering dijuluki “batiknya bangsawan Madura” karena prosesnya yang rumit dan hasilnya yang eksklusif.'
 ],
-culturalSignificance: 'Batik Gentongan mencerminkan ketekunan, kesabaran, dan nilai seni tinggi masyarakat Madura. Ia menjadi simbol kemewahan dan keanggunan dalam budaya batik pesisir, sekaligus warisan budaya yang memperkuat identitas Pamekasan
-,
+culturalSignificance: 'Batik Gentongan mencerminkan ketekunan, kesabaran, dan nilai seni tinggi masyarakat Madura. Ia menjadi simbol kemewahan dan keanggunan dalam budaya batik pesisir, sekaligus warisan budaya yang memperkuat identitas Pamekasan.',
+relatedLinks: ['Pamekasan', 'Teknik Pewarnaan Alami', 'Batik Madura', 'Warisan Budaya'],
   },
 ];
 
