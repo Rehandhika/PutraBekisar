@@ -49,7 +49,7 @@ export const tarianData: CulturalItem[] = [
     shortDesc: 'Tarian tradisional khas Banyuwangi yang tumbuh sebagai ungkapan rasa syukur masyarakat setelah musim panen padi.',
     fullDesc: 'Tari Gandrung adalah tarian tradisional khas Banyuwangi, Jawa Timur, yang tumbuh sebagai ungkapan rasa syukur masyarakat setelah musim panen padi. Nama “gandrung” berarti “terpesona” atau “tergila-gila”, yang melambangkan kegembiraan dan rasa cinta masyarakat kepada Dewi Sri, dewi kesuburan dalam kepercayaan Jawa. Tarian ini biasanya dibawakan oleh seorang penari perempuan yang disebut gandrung, dengan gerakan lemah gemulai dan iringan musik gamelan khas Osing seperti kendang, biola, saron, dan gong. Kostum penari identik dengan mahkota cawen, selendang, serta busana berwarna cerah yang mencerminkan keceriaan. Selain sebagai hiburan rakyat, Tari Gandrung juga menjadi simbol keramahan dan identitas budaya Banyuwangi. Kini, tari ini kerap ditampilkan dalam berbagai upacara adat, festival, maupun penyambutan tamu penting sebagai ikon kebanggaan daerah.',
     highlights: ['Ungkapan syukur setelah panen padi', 'Gerakan lemah gemulai dan ekspresif', 'Diiringi musik gamelan Osing (biola, kendang)', 'Simbol kecintaan pada Dewi Sri (Dewi Kesuburan)'],
-    gallery: [images.Gjawa, images.Handeandelumut, IMAGE_PLACEHOLDERS.GENERAL_CULTURE],
+    gallery: [images.gandrung1],
     funFacts: ['Nama "gandrung" berarti terpesona atau tergila-gila.', 'Dulu penari Gandrung bisa diperankan oleh pria.', 'Menjadi ikon wajib di setiap Festival Banyuwangi.'],
     culturalSignificance: 'Simbol keramahan dan identitas budaya Banyuwangi, serta manifestasi rasa syukur kepada Dewi Sri.',
     relatedLinks: ['Suku Osing', 'Dewi Sri', 'Gamelan Osing', 'Festival Gandrung Sewu'],
