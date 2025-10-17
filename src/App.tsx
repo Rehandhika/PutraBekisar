@@ -311,11 +311,11 @@ function Footer() {
               </li>
               <li className="flex items-start gap-2 text-white/70 hover:text-amber-300 transition-colors duration-300">
                 <Mail size={16} className="mt-1 flex-shrink-0 text-amber-400" />
-                <span>info@budayajatim.id</span>
+                <span>222413571@stis.ac.id</span>
               </li>
               <li className="flex items-start gap-2 text-white/70 hover:text-amber-300 transition-colors duration-300">
                 <Phone size={16} className="mt-1 flex-shrink-0 text-amber-400" />
-                <span>+62 31 1234 5678</span>
+                <span>+62 812 5200 4108</span>
               </li>
             </ul>
           </div>
