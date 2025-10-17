@@ -96,7 +96,7 @@ function App() {
                   className="group relative px-6 py-3 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 text-slate-900 hover:from-yellow-400 hover:to-amber-400 rounded-xl transition-all duration-500 font-bold shadow-2xl hover:shadow-yellow-500/50 transform hover:scale-105 overflow-hidden"
                 >
                     <span
-                    onClick={() => window.open('https://www.youtube.com', '_blank')}
+                    onClick={() => window.open('https://forms.gle/NKsBh8dHgajXbm1NA', '_blank')}
                     className="relative z-10 flex items-center gap-2 cursor-pointer"
                     >
                     <Mail size={18} />
