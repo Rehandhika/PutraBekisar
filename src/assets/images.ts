@@ -16,6 +16,9 @@ import CsemeruImg from '/img/Csemeru.jpg';
 import EkarapansapiImg from '/img/Ekarapansapi.jpg';
 import EkebokeboanImg from '/img/Ekebokeboan.jpg';
 import EpethiklautImg from '/img/Epethiklaut.jpeg';
+import EyadnyaImg from '/img/Eyadnya.png';
+import EkedukbejiImg from '/img/Ekedukbeji.jpg';
+import ElarungImg from '/img/Elarung.jpg';
 import FkahuripanImg from '/img/Fkahuripan.jpg';
 import FkediriImg from '/img/Fkediri.jpg';
 import FmajapahitImg from '/img/Fmajapahit.jpg';
@@ -36,6 +39,7 @@ import DgajaholingImg from '/img/Dgajaholing.jpg';
 import DlokchanImg from '/img/Dlokchan.jpg';
 import DpringsedapurImg from '/img/Dpringsedapur.jpg';
 import DsidoarjoImg from '/img/Dsidoarjo.jpg';
+import DgentonganImg from '/img/Dgentongan.jpg';
 
 export const Agandrung = AgandrungImg;
 export const Ajaranan = AjarananImg;
@@ -52,6 +56,9 @@ export const Csemeru = CsemeruImg;
 export const Ekarapansapi = EkarapansapiImg;
 export const Ekebokeboan = EkebokeboanImg;
 export const Epethiklaut = EpethiklautImg;
+export const Eyadnya = EyadnyaImg;
+export const Ekedukbeji = EkedukbejiImg;
+export const Elarung = ElarungImg;
 export const Fkahuripan = FkahuripanImg;
 export const Fkediri = FkediriImg;
 export const Fmajapahit = FmajapahitImg;
@@ -72,6 +79,7 @@ export const Dgajaholing = DgajaholingImg;
 export const Dlokchan = DlokchanImg;
 export const Dpringsedapur = DpringsedapurImg;
 export const Dsidoarjo = DsidoarjoImg;
+export const Dgentongan = DgentonganImg;
 
 const images = {
   Agandrung,
@@ -89,6 +97,9 @@ const images = {
   Ekarapansapi,
   Ekebokeboan,
   Epethiklaut,
+  Eyadnya,
+  Ekedukbeji,
+  Elarung,
   Fkahuripan,
   Fkediri,
   Fmajapahit,
@@ -109,6 +120,7 @@ const images = {
   Dlokchan,
   Dpringsedapur,
   Dsidoarjo,
+  Dgentongan,
 };
 
 export default images;
